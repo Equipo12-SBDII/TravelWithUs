@@ -1,0 +1,15 @@
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\bin\Debug\net5.0\TravelWithUsEntitiesLib.deps.json
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\bin\Debug\net5.0\TravelWithUsEntitiesLib.runtimeconfig.json
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\bin\Debug\net5.0\TravelWithUsEntitiesLib.runtimeconfig.dev.json
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\bin\Debug\net5.0\TravelWithUsEntitiesLib.dll
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\bin\Debug\net5.0\ref\TravelWithUsEntitiesLib.dll
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\bin\Debug\net5.0\TravelWithUsEntitiesLib.pdb
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.csprojAssemblyReference.cache
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.AssemblyInfoInputs.cache
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.AssemblyInfo.cs
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.csproj.CoreCompileInputs.cache
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.dll
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\ref\TravelWithUsEntitiesLib.dll
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.pdb
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.genruntimeconfig.cache
