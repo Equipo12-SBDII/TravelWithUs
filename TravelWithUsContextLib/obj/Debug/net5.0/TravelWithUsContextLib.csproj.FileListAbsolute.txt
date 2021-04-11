@@ -1,0 +1,15 @@
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\TravelWithUsContextLib.csprojAssemblyReference.cache
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\TravelWithUsContextLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\TravelWithUsContextLib.AssemblyInfoInputs.cache
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\TravelWithUsContextLib.AssemblyInfo.cs
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\TravelWithUsContextLib.csproj.CoreCompileInputs.cache
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\bin\Debug\net5.0\TravelWithUsContextLib.deps.json
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\bin\Debug\net5.0\TravelWithUsContextLib.dll
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\bin\Debug\net5.0\ref\TravelWithUsContextLib.dll
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\bin\Debug\net5.0\TravelWithUsContextLib.pdb
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\bin\Debug\net5.0\TravelWithUsEntitiesLib.dll
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\bin\Debug\net5.0\TravelWithUsEntitiesLib.pdb
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\TravelWithUsContextLib.csproj.CopyComplete
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\TravelWithUsContextLib.dll
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\ref\TravelWithUsContextLib.dll
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\TravelWithUsContextLib.pdb
