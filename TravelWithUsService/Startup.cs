@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using TravelWithUs.DBContext.Repositories;
 
 namespace TravelWithUsService
 {
@@ -32,6 +33,11 @@ namespace TravelWithUsService
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TravelWithUsService", Version = "v1" });
             });
+
+            services.AddScoped<IAgencia, AgenciaRepository>();
+            services.AddScoped<IExcursion, ExcursionRepository>();
+            services.AddScoped<IFacilidad, FacilidadRepository>();
+            services.AddScoped<IHotel, HotelRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
