@@ -93,18 +93,9 @@ namespace TravelWithUsService.Controllers
             await this.repo.UpdateAsync(id, hotel);
 
             return new NoContentResult();   // 204 No Content
-<<<<<<< HEAD
-    }
-  // DELETE: api/hotel/[id]
-    [HttpDelete("{id}")]
-    [ProducesResponseType(204)]
-    [ProducesResponseType(400)]
-    [ProducesResponseType(404)]
-    
-    public async Task<IActionResult> Delete(int id)
-    {
-=======
+
         }
+
         // DELETE: api/hotel/[id]
         [HttpDelete("{id}")]
         [ProducesResponseType(204)]
@@ -112,7 +103,6 @@ namespace TravelWithUsService.Controllers
         [ProducesResponseType(404)]
         public async Task<IActionResult> Delete(int id)
         {
->>>>>>> b377120cd8af49aceaf13973d0c8b50c6de962b4
             Hotel hotel = await this.repo.RetrieveAsync(id);
             if (hotel == null)
             {
@@ -133,9 +123,7 @@ namespace TravelWithUsService.Controllers
 
         }
     }
-    }
 }
-
 
 
 
