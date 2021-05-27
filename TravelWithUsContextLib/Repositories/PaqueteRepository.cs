@@ -18,7 +18,7 @@ namespace TravelWithUs.DBContext.Repositories
             if (paqueteCache == null)
             {
                 paqueteCache = new ConcurrentDictionary<int, Paquete>(
-                    this.db.Paquetes.ToDictionary(p => p.PaqueteID)
+                    this.db.Paquetes.ToDictionary(p => p.Codigo)
                 );
             }
         }
@@ -28,7 +28,7 @@ namespace TravelWithUs.DBContext.Repositories
             int affected = await this.db.SaveChangesAsync();
             if (affected == 1)
             {
-                return hotelCache.AddOrUpdate(p.PaqueteID, p, this.UpdateCache);
+                return paqueteCache.AddOrUpdate(p.Codigo, p, this.UpdateCache);
             }
             return null;
         }
@@ -40,14 +40,14 @@ namespace TravelWithUs.DBContext.Repositories
             int affected = await this.db.SaveChangesAsync();
             if (affected == 1)
             {
-                return hotelCache.TryRemove(id, out p);
+                return paqueteCache.TryRemove(id, out p);
             }
             return null;
         }
 
-        public Task<IEnumerable<Hotel>> RetrieveAllAsync()
+        public Task<IEnumerable<Paquete>> RetrieveAllAsync()
         {
-            return Task.Run<IEnumerable<Hotel>>(
+            return Task.Run<IEnumerable<Paquete>>(
                 () =>
                 {
                     return paqueteCache.Values;
@@ -55,35 +55,35 @@ namespace TravelWithUs.DBContext.Repositories
             );
         }
 
-        public Task<Hotel> RetrieveAsync(int id)
+        public Task<Paquete> RetrieveAsync(int id)
         {
             return Task.Run(
                 () =>
                 {
-                    hotelCache.TryGetValue(id, out Paquete p);
+                    paqueteCache.TryGetValue(id, out Paquete p);
                     return p;
                 }
             );
         }
 
-        public async Task<Hotel> UpdateAsync(int id, Hotel h)
+        public async Task<Paquete> UpdateAsync(int id, Paquete p)
         {
-            this.db.Hoteles.Update(h);
+            this.db.Paquetes.Update(p);
             int affected = await this.db.SaveChangesAsync();
             if (affected == 1)
             {
-                return UpdateCache(id, h);
+                return UpdateCache(id, p);
             }
 
             return null;
         }
 
-        private Hotel UpdateCache(int id, Hotel h)
+        private Paquete UpdateCache(int id, Paquete h)
         {
-            Hotel old;
-            if (hotelCache.TryGetValue(id, out old))
+            Paquete old;
+            if (paqueteCache.TryGetValue(id, out old))
             {
-                if (hotelCache.TryUpdate(id, h, old))
+                if (paqueteCache.TryUpdate(id, h, old))
                 {
                     return h;
                 }

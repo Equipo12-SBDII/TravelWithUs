@@ -22,7 +22,7 @@ namespace TravelWithUs.DBContext.Repositories
                 );
             }
         }
-        public async Task<Hotel> CreateAsync(Oferta oferta)
+        public async Task<Oferta> CreateAsync(Oferta oferta)
         {
             await this.db.Ofertas.AddAsync(oferta);
             int affected = await this.db.SaveChangesAsync();
@@ -60,7 +60,7 @@ namespace TravelWithUs.DBContext.Repositories
             return Task.Run(
                 () =>
                 {
-                    hotelCache.TryGetValue(id, out Oferta oferta);
+                    ofertaCache.TryGetValue(id, out Oferta oferta);
                     return oferta;
                 }
             );
@@ -68,7 +68,7 @@ namespace TravelWithUs.DBContext.Repositories
 
         public async Task<Oferta> UpdateAsync(int id, Oferta oferta)
         {
-            this.db.Ofertas.Update(h);
+            this.db.Ofertas.Update(oferta);
             int affected = await this.db.SaveChangesAsync();
             if (affected == 1)
             {
@@ -78,7 +78,7 @@ namespace TravelWithUs.DBContext.Repositories
             return null;
         }
 
-        private Oferta UpdateCache(int id,Oferta oferta)
+        private Oferta UpdateCache(int id, Oferta oferta)
         {
             Oferta old;
             if (ofertaCache.TryGetValue(id, out old))
