@@ -6,7 +6,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TravelWithUsEntitiesLib\TravelWithUsEntitiesLib.csproj" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqLite" Version="5.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.5" />
   </ItemGroup>
 
 </Project>

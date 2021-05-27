@@ -2,50 +2,51 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
-using TravelWithUs.ContextLib;
+using TravelWithUs.DBContext.Repositories;
+using TravelWithUs.Models;
 
 namespace TravelWithUsService.Controllers
 {  // base address: api/facilidad
     [Route("api/[controller]")]
     [ApiController]
-    public class FacilidadController:ControllerBase
+    public class FacilidadController : ControllerBase
     {
-        private FacilidadRepository repo ;
-        
-        public FacilidadController(FacilidadRepository repo)
+        private IFacilidad repo;
+
+        public FacilidadController(IFacilidad repo)
         {
             this.repo = repo;
         }
-    }
 
-    
+
+
         // GET: api/facilidad/[id]
-    [HttpGet]
-    [ProducesResponseType(200, Type = typeof(Facilidad))]
-    [ProducesResponseType(404)]
-    public async Task<IActionResult> Get(int id)
-    {
-        Facilidad facilidad = await this.repo.RetrieveAsync(id);
-
-        if (facilidad == null)
+        [HttpGet("{id}")]
+        [ProducesResponseType(200, Type = typeof(Facilidad))]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> Get(int id)
         {
-            return NotFound(); // 404 resource not found
+            Facilidad facilidad = await this.repo.RetrieveAsync(id);
+
+            if (facilidad == null)
+            {
+                return NotFound(); // 404 resource not found
+            }
+            else
+            {
+                return Ok(facilidad);
+            }
         }
-        else
+
+
+        // POST: api/facilidad
+        // BODY: Facilidad (JSON)
+        [HttpPost]
+        [ProducesResponseType(201, Type = typeof(Facilidad))]
+        [ProducesResponseType(400)]
+        public async Task<IActionResult> Create([FromBody] Facilidad facilidad)
         {
-            return Ok(facilidad);
-        }
-    } 
-
-
-     // POST: api/facilidad
-    // BODY: Facilidad (JSON)
-    [HttpPost]
-    [ProducesResponseType(201, Type = typeof(Facilidad))]
-    [ProducesResponseType(400)]    
-    public async Task<IActionResult> Create( [FromBody] Facilidad facilidad)
-    {
-        if (facilidad == null)
+            if (facilidad == null)
             {
                 return BadRequest();  // 400 Bad Request
             }
@@ -55,24 +56,24 @@ namespace TravelWithUsService.Controllers
                 return BadRequest(ModelState); // 400 Bad Request
             }
 
-            Agencia added = await repo.CreateAsync(facilidad);
+            Facilidad added = await repo.CreateAsync(facilidad);
 
             return CreatedAtRoute( // 201 Created
                 routeName: nameof(this.Get),
                 routeValues: new { id = added.FacilidadID },
                 value: added
             );
-    }
+        }
 
-    // PUT: api/facilidad/[id]
-    // BODY: Facilidad (JSON)
-    [HttpPut("{id}")]
-    [ProducesResponseType(204)]
-    [ProducesResponseType(400)]
-    [ProducesResponseType(404)]
-    public async Task<IActionResult> Update({FromBody} Facilidad facilidad, int id)
-    {
-         if (facilidad == null || facilidad.FacilidadID!= id)
+        // PUT: api/facilidad/[id]
+        // BODY: Facilidad (JSON)
+        [HttpPut("{id}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> Update([FromBody] Facilidad facilidad, int id)
+        {
+            if (facilidad == null || facilidad.FacilidadID != id)
             {
                 return BadRequest(); // 400 Bad Request
             }
@@ -92,14 +93,14 @@ namespace TravelWithUsService.Controllers
             await this.repo.UpdateAsync(id, facilidad);
 
             return new NoContentResult();   // 204 No Content
-    }
-  // DELETE: api/facilidad/[id]
-    [HttpDelete("{id}")]
-    [ProducesResponseType(204)]
-    [ProducesResponseType(400)]
-    [ProducesResponseType(404)]
-    public async Task<IActionResult> Delete(int id)
-    {
+        }
+        // DELETE: api/facilidad/[id]
+        [HttpDelete("{id}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> Delete(int id)
+        {
             Facilidad facilidad = await this.repo.RetrieveAsync(id);
             if (facilidad == null)
             {
@@ -118,6 +119,7 @@ namespace TravelWithUsService.Controllers
                 );
             }
 
+        }
     }
 }
 

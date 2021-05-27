@@ -2,50 +2,51 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
-using TravelWithUs.ContextLib;
+using TravelWithUs.DBContext.Repositories;
+using TravelWithUs.Models;
 
 namespace TravelWithUsService.Controllers
 {  // base address: api/excursion
     [Route("api/[controller]")]
     [ApiController]
-    public class ExcursionController:ControllerBase
+    public class ExcursionController : ControllerBase
     {
-        private ExcursionRepository repo ;
-        
-        public ExcursionController(ExcursionRepository repo)
+        private IExcursion repo;
+
+        public ExcursionController(IExcursion repo)
         {
             this.repo = repo;
         }
-    }
 
-    
+
+
         // GET: api/excursion/[id]
-    [HttpGet]
-    [ProducesResponseType(200, Type = typeof(Excursion))]
-    [ProducesResponseType(404)]
-    public async Task<IActionResult> Get(int id)
-    {
-        Excursion excursion = await this.repo.RetrieveAsync(id);
-
-        if (excursion == null)
+        [HttpGet("{id}")]
+        [ProducesResponseType(200, Type = typeof(Excursion))]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> Get(int id)
         {
-            return NotFound(); // 404 resource not found
+            Excursion excursion = await this.repo.RetrieveAsync(id);
+
+            if (excursion == null)
+            {
+                return NotFound(); // 404 resource not found
+            }
+            else
+            {
+                return Ok(excursion);
+            }
         }
-        else
+
+
+        // POST: api/excursion
+        // BODY: Excursion (JSON)
+        [HttpPost]
+        [ProducesResponseType(201, Type = typeof(Excursion))]
+        [ProducesResponseType(400)]
+        public async Task<IActionResult> Create([FromBody] Excursion excursion)
         {
-            return Ok(excursion);
-        }
-    } 
-
-
-     // POST: api/excursion
-    // BODY: Excursion (JSON)
-    [HttpPost]
-    [ProducesResponseType(201, Type = typeof(Excursion))]
-    [ProducesResponseType(400)]    
-    public async Task<IActionResult> Create( [FromBody] Excursion excursion)
-    {
-        if (excursion == null)
+            if (excursion == null)
             {
                 return BadRequest();  // 400 Bad Request
             }
@@ -55,24 +56,24 @@ namespace TravelWithUsService.Controllers
                 return BadRequest(ModelState); // 400 Bad Request
             }
 
-            Agencia added = await repo.CreateAsync(excursion);
+            Excursion added = await repo.CreateAsync(excursion);
 
             return CreatedAtRoute( // 201 Created
                 routeName: nameof(this.Get),
                 routeValues: new { id = added.ExcursionID },
                 value: added
             );
-    }
+        }
 
-    // PUT: api/excursion/[id]
-    // BODY: Excursion (JSON)
-    [HttpPut("{id}")]
-    [ProducesResponseType(204)]
-    [ProducesResponseType(400)]
-    [ProducesResponseType(404)]
-    public async Task<IActionResult> Update([FromBody] Excursion excursion, int id)
-    {
-         if (excursion == null || excursion.ExcursionID!= id)
+        // PUT: api/excursion/[id]
+        // BODY: Excursion (JSON)
+        [HttpPut("{id}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> Update([FromBody] Excursion excursion, int id)
+        {
+            if (excursion == null || excursion.ExcursionID != id)
             {
                 return BadRequest(); // 400 Bad Request
             }
@@ -92,14 +93,14 @@ namespace TravelWithUsService.Controllers
             await this.repo.UpdateAsync(id, excursion);
 
             return new NoContentResult();   // 204 No Content
-    }
-  // DELETE: api/excursion/[id]
-    [HttpDelete("{id}")]
-    [ProducesResponseType(204)]
-    [ProducesResponseType(400)]
-    [ProducesResponseType(404)]
-    public async Task<IActionResult> Delete(int id)
-    {
+        }
+        // DELETE: api/excursion/[id]
+        [HttpDelete("{id}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> Delete(int id)
+        {
             Excursion excursion = await this.repo.RetrieveAsync(id);
             if (excursion == null)
             {
@@ -118,6 +119,7 @@ namespace TravelWithUsService.Controllers
                 );
             }
 
+        }
     }
 }
 

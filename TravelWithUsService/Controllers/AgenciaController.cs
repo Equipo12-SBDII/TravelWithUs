@@ -2,50 +2,51 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
-using TravelWithUs.ContextLib;
+using TravelWithUs.DBContext.Repositories;
+using TravelWithUs.Models;
 
 namespace TravelWithUsService.Controllers
 {  // base address: api/agencia
     [Route("api/[controller]")]
     [ApiController]
-    public class AgenciaController:ControllerBase
+    public class AgenciaController : ControllerBase
     {
-        private AgenciaRepository repo ;
-        
-        public AgenciaController(AgenciaRepository repo)
+        private IAgencia repo;
+
+        public AgenciaController(IAgencia repo)
         {
             this.repo = repo;
         }
-    }
 
-    
+
+
         // GET: api/agencia/[id]
-    [HttpGet]
-    [ProducesResponseType(200, Type = typeof(Agencia))]
-    [ProducesResponseType(404)]
-    public async Task<IActionResult> GetAgencia(int id)
-    {
-        Agencia agencia = await this.repo.RetrieveAsync(id);
-
-        if (agencia == null)
+        [HttpGet("{id}")]
+        [ProducesResponseType(200, Type = typeof(Agencia))]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> GetAgencia(int id)
         {
-            return NotFound(); // 404 resource not found
+            Agencia agencia = await this.repo.RetrieveAsync(id);
+
+            if (agencia == null)
+            {
+                return NotFound(); // 404 resource not found
+            }
+            else
+            {
+                return Ok(agencia);
+            }
         }
-        else
+
+
+        // POST: api/agencia
+        // BODY: Agencia (JSON)
+        [HttpPost]
+        [ProducesResponseType(201, Type = typeof(Agencia))]
+        [ProducesResponseType(400)]
+        public async Task<IActionResult> Create([FromBody] Agencia agencia)
         {
-            return Ok(agencia);
-        }
-    } 
-
-
-     // POST: api/agencia
-    // BODY: Agencia (JSON)
-    [HttpPost]
-    [ProducesResponseType(201, Type = typeof(Agencia))]
-    [ProducesResponseType(400)]    
-    public async Task<IActionResult> Create( [FromBody] Agencia agencia)
-    {
-        if (agencia == null)
+            if (agencia == null)
             {
                 return BadRequest();  // 400 Bad Request
             }
@@ -62,17 +63,17 @@ namespace TravelWithUsService.Controllers
                 routeValues: new { id = added.AgenciaID },
                 value: added
             );
-    }
+        }
 
-    // PUT: api/agencia/[id]
-    // BODY: Agencia (JSON)
-    [HttpPut("{id}")]
-    [ProducesResponseType(204)]
-    [ProducesResponseType(400)]
-    [ProducesResponseType(404)]
-    public async Task<IActionResult> Update([FromBody] Agencia agencia, int id)
-    {
-         if (agencia == null || agencia.AgenciaID!= id)
+        // PUT: api/agencia/[id]
+        // BODY: Agencia (JSON)
+        [HttpPut("{id}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> Update([FromBody] Agencia agencia, int id)
+        {
+            if (agencia == null || agencia.AgenciaID != id)
             {
                 return BadRequest(); // 400 Bad Request
             }
@@ -92,6 +93,7 @@ namespace TravelWithUsService.Controllers
             await this.repo.UpdateAsync(id, agencia);
 
             return new NoContentResult();   // 204 No Content
+<<<<<<< HEAD
     }
   // DELETE: api/agencia/[id]
     [HttpDelete("{id}")]
@@ -100,6 +102,16 @@ namespace TravelWithUsService.Controllers
     [ProducesResponseType(404)]
     public async Task<IActionResult> Delete(int id)
     {
+=======
+        }
+        // DELETE: api/agencia/[id]
+        [HttpDelete("{id}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> Delete(int id)
+        {
+>>>>>>> b377120cd8af49aceaf13973d0c8b50c6de962b4
             Agencia agencia = await this.repo.RetrieveAsync(id);
             if (agencia == null)
             {
@@ -118,6 +130,7 @@ namespace TravelWithUsService.Controllers
                 );
             }
 
+        }
     }
 }
 

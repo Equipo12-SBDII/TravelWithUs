@@ -12,6 +12,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using TravelWithUs.DBContext.Repositories;
+using TravelWithUs.DBContext;
+using Microsoft.EntityFrameworkCore;
 
 namespace TravelWithUsService
 {
@@ -27,6 +29,11 @@ namespace TravelWithUsService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string databasePath = System.IO.Path.Combine(
+                "..", "TravelWithUsDB.db");
+            services.AddDbContext<TravelWithUsDbContext>(options =>
+                options.UseSqlite($"Data Source={databasePath}")
+            );
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -34,10 +41,12 @@ namespace TravelWithUsService
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TravelWithUsService", Version = "v1" });
             });
 
-            services.AddScoped<IAgencia, AgenciaRepository>();
-            services.AddScoped<IExcursion, ExcursionRepository>();
-            services.AddScoped<IFacilidad, FacilidadRepository>();
-            services.AddScoped<IHotel, HotelRepository>();
+            services.AddScoped<IAgencia, AgenciaRepository>()
+            .AddScoped<IExcursion, ExcursionRepository>()
+            .AddScoped<IFacilidad, FacilidadRepository>()
+            .AddScoped<IHotel, HotelRepository>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
