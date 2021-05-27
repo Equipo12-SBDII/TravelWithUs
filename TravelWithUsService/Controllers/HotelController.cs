@@ -98,6 +98,7 @@ namespace TravelWithUsService.Controllers
     [ProducesResponseType(204)]
     [ProducesResponseType(400)]
     [ProducesResponseType(404)]
+    
     public async Task<IActionResult> Delete(int id)
     {
             Hotel hotel = await this.repo.RetrieveAsync(id);
@@ -118,6 +119,7 @@ namespace TravelWithUsService.Controllers
                 );
             }
 
+    }
     }
 }
 

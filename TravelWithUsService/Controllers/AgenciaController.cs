@@ -100,7 +100,7 @@ namespace TravelWithUsService.Controllers
     [ProducesResponseType(404)]
     public async Task<IActionResult> Delete(int id)
     {
-            Film agencia = await this.repo.RetrieveAsync(id);
+            Agencia agencia = await this.repo.RetrieveAsync(id);
             if (agencia == null)
             {
                 return NotFound();  // 404 Resource No Found

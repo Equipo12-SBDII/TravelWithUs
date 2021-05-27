@@ -8,8 +8,8 @@ namespace TravelWithUs.DBContext.Repositories
     public interface IHotel : IRepository<Hotel> { }
     public interface IOferta : IRepository<Oferta> { }
     public interface IPaquete : IRepository<Paquete> { }
-    public interface IReservaExcursion : IRepository<ReservaExcursion> { }
-    public interface IReservaIndividual : IRepository<ReservaIndividual> { }
-    public interface IReservaPaquete : IRepository<ReservaPaquete> { }
+    public interface IReservaExcursion : IRepositoryReserva<ReservaExcursion> { }
+    public interface IReservaIndividual : IRepositoryReserva<ReservaIndividual> { }
+    public interface IReservaPaquete : IRepositoryReserva<ReservaPaquete> { }
     public interface ITurista : IRepository<Turista> { }
 }
