@@ -21,7 +21,7 @@ namespace TravelWithUsService.Controllers
 
 
         // GET: api/agencia/[id]
-        [HttpGet]
+        [HttpGet("{id}")]
         [ProducesResponseType(200, Type = typeof(Agencia))]
         [ProducesResponseType(404)]
         public async Task<IActionResult> GetAgencia(int id)
