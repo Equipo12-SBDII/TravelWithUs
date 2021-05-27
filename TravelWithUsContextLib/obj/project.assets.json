@@ -5721,32 +5721,38 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Cynthia-PC\\.nuget\\packages\\": {}
+    "C:\\Users\\manoly\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj",
+      "projectUniqueName": "D:\\3.1 CC\\BD\\Proyecto\\Backend\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj",
       "projectName": "TravelWithUsContextLib",
-      "projectPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj",
-      "packagesPath": "C:\\Users\\Cynthia-PC\\.nuget\\packages\\",
-      "outputPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\obj\\",
+      "projectPath": "D:\\3.1 CC\\BD\\Proyecto\\Backend\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj",
+      "packagesPath": "C:\\Users\\manoly\\.nuget\\packages\\",
+      "outputPath": "D:\\3.1 CC\\BD\\Proyecto\\Backend\\TravelWithUs\\TravelWithUsContextLib\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Cynthia-PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\manoly\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj": {
-              "projectPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj"
+            "D:\\3.1 CC\\BD\\Proyecto\\Backend\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj": {
+              "projectPath": "D:\\3.1 CC\\BD\\Proyecto\\Backend\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj"
             }
           }
         }
