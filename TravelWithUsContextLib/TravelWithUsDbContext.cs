@@ -3,20 +3,20 @@ using TravelWithUs.Models;
 
 namespace TravelWithUs.DBContext
 {
-    public class TravelWithUsDbContext: DbContext
+    public class TravelWithUsDbContext : DbContext
     {
         public TravelWithUsDbContext()
         {
-            
+
         }
 
         public TravelWithUsDbContext(DbContextOptions<TravelWithUsDbContext> options)
-            :base(options)
-            {
+            : base(options)
+        {
 
-            }
+        }
 
-        
+
         public DbSet<Agencia> Agencias { get; set; }
         public DbSet<Excursion> Excursiones { get; set; }
         public DbSet<Facilidad> Facilidades { get; set; }
@@ -31,7 +31,10 @@ namespace TravelWithUs.DBContext
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer($"Server=(localDB)\\MSSQLLocalDB;Database=TravelWithUsDB;Integrated Security=true;" );
+            //optionsBuilder.UseSqlServer($"Server=(localDB)\\MSSQLLocalDB;Database=TravelWithUsDB;Integrated Security=true;");
+            string path = System.IO.Path.Combine(
+                "..", "TravelWithUsDB.db");
+            optionsBuilder.UseSqlite($"Filename={path}");
 
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -39,8 +42,13 @@ namespace TravelWithUs.DBContext
             // Configuring characteristics for ReservaIndividdual
 
             modelBuilder.Entity<ReservaIndividual>()
-                .HasKey(ri => new {ri.AgenciaID,
-                ri.HotelID, ri.OfertaID, ri.TuristaID});
+                .HasKey(ri => new
+                {
+                    ri.AgenciaID,
+                    ri.HotelID,
+                    ri.OfertaID,
+                    ri.TuristaID
+                });
 
             modelBuilder.Entity<ReservaIndividual>()
                 .HasOne(ri => ri.Turista)
@@ -51,17 +59,21 @@ namespace TravelWithUs.DBContext
                 .HasOne(ri => ri.Agencia)
                 .WithMany(a => a.ReservasIndividuales)
                 .HasForeignKey(ri => ri.AgenciaID);
-            
+
             modelBuilder.Entity<ReservaIndividual>()
                 .HasOne(ri => ri.Oferta)
                 .WithMany(o => o.ReservasIndividuales)
-                .HasForeignKey(ri => new {ri.OfertaID, ri.HotelID});
+                .HasForeignKey(ri => new { ri.OfertaID, ri.HotelID });
 
             // Configuring characteristics for ReservaExcursion.
 
             modelBuilder.Entity<ReservaExcursion>()
-                .HasKey(re => new {re.AgenciaID, re.ExcursionID,
-                    re.TuristaID});
+                .HasKey(re => new
+                {
+                    re.AgenciaID,
+                    re.ExcursionID,
+                    re.TuristaID
+                });
 
             modelBuilder.Entity<ReservaExcursion>()
                 .HasOne(re => re.Agencia)
@@ -72,16 +84,16 @@ namespace TravelWithUs.DBContext
                 .HasOne(re => re.Excursion)
                 .WithMany(e => e.ReservasExcursiones)
                 .HasForeignKey(re => re.ExcursionID);
-            
+
             modelBuilder.Entity<ReservaExcursion>()
                 .HasOne(re => re.Turista)
                 .WithMany(t => t.ReservasExcursiones)
                 .HasForeignKey(re => re.TuristaID);
 
             // Configuring characteristics for ReservaPaquete.
-                     
+
             modelBuilder.Entity<ReservaPaquete>()
-                .HasKey(rp => new {rp.AgenciaID, rp.TuristaID, rp.Codigo});
+                .HasKey(rp => new { rp.AgenciaID, rp.TuristaID, rp.Codigo });
 
             modelBuilder.Entity<ReservaPaquete>()
                 .HasOne(rp => rp.Agencia)
@@ -92,7 +104,7 @@ namespace TravelWithUs.DBContext
                 .HasOne(rp => rp.Paquete)
                 .WithMany(p => p.ReservasPaquetes)
                 .HasForeignKey(rp => rp.Codigo);
-            
+
             modelBuilder.Entity<ReservaPaquete>()
                 .HasOne(rp => rp.Turista)
                 .WithMany(t => t.ReservasPaquetes)
@@ -106,7 +118,7 @@ namespace TravelWithUs.DBContext
 
             // Configuring characteristics for Oferta.
             modelBuilder.Entity<Oferta>()
-                .HasKey(o => new {o.OfertaID, o.HotelID});
+                .HasKey(o => new { o.OfertaID, o.HotelID });
 
             modelBuilder.Entity<Oferta>()
                 .HasOne(o => o.Hotel)
@@ -114,20 +126,20 @@ namespace TravelWithUs.DBContext
                 .HasForeignKey(o => o.HotelID);
 
             modelBuilder.Entity<Agencia>().HasData(
-                new { AgenciaID = 1, Nombre = "Cubanacan", Direccion = "Playa", Email = "cubanacan@gmail.com"},
-                new { AgenciaID = 2, Nombre = "Gaviota", Direccion = "Plaza", Email = "gaviota@gmail.com"},
-                new { AgenciaID = 3, Nombre = "Melia", Direccion = "Habana Vieja", Email = "melia@gmail.com"}
+                new { AgenciaID = 1, Nombre = "Cubanacan", Direccion = "Playa", Email = "cubanacan@gmail.com" },
+                new { AgenciaID = 2, Nombre = "Gaviota", Direccion = "Plaza", Email = "gaviota@gmail.com" },
+                new { AgenciaID = 3, Nombre = "Melia", Direccion = "Habana Vieja", Email = "melia@gmail.com" }
             );
 
             modelBuilder.Entity<Hotel>().HasData(
-                new { HotelID = 1, Nombre = "Melia Cohiba", Direccion = "Plaza", Categoria = 3},
-                new { HotelID = 2, Nombre = "Manzana de Gomez", Direccion = "Habana Vieja", Categoria = 5},
-                new { HotelID = 3, Nombre = "Pakart", Direccion = "Habana Vieja", Categoria = 5},
-                new { HotelID = 4, Nombre = "Hotel Nacional", Direccion = "Plaza", Categoria = 4},
-                new { HotelID = 5, Nombre = "Habana Libre", Direccion = "Plaza", Categoria = 3}
+                new { HotelID = 1, Nombre = "Melia Cohiba", Direccion = "Plaza", Categoria = 3 },
+                new { HotelID = 2, Nombre = "Manzana de Gomez", Direccion = "Habana Vieja", Categoria = 5 },
+                new { HotelID = 3, Nombre = "Pakart", Direccion = "Habana Vieja", Categoria = 5 },
+                new { HotelID = 4, Nombre = "Hotel Nacional", Direccion = "Plaza", Categoria = 4 },
+                new { HotelID = 5, Nombre = "Habana Libre", Direccion = "Plaza", Categoria = 3 }
             );
 
-            
+
         }
 
     }

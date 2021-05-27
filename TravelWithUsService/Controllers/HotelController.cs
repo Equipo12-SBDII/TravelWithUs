@@ -2,50 +2,51 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
-using TravelWithUs.ContextLib;
+using TravelWithUs.DBContext.Repositories;
+using TravelWithUs.Models;
 
 namespace TravelWithUsService.Controllers
 {  // base address: api/hotel
     [Route("api/[controller]")]
     [ApiController]
-    public class HotelController:ControllerBase
+    public class HotelController : ControllerBase
     {
-        private HotelRepository repo ;
-        
-        public HotelController(HotelRepository repo)
+        private IHotel repo;
+
+        public HotelController(IHotel repo)
         {
             this.repo = repo;
         }
-    }
 
-    
+
+
         // GET: api/hotel/[id]
-    [HttpGet]
-    [ProducesResponseType(200, Type = typeof(Hotel))]
-    [ProducesResponseType(404)]
-    public async Task<IActionResult> Get(int id)
-    {
-        Hotel hotel = await this.repo.RetrieveAsync(id);
-
-        if (hotel == null)
+        [HttpGet]
+        [ProducesResponseType(200, Type = typeof(Hotel))]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> Get(int id)
         {
-            return NotFound(); // 404 resource not found
+            Hotel hotel = await this.repo.RetrieveAsync(id);
+
+            if (hotel == null)
+            {
+                return NotFound(); // 404 resource not found
+            }
+            else
+            {
+                return Ok(hotel);
+            }
         }
-        else
+
+
+        // POST: api/hotel
+        // BODY: Hotel (JSON)
+        [HttpPost]
+        [ProducesResponseType(201, Type = typeof(Hotel))]
+        [ProducesResponseType(400)]
+        public async Task<IActionResult> Create([FromBody] Hotel hotel)
         {
-            return Ok(hotel);
-        }
-    } 
-
-
-     // POST: api/hotel
-    // BODY: Hotel (JSON)
-    [HttpPost]
-    [ProducesResponseType(201, Type = typeof(Hotel))]
-    [ProducesResponseType(400)]    
-    public async Task<IActionResult> Create( [FromBody] Hotel hotel)
-    {
-        if (hotel == null)
+            if (hotel == null)
             {
                 return BadRequest();  // 400 Bad Request
             }
@@ -55,24 +56,24 @@ namespace TravelWithUsService.Controllers
                 return BadRequest(ModelState); // 400 Bad Request
             }
 
-            Agencia added = await repo.CreateAsync(hotel);
+            Hotel added = await repo.CreateAsync(hotel);
 
             return CreatedAtRoute( // 201 Created
                 routeName: nameof(this.Get),
                 routeValues: new { id = added.HotelID },
                 value: added
             );
-    }
+        }
 
-    // PUT: api/hotel/[id]
-    // BODY: Hotel (JSON)
-    [HttpPut("{id}")]
-    [ProducesResponseType(204)]
-    [ProducesResponseType(400)]
-    [ProducesResponseType(404)]
-    public async Task<IActionResult> Update([FromBody] Hotel hotel, int id)
-    {
-         if (hotel == null || hotel.ExcursionID!= id)
+        // PUT: api/hotel/[id]
+        // BODY: Hotel (JSON)
+        [HttpPut("{id}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> Update([FromBody] Hotel hotel, int id)
+        {
+            if (hotel == null || hotel.HotelID != id)
             {
                 return BadRequest(); // 400 Bad Request
             }
@@ -92,14 +93,14 @@ namespace TravelWithUsService.Controllers
             await this.repo.UpdateAsync(id, hotel);
 
             return new NoContentResult();   // 204 No Content
-    }
-  // DELETE: api/hotel/[id]
-    [HttpDelete("{id}")]
-    [ProducesResponseType(204)]
-    [ProducesResponseType(400)]
-    [ProducesResponseType(404)]
-    public async Task<IActionResult> Delete(int id)
-    {
+        }
+        // DELETE: api/hotel/[id]
+        [HttpDelete("{id}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> Delete(int id)
+        {
             Hotel hotel = await this.repo.RetrieveAsync(id);
             if (hotel == null)
             {
@@ -118,6 +119,7 @@ namespace TravelWithUsService.Controllers
                 );
             }
 
+        }
     }
 }
 

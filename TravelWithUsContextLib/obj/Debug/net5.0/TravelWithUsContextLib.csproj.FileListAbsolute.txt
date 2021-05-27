@@ -13,3 +13,6 @@ D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLi
 D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\TravelWithUsContextLib.dll
 D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\ref\TravelWithUsContextLib.dll
 D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\TravelWithUsContextLib.pdb
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\bin\Debug\net5.0\TravelWithUsContextLib.runtimeconfig.json
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\bin\Debug\net5.0\TravelWithUsContextLib.runtimeconfig.dev.json
+D:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\TravelWithUsContextLib.genruntimeconfig.cache
