@@ -1,4 +1,4 @@
-import {Component, Inject, Injectable} from "@angular/core";
+import {Component, Inject, Injectable, Output} from "@angular/core";
 import {NONE_TYPE} from "@angular/compiler";
 import {DOCUMENT} from "@angular/common";
 
@@ -8,15 +8,15 @@ import {DOCUMENT} from "@angular/common";
   styleUrls: ["./login.component.scss"]
 })
 export class LoginComponent {
-  email: any;
   password: any;
+  name: any;
 
   constructor(@Inject(DOCUMENT) private document: any) {
-    this.email = null;
+    this.name = null;
     this.password = null;
   }
   login() {
-    console.log(this.email);
+    console.log(this.name);
     console.log(this.password);
     this.document.location.href = '/home';
   }

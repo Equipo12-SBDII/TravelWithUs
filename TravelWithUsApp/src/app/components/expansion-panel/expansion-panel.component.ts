@@ -19,4 +19,7 @@ export class ExpansionPanelComponent implements OnInit {
   urlRedirect() {
     this.document.location.href = this.url;
   }
+  pageRedirect(){
+    this.document.location.href = 'hotelpage';
+  }
 }

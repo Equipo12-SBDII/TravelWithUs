@@ -23,6 +23,11 @@ import {SidebarComponent} from "./components/sidebar/sidebar.component";
 import { ExpansionPanelComponent } from './components/expansion-panel/expansion-panel.component';
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatDatepickerModule} from "@angular/material/datepicker";
+import { HotelpageComponent } from './hotelpage/hotelpage.component';
+import { ReservesComponent } from './components/reserves/reserves.component';
+import {MatListModule} from "@angular/material/list";
+import {MatDialogModule} from "@angular/material/dialog";
+import {DialogComponent, DialogElementsExampleDialog} from './components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +38,11 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
     ReserveComponent,
     NavbarComponent,
     SidebarComponent,
-    ExpansionPanelComponent
+    ExpansionPanelComponent,
+    HotelpageComponent,
+    ReservesComponent,
+    DialogComponent,
+    DialogElementsExampleDialog
   ],
   imports: [
     BrowserModule,
@@ -49,7 +58,9 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
     MatIconModule,
     MatSidenavModule,
     MatExpansionModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatListModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
