@@ -1,0 +1,11 @@
+<mat-selection-list #shoes [multiple]="false">
+  <mat-list-option (click)="openDialog()" *ngFor="let shoe of typesOfShoes" [value]="shoe">
+    {{shoe}}
+  </mat-list-option>
+</mat-selection-list>
+
+<p>
+  Seleccionada: {{shoes.selectedOptions.selected[0]?.value}}
+</p>
+<button mat-flat-button color="warn" (click)="deleteReserve(shoes.selectedOptions.selected[0]?.value)">Cancelar Reserva</button>
+<app-dialog reserve="{{shoes.selectedOptions.selected[0]?.value}}"></app-dialog>
