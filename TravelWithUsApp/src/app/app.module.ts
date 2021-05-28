@@ -15,6 +15,14 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatInputModule} from "@angular/material/input";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from "@angular/material/icon";
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { MatSidenavModule} from '@angular/material/sidenav';
+import {SidebarComponent} from "./components/sidebar/sidebar.component";
+import { ExpansionPanelComponent } from './components/expansion-panel/expansion-panel.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatDatepickerModule} from "@angular/material/datepicker";
 
 @NgModule({
   declarations: [
@@ -22,7 +30,10 @@ import {MatButtonModule} from "@angular/material/button";
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    ReserveComponent
+    ReserveComponent,
+    NavbarComponent,
+    SidebarComponent,
+    ExpansionPanelComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +44,12 @@ import {MatButtonModule} from "@angular/material/button";
     BrowserAnimationsModule,
     MatInputModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatExpansionModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

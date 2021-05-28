@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import {Component, Inject} from "@angular/core";
+import {DOCUMENT} from "@angular/common";
 
 @Component({
   selector: "app-register",
@@ -6,14 +7,16 @@ import { Component } from "@angular/core";
   styleUrls: ["./register.component.scss"]
 })
 export class RegisterComponent {
-  email: string = '';
+  name: string = '';
   password: string = '';
   confirmPassword: string = '';
+  nationality: string = '';
 
-  constructor() {}
+  constructor(@Inject(DOCUMENT) private document: any) {}
 
   register() {
-    console.log(this.email);
+    this.document.location.href = '/login';
+    console.log(this.name);
     console.log(this.password);
   }
 }
