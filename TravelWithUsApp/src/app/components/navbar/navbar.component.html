@@ -1,0 +1,36 @@
+<mat-toolbar>
+  <button onclick="location.href='/home'" mat-button class="example-icon" aria-label="Example icon-button with menu icon" href="home">
+    <mat-icon>home</mat-icon>
+  </button>
+  <button onclick="location.href='/agencies'" mat-button class="example-icon" aria-label="Example icon-button with menu icon" href="home">
+    <span>Agencias</span>
+  </button>
+  <button onclick="location.href='/hotelpage'" mat-button class="example-icon" aria-label="Example icon-button with menu icon" href="home">
+    <span>Hoteles</span>
+  </button>
+  <button onclick="location.href='/tourist'" mat-button class="example-icon" aria-label="Example icon-button with menu icon" href="home">
+    <span>Turistas</span>
+  </button>
+  <button onclick="location.href='/excursion'" mat-button class="example-icon" aria-label="Example icon-button with menu icon" href="home">
+    <span>Excursiones</span>
+  </button>
+  <button onclick="location.href='/packs'" mat-button class="example-icon" aria-label="Example icon-button with menu icon" href="home">
+    <span>Paquetes</span>
+  </button>
+
+  <span class="example-spacer"></span>
+  <mat-label>Manuel</mat-label>
+  <button mat-button [matMenuTriggerFor]="beforeMenu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+    <button mat-menu-item>
+      <mat-icon>settings</mat-icon>
+      <span>Opciones</span>
+    </button>
+    <button mat-menu-item (click)="logof()">
+      <mat-icon>eject</mat-icon>
+      <span>Salir</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

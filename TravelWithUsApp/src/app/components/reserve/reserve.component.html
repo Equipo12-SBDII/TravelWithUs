@@ -1,0 +1,47 @@
+<div>
+  <div class="row">
+    <div class="col-3">
+          <h4>Agencia</h4>
+          <mat-form-field appearance="fill">
+            <mat-label>Agencia Favorita</mat-label>
+            <select matNativeControl (change)="selectAge($event)">
+              <option value=""></option>
+              <option *ngFor="let option of agencies" [value]="option.value"
+                      [selected]="selectedAge === option.value">{{ option.viewValue }} - ${{option.price}}</option>
+            </select>
+          </mat-form-field>
+          <p>Su selección: {{selectedAge}}</p>
+        </div>
+    <div class="col-3">
+          <h4>Compañía</h4>
+          <mat-form-field appearance="fill">
+            <mat-label>Compañía Favorita</mat-label>
+            <select matNativeControl (change)="selectCom($event)">
+              <option value=""></option>
+              <option *ngFor="let option of companies" [value]="option.value"
+                      [selected]="selectedCom === option.value">{{ option.viewValue }} - ${{option.price}}</option>
+            </select>
+          </mat-form-field>
+          <p>Su selección: {{selectedCom}}</p>
+    </div>
+    <div class="col-3">
+          <h4>Hotel</h4>
+          <mat-form-field appearance="fill">
+            <mat-label>Hotel favorito</mat-label>
+            <select matNativeControl (change)="selectHot($event)">
+              <option value=""></option>
+              <option *ngFor="let option of hotels" [value]="option.value"
+                      [selected]="selectedHot === option.value">{{ option.viewValue }} - ${{option.price}}</option>
+            </select>
+          </mat-form-field>
+          <p>Su selección: {{selectedHot}}</p>
+
+        </div>
+      </div>
+  <p>Precio de la reserva: ${{reservedPrice}}</p>
+  <div>
+    <button mat-raised-button (click)="price()">Calcular Precio</button>
+    <button mat-raised-button color="primary">Reservar</button>
+  </div>
+</div>
+

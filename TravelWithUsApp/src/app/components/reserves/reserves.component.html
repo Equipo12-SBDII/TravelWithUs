@@ -1,0 +1,17 @@
+<mat-selection-list #reserves [multiple]="false">
+  <mat-list-option *ngFor="let reserve of Reserves" [value]="reserve">
+    {{reserve}}
+  </mat-list-option>
+</mat-selection-list>
+
+<p>
+  Seleccionada: {{reserves.selectedOptions.selected[0]?.value}}
+</p>
+<button mat-flat-button color="accent" (click)="deleteReserve(reserves.selectedOptions.selected[0]?.value)">
+  <mat-icon>delete</mat-icon>
+  <span>Cancelar</span>
+</button>
+<button mat-flat-button color="primary" (click)="createReserve()">
+  <mat-icon>add_shopping_cart</mat-icon>
+  <span>Todas las Ofertas</span>
+</button>
