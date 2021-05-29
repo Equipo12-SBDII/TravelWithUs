@@ -17,73 +17,73 @@ namespace TravelWithUs.DBContext.Repositories
 
             if ( reservaindividualCache == null)
             {
-                reservaExcursionCache = new ConcurrentDictionary<int, ReservaExcursion>(
-                    this.db.ReservasExcursiones.ToDictionary(re => re.ReservaExcursionID)
-                );
+                reservaIndividualCache = new ConcurrentDictionary<int,ReservaIndividual>(
+                    this.db.ReservasIndividuales.ToDictionary(re =using System.Collections.Concurrent;
+
             }
-        }
-        public async Task<ReservaExcursion> CreateAsync(ReservaExcursion r)
+        } //me preocupan los metodos del concurrente dictionary
+         public async Task<ReservaIndividual> CreateAsync(ReservaIndividual r)
         {
-            await this.db.ReservasExcursiones.AddAsync(p);
+            await this.db.ReservasIndividuales.AddAsync(p);
             int affected = await this.db.SaveChangesAsync();
             if (affected == 1)
             {
-                return reservaExcursionCache.AddOrUpdate(r.ReservaExcursionID, r, this.UpdateCache);
+                return reservaIndividualCache.AddOrUpdate(r.ReservaIndividualID,  r, this.UpdateCache);
             }
             return null;
         }
 
-        public async Task<bool?> DeleteAsync(int id)
+        public async Task<bool?> DeleteAsync(int idA, int idO, int idT)
         {
-            ReservaExcursion r = await this.db.ReservasExcursiones.FindAsync(id);
-            this.db.ReservasExcursiones.Remove(r);
+            ReservaExcursion r = await this.db.ReservasIndividuales.FindAsync(int idA, int idO, int idT);
+            this.db.ReservasIndividuales.Remove(r);
             int affected = await this.db.SaveChangesAsync();
             if (affected == 1)
             {
-                return reservaExcursionCache.TryRemove(id, out r);
+                return reservaExcursionCache.TryRemove(int idA, int idO, int idT, out r);  
             }
             return null;
         }
 
-        public Task<IEnumerable<ReservaExcursione>> RetrieveAllAsync()
+        public Task<IEnumerable<ReservaIndividual>> RetrieveAllAsync()
         {
-            return Task.Run<IEnumerable<ReservaExcursion>>(
+            return Task.Run<IEnumerable<ReservaIndividual>>(
                 () =>
                 {
-                    return reservaExcursionCache.Values;
+                    return reservaIndividualCache.Values;
                 }
             );
         }
 
-        public Task<ReservaExcursion> RetrieveAsync(int id)
+        public Task<ReservaExcursion> RetrieveAsync(int idA, int idO, int idT)
         {
             return Task.Run(
                 () =>
                 {
-                    reservaExcursionCache.TryGetValue(id, out ReservaExcursion r);
+                    reservaIndividualCache.TryGetValue(int idA, int idO, int idT, out ReservaIndividual r);
                     return r;
                 }
             );
         }
 
-        public async Task<Hotel> UpdateAsync(int id, ReservaExcursion r)
+        public async Task<ReservaIndividual> UpdateAsync(int idA, int idO, int idT, ReservaIndividual r)
         {
-            this.db.ReservasExcursiones.Update(r);
+            this.db.ReservasIndividuales.Update(r);
             int affected = await this.db.SaveChangesAsync();
             if (affected == 1)
             {
-                return UpdateCache(id, r);
+                return UpdateCache(int idA, int idE, int idT, r);
             }
 
             return null;
         }
 
-        private ReservaExcursion UpdateCache(int id, ReservaExcursion r)
+        private ReservaIndividual UpdateCache(int idA, int idO, int idT,, ReservaIndividual r)
         {
-            ReservaExcursion old; 
-            if (reservaExcursionCache.TryGetValue(id, out old))
+            ReservaIndividual old;
+            if (reservaIndividualCache.TryGetValue(int idA, int idO, int idT, out old))
             {
-                if (reservaExcursionCache.TryUpdate(id, r, old))
+                if (reservaIndividualCache.TryUpdate(int idA, int idO, int idT, r, old))
                 {
                     return r;
                 }
@@ -91,4 +91,5 @@ namespace TravelWithUs.DBContext.Repositories
             return null;
         }
     }
+
 }

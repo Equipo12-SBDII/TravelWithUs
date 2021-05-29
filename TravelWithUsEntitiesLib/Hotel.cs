@@ -17,6 +17,10 @@ namespace TravelWithUs.Models
         [MaxLength(40)]
         public string Nombre { get; set; }
 
+        [Column("DescripcionH")]
+        [MaxLength(1000)]
+        public string Descripcion{get;set;}
+
         [Column("DireccionH")]
         [Required]
         [MaxLength(120)]
