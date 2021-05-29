@@ -28,6 +28,11 @@ import { ReservesComponent } from './components/reserves/reserves.component';
 import {MatListModule} from "@angular/material/list";
 import {MatDialogModule} from "@angular/material/dialog";
 import {DialogComponent, DialogElementsExampleDialog} from './components/dialog/dialog.component';
+import {MatMenuModule} from "@angular/material/menu";
+import { TableHotelsComponent } from './components/table-hotels/table-hotels.component';
+import {MatTableModule} from "@angular/material/table";
+import { TableOffersComponent } from './components/table-offers/table-offers.component';
+import { OffersComponent } from './offers/offers.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +47,10 @@ import {DialogComponent, DialogElementsExampleDialog} from './components/dialog/
     HotelpageComponent,
     ReservesComponent,
     DialogComponent,
-    DialogElementsExampleDialog
+    DialogElementsExampleDialog,
+    TableHotelsComponent,
+    TableOffersComponent,
+    OffersComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +68,9 @@ import {DialogComponent, DialogElementsExampleDialog} from './components/dialog/
     MatExpansionModule,
     MatDatepickerModule,
     MatListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatMenuModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

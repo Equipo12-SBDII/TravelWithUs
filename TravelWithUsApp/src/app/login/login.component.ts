@@ -1,5 +1,4 @@
 import {Component, Inject, Injectable, Output} from "@angular/core";
-import {NONE_TYPE} from "@angular/compiler";
 import {DOCUMENT} from "@angular/common";
 
 @Component({
@@ -7,10 +6,10 @@ import {DOCUMENT} from "@angular/common";
   templateUrl: './login.component.html',
   styleUrls: ["./login.component.scss"]
 })
+
 export class LoginComponent {
   password: any;
   name: any;
-
   constructor(@Inject(DOCUMENT) private document: any) {
     this.name = null;
     this.password = null;
@@ -24,3 +23,4 @@ export class LoginComponent {
     this.document.location.href = '/register';
   }
 }
+

@@ -1,14 +1,21 @@
 <mat-toolbar>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
+  <button onclick="location.href='/home'" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" href="home">
+    <mat-icon>home</mat-icon>
   </button>
   <span>Agencia</span>
   <span class="example-spacer"></span>
   <mat-label>Manuel</mat-label>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon>favorite</mat-icon>
+  <button mat-button [matMenuTriggerFor]="beforeMenu">
+    <mat-icon>account_circle</mat-icon>
   </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>share</mat-icon>
-  </button>
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+    <button mat-menu-item>
+      <mat-icon>settings</mat-icon>
+      <span>Opciones</span>
+    </button>
+    <button mat-menu-item (click)="logof()">
+      <mat-icon>eject</mat-icon>
+      <span>Salir</span>
+    </button>
+  </mat-menu>
 </mat-toolbar>

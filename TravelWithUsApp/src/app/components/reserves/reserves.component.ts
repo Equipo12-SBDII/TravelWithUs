@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {DOCUMENT} from "@angular/common";
 
 @Component({
   selector: 'app-reserves',
@@ -6,23 +7,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reserves.component.scss']
 })
 export class ReservesComponent implements OnInit {
-  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
-  constructor() { }
+  Reserves: string[] = ['Melia', 'Varadero', 'Cohiba', 'Nacional', 'Panorama'];
+
+  constructor(@Inject(DOCUMENT) private document: any) {
+  }
 
   ngOnInit(): void {
   }
 
   deleteReserve(reserve: string) {
-    let temp: string[] = [];
-    for(let i =0;i<this.typesOfShoes.length;i++){
-      if(this.typesOfShoes[i]!=reserve){
-        temp.push(this.typesOfShoes[i]);
+    if (this.Reserves.length >= 1) {
+      if (this.Reserves[0] == 'No hay reservas') {
+        return
+      }
+      else{
+        let temp: string[] = [];
+        for (let i = 0; i < this.Reserves.length; i++) {
+          if (this.Reserves[i] != reserve) {
+            temp.push(this.Reserves[i]);
+          }
+        }
+        this.Reserves = temp;
+        if(this.Reserves.length == 0){
+          this.Reserves.push('No hay reservas');
+        }
       }
     }
-    this.typesOfShoes = temp;
-  }
-
-  openDialog() {
-
+}
+  createReserve() {
+    this.document.location.href = 'offers';
+    /*if(this.Reserves[0] == 'No hay reservas'){
+      this.Reserves.pop();
+    }
+      this.Reserves.push('Cohiba');*/
   }
 }
