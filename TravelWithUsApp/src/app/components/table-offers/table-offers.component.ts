@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {Element} from "@angular/compiler";
 
 /**
  * @title Table with expandable rows
@@ -29,7 +30,7 @@ export class TableOffersComponent {
   }
 }
 
-export interface PeriodicElement {
+export interface Elements {
   Oferta: string;
   position: number;
   Precio: number;
@@ -37,7 +38,7 @@ export interface PeriodicElement {
   description: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
+const ELEMENT_DATA: Elements[] = [
   {
     position: 1,
     Oferta: 'Hydrogen',
