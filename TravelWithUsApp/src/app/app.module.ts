@@ -33,6 +33,10 @@ import { TableHotelsComponent } from './components/table-hotels/table-hotels.com
 import {MatTableModule} from "@angular/material/table";
 import { TableOffersComponent } from './components/table-offers/table-offers.component';
 import { OffersComponent } from './offers/offers.component';
+import {PacksComponent} from "./packs/packs.component";
+import { TouristComponent } from './tourist/tourist.component';
+import { AgenciesComponent } from './agencies/agencies.component';
+import { ExcursionComponent } from './excursion/excursion.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +54,11 @@ import { OffersComponent } from './offers/offers.component';
     DialogElementsExampleDialog,
     TableHotelsComponent,
     TableOffersComponent,
-    OffersComponent
+    OffersComponent,
+    PacksComponent,
+    TouristComponent,
+    AgenciesComponent,
+    ExcursionComponent
   ],
   imports: [
     BrowserModule,

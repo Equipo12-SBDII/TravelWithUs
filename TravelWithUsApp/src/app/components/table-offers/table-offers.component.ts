@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 
 /**
@@ -20,9 +20,12 @@ export class TableOffersComponent {
   dataSource = ELEMENT_DATA;
   columnsToDisplay = ['Oferta', 'Precio', 'Hotel', 'position'];
   expandedElement: any;
+  @Input('title')title: any;
 
   reserve(expandedElement: any) {
-    console.log(expandedElement.name)
+    if(expandedElement) {
+      console.log(expandedElement.Oferta)
+    }
   }
 }
 
