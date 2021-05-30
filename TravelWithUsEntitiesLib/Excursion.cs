@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ using System.Collections.Generic;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -16,6 +16,10 @@ namespace TravelWithUs.Models
         [Column("PrecioE")]
         [Required]
         public decimal Precio { get; set; }
+
+        [Column("DescripcionE")]
+        [MaxLength(1000)]
+        public string Descripcion{get;set;}
 
         [Column("DiaSalidaE")]
         [Required]

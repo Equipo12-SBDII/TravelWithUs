@@ -80,7 +80,7 @@ namespace TravelWithUs.DBContext.Repositories
 
         private Paquete UpdateCache(int id, Paquete h)
         {
-            Paquete old;
+            Paquete old; 
             if (paqueteCache.TryGetValue(id, out old))
             {
                 if (paqueteCache.TryUpdate(id, h, old))
