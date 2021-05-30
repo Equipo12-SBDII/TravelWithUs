@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+1nUKOPOPpoUNQatJMWacPfvTmp63I6QYZYafCkfhSvdVfXVlD3xwutpV7TTgOIHngh82NiJUbHI/Gq8VuTEVA==",
+  "dgSpecHash": "/XhWp9Dcif2l3fth3z8J4XBGNkwS+8rlI1Sy3p1EWrmuzuqqoyiq7wNSLTVYiUQfrxHEkNgB8+b2liInmiTGNw==",
   "success": true,
-  "projectFilePath": "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj",
+  "projectFilePath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Cynthia-PC\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Cynthia-PC\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
@@ -111,12 +111,5 @@
     "C:\\Users\\Cynthia-PC\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Cynthia-PC\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
