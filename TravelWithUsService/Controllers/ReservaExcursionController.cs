@@ -6,23 +6,23 @@ using TravelWithUs.DBContext.Repositories;
 using TravelWithUs.Models;
 
 namespace TravelWithUsService.Controllers
-{  // base address: api/excursion
+{  // base address: api/reservaExcursion
     [Route("api/[controller]")]
     [ApiController]
-    public class ExcursionController : ControllerBase
+    public class ReservaExcursionController : ControllerBase
     {
-        private IExcursion repo;
+        private IReservaExcursion repo;
 
-        public ExcursionController(IExcursion repo)
+        public ReservaExcursionController(IReservaExcursion repo)
         {
             this.repo = repo;
         }
 
-        // GET: api/excursion
-        // GET: api/excursion/?genre=[genre]
+        // GET: api/reservaExcursion
+        // GET: api/reservaExcursion/?genre=[genre]
         [HttpGet]
-        [ProducesResponseType(200, Type = typeof(IEnumerable<Excursion>))]
-        public async Task<IEnumerable<Excursion>> GetExcursiones(string genre)
+        [ProducesResponseType(200, Type = typeof(IEnumerable<ReservaExcursion>))]
+        public async Task<IEnumerable<ReservaExcursion>> GetReservasExcursiones(string genre)
         {
             if (string.IsNullOrEmpty(genre))
             {
@@ -35,33 +35,33 @@ namespace TravelWithUsService.Controllers
             }
         }
 
-        // GET: api/excursion/[id]
-        [HttpGet("{id}")]
-        [ProducesResponseType(200, Type = typeof(Excursion))]
+        // GET: api/reservaExcursion/idA/idE/idT
+        [HttpGet("{idA}/{idE}/{idT}")]
+        [ProducesResponseType(200, Type = typeof(ReservaExcursion))]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> Get(int id)
+        public async Task<IActionResult> Get(int idA, int idE, int idT)
         {
-            Excursion excursion = await this.repo.RetrieveAsync(id);
+           ReservaExcursion r = await this.repo.RetrieveAsync( idA, idE,  idT);
 
-            if (excursion == null)
+            if (r == null)
             {
                 return NotFound(); // 404 resource not found
             }
             else
             {
-                return Ok(excursion);
+                return Ok(r);
             }
         }
 
 
-        // POST: api/excursion
-        // BODY: Excursion (JSON)
+        // POST: api/reservaExcursion
+        // BODY: ReservaExcursion (JSON)
         [HttpPost]
-        [ProducesResponseType(201, Type = typeof(Excursion))]
+        [ProducesResponseType(201, Type = typeof(ReservaExcursion))]
         [ProducesResponseType(400)]
-        public async Task<IActionResult> Create([FromBody] Excursion excursion)
+        public async Task<IActionResult> Create([FromBody]ReservaExcursion r)
         {
-            if (excursion == null)
+            if (r == null)
             {
                 return BadRequest();  // 400 Bad Request
             }
@@ -71,24 +71,24 @@ namespace TravelWithUsService.Controllers
                 return BadRequest(ModelState); // 400 Bad Request
             }
 
-            Excursion added = await repo.CreateAsync(excursion);
+            ReservaExcursion added = await repo.CreateAsync(r);
 
             return CreatedAtRoute( // 201 Created
                 routeName: nameof(this.Get),
-                routeValues: new { id = added.ExcursionID },
+                routeValues: new { idA = added.IdA, idE=added.IdE, idT=added.idT},  
                 value: added
             );
         }
 
-        // PUT: api/excursion/[id]
-        // BODY: Excursion (JSON)
-        [HttpPut("{id}")]
+        // PUT: api/reservaExcursion/idA/idE/idT
+        // BODY: ReservaExcursion (JSON)
+        [HttpGet("{idA}/{idE}/{idT}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> Update([FromBody] Excursion excursion, int id)
+        public async Task<IActionResult> Update([FromBody] ReservaExcursion r, int idA, int idE, int idT)
         {
-            if (excursion == null || excursion.ExcursionID != id)
+            if (r== null || r.AgenciaID!= idA  || r.ExcursionID != idE || r.TuristaID != idT)
             {
                 return BadRequest(); // 400 Bad Request
             }
@@ -98,31 +98,31 @@ namespace TravelWithUsService.Controllers
                 return BadRequest(ModelState); // 400 Bad request
             }
 
-            var existing = await this.repo.RetrieveAsync(id);
+            var existing = await this.repo.RetrieveAsync( idA, idE,  idT);
 
             if (existing == null)
             {
                 return NotFound();  // 404 Resource not found
             }
 
-            await this.repo.UpdateAsync(id, excursion);
+            await this.repo.UpdateAsync( idA,  idE, idT, r);
 
             return new NoContentResult();   // 204 No Content
         }
-        // DELETE: api/excursion/[id]
-        [HttpDelete("{id}")]
+        // DELETE: api/reservaExcursion/idA/idE/idT
+        [HttpGet("{idA}/{idE}/{idT}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int idA, int idE, int idT)
         {
-            Excursion excursion = await this.repo.RetrieveAsync(id);
-            if (excursion == null)
+            ReservaExcursion r = await this.repo.RetrieveAsync( idA,  idE, idT);
+            if (r == null)
             {
                 return NotFound();  // 404 Resource No Found
             }
 
-            bool? deleted = await this.repo.DeleteAsync(id);
+            bool? deleted = await this.repo.DeleteAsync(idA,  idE,  idT);
             if (deleted.HasValue && deleted.Value)
             {
                 return new NoContentResult();   // 204 No Content
@@ -130,11 +130,12 @@ namespace TravelWithUsService.Controllers
             else
             {
                 return BadRequest(  // 400 Bad Request
-                    $"Excursion with id {id} was found but failed to delete."
+                    $"ReservaExcursion with id { idA,  idE, idT} was found but failed to delete."
                 );
             }
 
         }
+    }
     }
 }
 

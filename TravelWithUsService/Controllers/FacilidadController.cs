@@ -22,7 +22,7 @@ namespace TravelWithUsService.Controllers
         // GET: api/facilidad/?genre=[genre]
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Facilidad>))]
-        public async Task<IEnumerable<Facilidad>> GetFacilities(string genre)
+        public async Task<IEnumerable<Facilidad>> GetFacilidades(string genre)
         {
             if (string.IsNullOrEmpty(genre))
             {

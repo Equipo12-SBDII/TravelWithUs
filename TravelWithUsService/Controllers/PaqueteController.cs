@@ -13,7 +13,7 @@ namespace TravelWithUsService.Controllers
     {
         private IPaquete repo;
 
-        public HotelController(IPaquete repo)
+        public PaqueteController(IPaquete repo)
         {
             this.repo = repo;
         }
@@ -22,7 +22,7 @@ namespace TravelWithUsService.Controllers
         // GET: api/paquete/?genre=[genre]
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Paquete>))]
-        public async Task<IEnumerable<Paquete>> GetPackets(string genre)
+        public async Task<IEnumerable<Paquete>> GetPaquetes(string genre)
         {
             if (string.IsNullOrEmpty(genre))
             {
@@ -55,7 +55,7 @@ namespace TravelWithUsService.Controllers
 
 
         // POST: api/paquete
-        // BODY: Paquete (JSON)
+        // BODY:Paquete (JSON)
         [HttpPost]
         [ProducesResponseType(201, Type = typeof(Paquete))]
         [ProducesResponseType(400)]
@@ -71,7 +71,7 @@ namespace TravelWithUsService.Controllers
                 return BadRequest(ModelState); // 400 Bad Request
             }
 
-            Paquete added = await repo.CreateAsync(paquete);
+            ReservaExcursion added = await repo.CreateAsync(paquete);
 
             return CreatedAtRoute( // 201 Created
                 routeName: nameof(this.Get),
