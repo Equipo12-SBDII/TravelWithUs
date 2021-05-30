@@ -6,48 +6,53 @@ using TravelWithUs.Models;
 
 namespace TravelWithUs.DBContext.Repositories
 {
+
     public class ReservaPaqueteRepository : IReservaPaquete
     {
-        private static ConcurrentDictionary<int, ReservaPaquete> reservaPaqueteCache;
+        // ReservaExcursion usa llaves de tipo rp => new { rp.AgenciaID, rp.TuristaID, rp.Codigo };
+        private static ConcurrentDictionary<(int, int, int), ReservaPaquete> reservaPaqueteCache;
         private TravelWithUsDbContext db;
 
         public ReservaPaqueteRepository(TravelWithUsDbContext dataBase)
         {
             this.db = dataBase;
 
-            if ( reservaPaqueteCache == null)
+            if (reservaPaqueteCache == null)
             {
-                reservaPaqueteCache = new ConcurrentDictionary<int,ReservaPaquete>(
-                    this.db.ReservasPaquetes.ToDictionary(re =using System.Collections.Concurrent;
+                reservaPaqueteCache = new ConcurrentDictionary<(int, int, int), ReservaPaquete>(
+                    this.db.ReservasPaquetes.ToDictionary(
+                        rp => (rp.AgenciaID, rp.TuristaID, rp.Codigo)));
 
             }
         } //me preocupan los metodos del concurrente dictionary
-         public async Task<ReservaPaquete> CreateAsync(ReservaPaquete r)
+        public async Task<ReservaPaquete> CreateAsync(ReservaPaquete rp)
         {
-            await this.db.ReservasPaquetes.AddAsync(p);
+            await this.db.ReservasPaquetes.AddAsync(rp);
             int affected = await this.db.SaveChangesAsync();
             if (affected == 1)
             {
-                return reservaPaqueteCache.AddOrUpdate(r.CodigoP,  r, this.UpdateCache);// q hacer con este?
+                return reservaPaqueteCache.AddOrUpdate((rp.AgenciaID, rp.TuristaID, rp.Codigo),
+                    rp, this.UpdateCache);
             }
             return null;
         }
 
-        public async Task<bool?> DeleteAsync(int idA, int idT, int codigoP,)
+        public async Task<bool?> DeleteAsync(int idA, int idT, int codigoP)
         {
-            ReservaExcursion r = await this.db.ReservasPaquetes.FindAsync(int idA, int codigoP, int idT);
-            this.db.ReservasPaquetes.Remove(r);
+            var key = (idA, idT, codigoP);
+            ReservaPaquete rp = await this.db.ReservasPaquetes.FindAsync(idA, idT, codigoP);
+            this.db.ReservasPaquetes.Remove(rp);
             int affected = await this.db.SaveChangesAsync();
             if (affected == 1)
             {
-                return reservaPaqueteCache.TryRemove(int idA ,int codigoP, int idT, out r);  
+                return reservaPaqueteCache.TryRemove(key, out rp);
             }
             return null;
         }
 
         public Task<IEnumerable<ReservaPaquete>> RetrieveAllAsync()
         {
-            return Task.Run<IEnumerable<ReservaIndividual>>(
+            return Task.Run<IEnumerable<ReservaPaquete>>(
                 () =>
                 {
                     return reservaPaqueteCache.Values;
@@ -55,35 +60,37 @@ namespace TravelWithUs.DBContext.Repositories
             );
         }
 
-        public Task<ReservaPaquete> RetrieveAsync(int idA, int codigoP, int idT)
+        public Task<ReservaPaquete> RetrieveAsync(int idA, int idT, int codigoP)
         {
+            var key = (idA, idT, codigoP);
             return Task.Run(
                 () =>
                 {
-                    reservaPaqueteCache.TryGetValue(int idA, int codigoP, int idT, out ReservaPaquete r);
+                    reservaPaqueteCache.TryGetValue(key, out ReservaPaquete r);
                     return r;
                 }
             );
         }
 
-        public async Task<ReservaPaquete> UpdateAsync(int idA, int codigoP, int idT, ReservaPaquete r)
+        public async Task<ReservaPaquete> UpdateAsync(ReservaPaquete r, int idA, int idT, int codigoP)
         {
+            var key = (idA, idT, codigoP);
             this.db.ReservasPaquetes.Update(r);
             int affected = await this.db.SaveChangesAsync();
             if (affected == 1)
             {
-                return UpdateCache(int idA, int codigoP, int idT, r);
+                return UpdateCache(key, r);
             }
 
             return null;
         }
 
-        private ReservaPaquete UpdateCache(int idA, int codigoP, int idT, ReservaPaquete r)
+        private ReservaPaquete UpdateCache((int, int, int) key, ReservaPaquete r)
         {
             ReservaPaquete old;
-            if (reservaPaqueteCache.TryGetValue(int idA, int codigoP, int idT, out old))
+            if (reservaPaqueteCache.TryGetValue(key, out old))
             {
-                if (reservaPaqueteCache.TryUpdate(int idA, int codigoP, int idT, r, old))
+                if (reservaPaqueteCache.TryUpdate(key, r, old))
                 {
                     return r;
                 }
