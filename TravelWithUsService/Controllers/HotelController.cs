@@ -11,13 +11,30 @@ namespace TravelWithUsService.Controllers
     [ApiController]
     public class HotelController : ControllerBase
     {
-        private IHotel repo;
+         private IHotel repo;
 
         public HotelController(IHotel repo)
         {
             this.repo = repo;
         }
 
+
+        // GET: api/hotel
+        // GET: api/hotel/?genre=[genre]
+        [HttpGet]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Hotel>))]
+        public async Task<IEnumerable<Hotel>> GetHoteles(string genre)
+        {
+            if (string.IsNullOrEmpty(genre))
+            {
+                return await this.repo.RetrieveAllAsync();
+            }
+            else
+            {
+                return (await this.repo.RetrieveAllAsync())
+                        .Where(f => f.Genre == genre);
+            }
+        }
 
 
         // GET: api/hotel/[id]

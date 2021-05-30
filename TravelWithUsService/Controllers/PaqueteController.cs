@@ -6,23 +6,23 @@ using TravelWithUs.DBContext.Repositories;
 using TravelWithUs.Models;
 
 namespace TravelWithUsService.Controllers
-{  // base address: api/excursion
+{  // base address: api/paquete
     [Route("api/[controller]")]
     [ApiController]
-    public class ExcursionController : ControllerBase
+    public class PaqueteController : ControllerBase
     {
-        private IExcursion repo;
+        private IPaquete repo;
 
-        public ExcursionController(IExcursion repo)
+        public PaqueteController(IPaquete repo)
         {
             this.repo = repo;
         }
 
-        // GET: api/excursion
-        // GET: api/excursion/?genre=[genre]
+        // GET: api/paquete
+        // GET: api/paquete/?genre=[genre]
         [HttpGet]
-        [ProducesResponseType(200, Type = typeof(IEnumerable<Excursion>))]
-        public async Task<IEnumerable<Excursion>> GetExcursiones(string genre)
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Paquete>))]
+        public async Task<IEnumerable<Paquete>> GetPaquetes(string genre)
         {
             if (string.IsNullOrEmpty(genre))
             {
@@ -35,33 +35,33 @@ namespace TravelWithUsService.Controllers
             }
         }
 
-        // GET: api/excursion/[id]
+        // GET: api/paquete/[id]
         [HttpGet("{id}")]
-        [ProducesResponseType(200, Type = typeof(Excursion))]
+        [ProducesResponseType(200, Type = typeof(Paquete))]
         [ProducesResponseType(404)]
         public async Task<IActionResult> Get(int id)
         {
-            Excursion excursion = await this.repo.RetrieveAsync(id);
+           Paquete paquete = await this.repo.RetrieveAsync(id);
 
-            if (excursion == null)
+            if (paquete == null)
             {
                 return NotFound(); // 404 resource not found
             }
             else
             {
-                return Ok(excursion);
+                return Ok(paquete);
             }
         }
 
 
-        // POST: api/excursion
-        // BODY: Excursion (JSON)
+        // POST: api/paquete
+        // BODY:Paquete (JSON)
         [HttpPost]
-        [ProducesResponseType(201, Type = typeof(Excursion))]
+        [ProducesResponseType(201, Type = typeof(Paquete))]
         [ProducesResponseType(400)]
-        public async Task<IActionResult> Create([FromBody] Excursion excursion)
+        public async Task<IActionResult> Create([FromBody] Paquete paquete)
         {
-            if (excursion == null)
+            if (paquete == null)
             {
                 return BadRequest();  // 400 Bad Request
             }
@@ -71,24 +71,24 @@ namespace TravelWithUsService.Controllers
                 return BadRequest(ModelState); // 400 Bad Request
             }
 
-            Excursion added = await repo.CreateAsync(excursion);
+            ReservaExcursion added = await repo.CreateAsync(paquete);
 
             return CreatedAtRoute( // 201 Created
                 routeName: nameof(this.Get),
-                routeValues: new { id = added.ExcursionID },
+                routeValues: new { id = added.CodigoP },
                 value: added
             );
         }
 
-        // PUT: api/excursion/[id]
-        // BODY: Excursion (JSON)
+        // PUT: api/paquete/[id]
+        // BODY: Paquete (JSON)
         [HttpPut("{id}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> Update([FromBody] Excursion excursion, int id)
+        public async Task<IActionResult> Update([FromBody] Paquete paquete, int id)
         {
-            if (excursion == null || excursion.ExcursionID != id)
+            if (paquete == null || paquete.CodigoP != id)
             {
                 return BadRequest(); // 400 Bad Request
             }
@@ -105,19 +105,19 @@ namespace TravelWithUsService.Controllers
                 return NotFound();  // 404 Resource not found
             }
 
-            await this.repo.UpdateAsync(id, excursion);
+            await this.repo.UpdateAsync(id,paquete);
 
             return new NoContentResult();   // 204 No Content
         }
-        // DELETE: api/excursion/[id]
+        // DELETE: api/paquete/[id]
         [HttpDelete("{id}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         public async Task<IActionResult> Delete(int id)
         {
-            Excursion excursion = await this.repo.RetrieveAsync(id);
-            if (excursion == null)
+            Paquete paquete = await this.repo.RetrieveAsync(id);
+            if (paquete == null)
             {
                 return NotFound();  // 404 Resource No Found
             }
@@ -130,11 +130,12 @@ namespace TravelWithUsService.Controllers
             else
             {
                 return BadRequest(  // 400 Bad Request
-                    $"Excursion with id {id} was found but failed to delete."
+                    $"Paquete with id {id} was found but failed to delete."
                 );
             }
 
         }
+    }
     }
 }
 

@@ -22,8 +22,8 @@ namespace TravelWithUs.DBContext.Repositories
         /// de estar vacia devuelve un IEnumerable vacio.
         /// </returns>
         Task<IEnumerable<T>> RetrieveAllAsync();
-        Task<T> RetrieveAsync(int  id1, int id2, int id3);
-        Task<T> UpdateAsync(int  id1, int id2, int id3, T t);
-        Task<bool?> DeleteAsync(int  id1, int id2, int id3);
+        Task<T> RetrieveAsync(int key1, int key2, int key3);
+        Task<T> UpdateAsync(T t, int key1, int key2, int key3);
+        Task<bool?> DeleteAsync(int key1, int key2, int key3);
     }
 }

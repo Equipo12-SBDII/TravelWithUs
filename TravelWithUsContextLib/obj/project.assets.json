@@ -6134,9 +6134,8 @@
 <<<<<<< HEAD
     "C:\\Users\\Peny\\.nuget\\packages\\": {}
 =======
-    "C:\\Users\\manoly\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
->>>>>>> 10591718c320a9e03b6100a4b0cd5576c27f6968
+    "C:\\Users\\Cynthia-PC\\.nuget\\packages\\": {}
+>>>>>>> 5b407f1b8c5036033b62fe5abc38ac1773d32690
   },
   "project": {
     "version": "1.0.0",
@@ -6147,24 +6146,20 @@
       "projectPath": "C:\\Users\\Peny\\Desktop\\SBD2\\Proyectos 20-21\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj",
       "packagesPath": "C:\\Users\\Peny\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Peny\\Desktop\\SBD2\\Proyectos 20-21\\TravelWithUs\\TravelWithUsContextLib\\obj\\",
-=======
-      "projectUniqueName": "D:\\3.1 CC\\BD\\Proyecto\\Backend\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj",
-      "projectName": "TravelWithUsContextLib",
-      "projectPath": "D:\\3.1 CC\\BD\\Proyecto\\Backend\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj",
-      "packagesPath": "C:\\Users\\manoly\\.nuget\\packages\\",
-      "outputPath": "D:\\3.1 CC\\BD\\Proyecto\\Backend\\TravelWithUs\\TravelWithUsContextLib\\obj\\",
->>>>>>> 10591718c320a9e03b6100a4b0cd5576c27f6968
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-<<<<<<< HEAD
         "C:\\Users\\Peny\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-        "C:\\Users\\manoly\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 10591718c320a9e03b6100a4b0cd5576c27f6968
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+      "projectUniqueName": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj",
+      "projectName": "TravelWithUsContextLib",
+      "projectPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj",
+      "packagesPath": "C:\\Users\\Cynthia-PC\\.nuget\\packages\\",
+      "outputPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Cynthia-PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> 5b407f1b8c5036033b62fe5abc38ac1773d32690
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -6176,8 +6171,7 @@
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\sdk\\5.0.102": {},
 =======
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
->>>>>>> 10591718c320a9e03b6100a4b0cd5576c27f6968
+>>>>>>> 5b407f1b8c5036033b62fe5abc38ac1773d32690
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -6188,9 +6182,9 @@
             "C:\\Users\\Peny\\Desktop\\SBD2\\Proyectos 20-21\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj": {
               "projectPath": "C:\\Users\\Peny\\Desktop\\SBD2\\Proyectos 20-21\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj"
 =======
-            "D:\\3.1 CC\\BD\\Proyecto\\Backend\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj": {
-              "projectPath": "D:\\3.1 CC\\BD\\Proyecto\\Backend\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj"
->>>>>>> 10591718c320a9e03b6100a4b0cd5576c27f6968
+            "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj": {
+              "projectPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj"
+>>>>>>> 5b407f1b8c5036033b62fe5abc38ac1773d32690
             }
           }
         }
@@ -6232,5 +6226,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché C:\\Users\\Peny\\Desktop\\SBD2\\Proyectos 20-21\\TravelWithUs\\TravelWithUsContextLib\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

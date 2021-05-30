@@ -19,12 +19,29 @@ namespace TravelWithUsService.Controllers
         }
 
 
+        
+        // GET: api/agencia
+        // GET: api/agencia/?genre=[genre]
+        [HttpGet]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Agencia>))]
+        public async Task<IEnumerable<Agencia>> GetAgencias(string genre)
+        {
+            if (string.IsNullOrEmpty(genre))
+            {
+                return await this.repo.RetrieveAllAsync();
+            }
+            else
+            {
+                return (await this.repo.RetrieveAllAsync())
+                        .Where(f => f.Genre == genre);
+            }
+        }
 
         // GET: api/agencia/[id]
         [HttpGet("{id}")]
         [ProducesResponseType(200, Type = typeof(Agencia))]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> GetAgencia(int id)
+        public async Task<IActionResult> Get(int id)
         {
             Agencia agencia = await this.repo.RetrieveAsync(id);
 
@@ -48,7 +65,7 @@ namespace TravelWithUsService.Controllers
         {
             if (agencia == null)
             {
-                return BadRequest();  // 400 Bad Request
+                return BadRequest()  ;// 400 Bad Request
             }
 
             if (!ModelState.IsValid)
@@ -59,7 +76,7 @@ namespace TravelWithUsService.Controllers
             Agencia added = await repo.CreateAsync(agencia);
 
             return CreatedAtRoute( // 201 Created
-                routeName: nameof(this.GetAgencia),
+                routeName: nameof(this.Get),
                 routeValues: new { id = added.AgenciaID },
                 value: added
             );

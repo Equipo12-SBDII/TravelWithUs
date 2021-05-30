@@ -6,9 +6,10 @@ using TravelWithUs.Models;
 
 namespace TravelWithUs.DBContext.Repositories
 {
+    // Oferta usa llaves de tipo o => new { o.OfertaID, o.HotelID };
     public class OfertaRepository : IOferta
     {
-        private static ConcurrentDictionary<int, Oferta> ofertaCache;
+        private static ConcurrentDictionary<(int, int), Oferta> ofertaCache;
         private TravelWithUsDbContext db;
 
         public OfertaRepository(TravelWithUsDbContext dataBase)
@@ -17,30 +18,31 @@ namespace TravelWithUs.DBContext.Repositories
 
             if (ofertaCache == null)
             {
-                ofertaCache = new ConcurrentDictionary<int, Oferta>(
-                    this.db.Ofertas.ToDictionary(o => o.OfertaID)
+                ofertaCache = new ConcurrentDictionary<(int, int), Oferta>(
+                    this.db.Ofertas.ToDictionary(o => (o.OfertaID, o.HotelID))
                 );
             }
         }
-        public async Task<Oferta> CreateAsync(Oferta oferta)
+        public async Task<Oferta> CreateAsync(Oferta o)
         {
-            await this.db.Ofertas.AddAsync(oferta);
+            await this.db.Ofertas.AddAsync(o);
             int affected = await this.db.SaveChangesAsync();
             if (affected == 1)
             {
-                return ofertaCache.AddOrUpdate(oferta.OfertaID, oferta, UpdateCache);
+                return ofertaCache.AddOrUpdate((o.OfertaID, o.HotelID), o, UpdateCache);
             }
             return null;
         }
 
-        public async Task<bool?> DeleteAsync(int id)
+        public async Task<bool?> DeleteAsync(int ofertaId, int hotelId)
         {
-            Oferta oferta = await this.db.Ofertas.FindAsync(id);
+            var key = (ofertaId, hotelId);
+            Oferta oferta = await this.db.Ofertas.FindAsync(ofertaId, hotelId);
             this.db.Ofertas.Remove(oferta);
             int affected = await this.db.SaveChangesAsync();
             if (affected == 1)
             {
-                return ofertaCache.TryRemove(id, out oferta);
+                return ofertaCache.TryRemove(key, out oferta);
             }
             return null;
         }
@@ -55,35 +57,37 @@ namespace TravelWithUs.DBContext.Repositories
             );
         }
 
-        public Task<Oferta> RetrieveAsync(int id)
+        public Task<Oferta> RetrieveAsync(int ofertaId, int hotelId)
         {
+            var key = (ofertaId, hotelId);
             return Task.Run(
                 () =>
                 {
-                    ofertaCache.TryGetValue(id, out Oferta oferta);
+                    ofertaCache.TryGetValue(key, out Oferta oferta);
                     return oferta;
                 }
             );
         }
 
-        public async Task<Oferta> UpdateAsync(int id, Oferta oferta)
+        public async Task<Oferta> UpdateAsync(Oferta oferta, int ofertaId, int hotelId)
         {
+            var key = (ofertaId, hotelId);
             this.db.Ofertas.Update(oferta);
             int affected = await this.db.SaveChangesAsync();
             if (affected == 1)
             {
-                return UpdateCache(id, oferta);
+                return UpdateCache(key, oferta);
             }
 
             return null;
         }
 
-        private Oferta UpdateCache(int id, Oferta oferta)
+        private Oferta UpdateCache((int, int) key, Oferta oferta)
         {
             Oferta old;
-            if (ofertaCache.TryGetValue(id, out old))
+            if (ofertaCache.TryGetValue(key, out old))
             {
-                if (ofertaCache.TryUpdate(id, oferta, old))
+                if (ofertaCache.TryUpdate(key, oferta, old))
                 {
                     return oferta;
                 }
