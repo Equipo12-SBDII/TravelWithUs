@@ -19,7 +19,7 @@ import {Element} from "@angular/compiler";
 })
 export class TableOffersComponent {
   dataSource = ELEMENT_DATA;
-  columnsToDisplay = ['No', 'Precio'];
+  columnsToDisplay = ['Nombre', 'Hotel', 'Precio'];
   expandedElement: any;
   @Input('title')title: any;
 
@@ -31,39 +31,46 @@ export class TableOffersComponent {
 }
 
 export interface Elements {
-  No: number;
+  Nombre: string;
+  Hotel: string;
   Precio: number;
   description: string;
 }
 
 const ELEMENT_DATA: Elements[] = [
   {
-    No: 1,
+    Nombre: 'algo',
+    Hotel: 'Melia',
     Precio: 1.0079,
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
         atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   }, {
-    No: 2,
+    Nombre: 'algo',
+    Hotel: 'Melia',
     Precio: 1.0079,
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
         atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   }, {
-    No: 3,
+    Nombre: 'algo',
+    Hotel: 'Melia',
     Precio: 1.0079,
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
         atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   },{
-    No: 4,
+    Nombre: 'algo',
+    Hotel: 'Melia',
     Precio: 1.0079,
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
         atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   }, {
-    No: 5,
+    Nombre: 'algo',
+    Hotel: 'Melia',
     Precio: 1.0079,
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
         atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   }, {
-    No: 6,
+    Nombre: 'algo',
+    Hotel: 'Melia',
     Precio: 1.0079,
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
         atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
