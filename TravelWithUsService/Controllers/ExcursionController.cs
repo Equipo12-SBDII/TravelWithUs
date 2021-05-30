@@ -18,7 +18,22 @@ namespace TravelWithUsService.Controllers
             this.repo = repo;
         }
 
-
+        // GET: api/excursion
+        // GET: api/excursion/?genre=[genre]
+        [HttpGet]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Excursion>))]
+        public async Task<IEnumerable<Excursion>> GetExcursions(string genre)
+        {
+            if (string.IsNullOrEmpty(genre))
+            {
+                return await this.repo.RetrieveAllAsync();
+            }
+            else
+            {
+                return (await this.repo.RetrieveAllAsync())
+                        .Where(f => f.Genre == genre);
+            }
+        }
 
         // GET: api/excursion/[id]
         [HttpGet("{id}")]

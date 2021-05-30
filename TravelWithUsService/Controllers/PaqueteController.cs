@@ -6,25 +6,23 @@ using TravelWithUs.DBContext.Repositories;
 using TravelWithUs.Models;
 
 namespace TravelWithUsService.Controllers
-{  // base address: api/agencia
+{  // base address: api/paquete
     [Route("api/[controller]")]
     [ApiController]
-    public class AgenciaController : ControllerBase
+    public class PaqueteController : ControllerBase
     {
-        private IAgencia repo;
+        private IPaquete repo;
 
-        public AgenciaController(IAgencia repo)
+        public HotelController(IPaquete repo)
         {
             this.repo = repo;
         }
 
-
-        
-        // GET: api/agencia
-        // GET: api/agencia/?genre=[genre]
+        // GET: api/paquete
+        // GET: api/paquete/?genre=[genre]
         [HttpGet]
-        [ProducesResponseType(200, Type = typeof(IEnumerable<Agencia>))]
-        public async Task<IEnumerable<Agencia>> GetAgencies(string genre)
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Paquete>))]
+        public async Task<IEnumerable<Paquete>> GetPackets(string genre)
         {
             if (string.IsNullOrEmpty(genre))
             {
@@ -37,33 +35,33 @@ namespace TravelWithUsService.Controllers
             }
         }
 
-        // GET: api/agencia/[id]
+        // GET: api/paquete/[id]
         [HttpGet("{id}")]
-        [ProducesResponseType(200, Type = typeof(Agencia))]
+        [ProducesResponseType(200, Type = typeof(Paquete))]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> GetAgencia(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            Agencia agencia = await this.repo.RetrieveAsync(id);
+           Paquete paquete = await this.repo.RetrieveAsync(id);
 
-            if (agencia == null)
+            if (paquete == null)
             {
                 return NotFound(); // 404 resource not found
             }
             else
             {
-                return Ok(agencia);
+                return Ok(paquete);
             }
         }
 
 
-        // POST: api/agencia
-        // BODY: Agencia (JSON)
+        // POST: api/paquete
+        // BODY: Paquete (JSON)
         [HttpPost]
-        [ProducesResponseType(201, Type = typeof(Agencia))]
+        [ProducesResponseType(201, Type = typeof(Paquete))]
         [ProducesResponseType(400)]
-        public async Task<IActionResult> Create([FromBody] Agencia agencia)
+        public async Task<IActionResult> Create([FromBody] Paquete paquete)
         {
-            if (agencia == null)
+            if (paquete == null)
             {
                 return BadRequest();  // 400 Bad Request
             }
@@ -73,24 +71,24 @@ namespace TravelWithUsService.Controllers
                 return BadRequest(ModelState); // 400 Bad Request
             }
 
-            Agencia added = await repo.CreateAsync(agencia);
+            Paquete added = await repo.CreateAsync(paquete);
 
             return CreatedAtRoute( // 201 Created
-                routeName: nameof(this.GetAgencia),
-                routeValues: new { id = added.AgenciaID },
+                routeName: nameof(this.Get),
+                routeValues: new { id = added.CodigoP },
                 value: added
             );
         }
 
-        // PUT: api/agencia/[id]
-        // BODY: Agencia (JSON)
+        // PUT: api/paquete/[id]
+        // BODY: Paquete (JSON)
         [HttpPut("{id}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> Update([FromBody] Agencia agencia, int id)
+        public async Task<IActionResult> Update([FromBody] Paquete paquete, int id)
         {
-            if (agencia == null || agencia.AgenciaID != id)
+            if (paquete == null || paquete.CodigoP != id)
             {
                 return BadRequest(); // 400 Bad Request
             }
@@ -107,20 +105,19 @@ namespace TravelWithUsService.Controllers
                 return NotFound();  // 404 Resource not found
             }
 
-            await this.repo.UpdateAsync(id, agencia);
+            await this.repo.UpdateAsync(id,paquete);
 
             return new NoContentResult();   // 204 No Content
-
         }
-        // DELETE: api/agencia/[id]
+        // DELETE: api/paquete/[id]
         [HttpDelete("{id}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         public async Task<IActionResult> Delete(int id)
         {
-            Agencia agencia = await this.repo.RetrieveAsync(id);
-            if (agencia == null)
+            Paquete paquete = await this.repo.RetrieveAsync(id);
+            if (paquete == null)
             {
                 return NotFound();  // 404 Resource No Found
             }
@@ -133,11 +130,12 @@ namespace TravelWithUsService.Controllers
             else
             {
                 return BadRequest(  // 400 Bad Request
-                    $"Agencia with id {id} was found but failed to delete."
+                    $"Paquete with id {id} was found but failed to delete."
                 );
             }
 
         }
+    }
     }
 }
 
