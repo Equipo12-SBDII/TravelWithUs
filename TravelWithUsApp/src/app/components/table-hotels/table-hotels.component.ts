@@ -31,6 +31,12 @@ export class TableHotelsComponent {
       this.document.location.href = 'hotelpage';
     }
   }
+
+  pageRedirect(expandedElement: any) {
+    if(expandedElement) {
+      this.document.location.href = 'hotelpage';
+    }
+  }
 }
 
 export interface Elements {

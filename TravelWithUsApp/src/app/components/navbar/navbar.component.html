@@ -17,13 +17,19 @@
   <button onclick="location.href='/packs'" mat-button class="example-icon" aria-label="Example icon-button with menu icon" href="home">
     <span>Paquetes</span>
   </button>
-
+  <button onclick="location.href='/offers'" mat-button class="example-icon" aria-label="Example icon-button with menu icon" href="home">
+    <span>Ofertas</span>
+  </button>
   <span class="example-spacer"></span>
   <mat-label>Manuel</mat-label>
   <button mat-button [matMenuTriggerFor]="beforeMenu">
     <mat-icon>account_circle</mat-icon>
   </button>
   <mat-menu #beforeMenu="matMenu" xPosition="before">
+    <button mat-menu-item (click)="reserves()">
+      <mat-icon>shopp</mat-icon>
+      <span>Mis Reservas</span>
+    </button>
     <button mat-menu-item>
       <mat-icon>settings</mat-icon>
       <span>Opciones</span>

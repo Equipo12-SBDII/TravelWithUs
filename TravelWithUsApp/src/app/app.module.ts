@@ -44,6 +44,7 @@ import { TablePacksComponent } from './components/table-packs/table-packs.compon
 import { TableOffersHotelComponent } from './components/table-offers-hotel/table-offers-hotel.component';
 import { HotelsComponent } from './hotels/hotels.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { MyReservesComponent } from './my-reserves/my-reserves.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     TablePacksComponent,
     TableOffersHotelComponent,
     HotelsComponent,
-    CarouselComponent
+    CarouselComponent,
+    MyReservesComponent
   ],
   imports: [
     BrowserModule,
