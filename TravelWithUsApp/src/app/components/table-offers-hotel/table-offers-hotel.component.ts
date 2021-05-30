@@ -6,9 +6,9 @@ import {Element} from "@angular/compiler";
  * @title Table with expandable rows
  */
 @Component({
-  selector: 'app-table-offers',
-  styleUrls: ['./table-offers.component.scss'],
-  templateUrl: './table-offers.component.html',
+  selector: 'app-table-offers-hotel',
+  styleUrls: ['./table-offers-hotel.component.scss'],
+  templateUrl: './table-offers-hotel.component.html',
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({height: '0px', minHeight: '0'})),
@@ -17,7 +17,7 @@ import {Element} from "@angular/compiler";
     ]),
   ],
 })
-export class TableOffersComponent {
+export class TableOffersHotelComponent {
   dataSource = ELEMENT_DATA;
   columnsToDisplay = ['No', 'Precio'];
   expandedElement: any;

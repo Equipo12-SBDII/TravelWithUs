@@ -1,5 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, Inject, Input} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {Element} from "@angular/compiler";
+import {DOCUMENT} from "@angular/common";
 
 /**
  * @title Table with expandable rows
@@ -18,62 +20,77 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 })
 export class TableHotelsComponent {
   dataSource = ELEMENT_DATA;
-  columnsToDisplay = ['Oferta', 'Precio', 'position'];
+  columnsToDisplay = ['Nombre', 'Dirección', 'Categoría', 'FechaDeSalida', 'FechaDeLlegada'];
   expandedElement: any;
+  @Input('title')title: any;
+
+  constructor(@Inject(DOCUMENT) private document: any) { }
 
   reserve(expandedElement: any) {
-    console.log(expandedElement.name)
+    if(expandedElement) {
+      this.document.location.href = 'hotelpage';
+    }
   }
 }
 
-export interface PeriodicElement {
-  Oferta: string;
-  position: number;
-  Precio: number;
+export interface Elements {
+  Nombre: string;
+  Dirección: string;
+  Categoría: string;
+  FechaDeSalida: string;
+  FechaDeLlegada: string;
   description: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
+const ELEMENT_DATA: Elements[] = [
   {
-    position: 1,
-    Oferta: 'Hydrogen',
-    Precio: 1.0079,
+    Nombre: 'Hydrogen',
+    Dirección: 'adada',
+    Categoría: '1.0079',
+    FechaDeSalida: 'Has',
+    FechaDeLlegada: "rara",
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
         atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   }, {
-    position: 2,
-    Oferta: 'Helium',
-    Precio: 4.0026,
-    description: `Helium is a chemical element with symbol He and atomic number 2. It is a
-        colorless, odorless, tasteless, non-toxic, inert, monatomic gas, the first in the noble gas
-        group in the periodic table. Its boiling point is the lowest among all the elements.`
+    Nombre: 'Hydrogen',
+    Dirección: 'adada',
+    Categoría: '1.0079',
+    FechaDeSalida: 'Has',
+    FechaDeLlegada: "rara",
+    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
+        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   }, {
-    position: 3,
-    Oferta: 'Lithium',
-    Precio: 6.941,
-    description: `Lithium is a chemical element with symbol Li and atomic number 3. It is a soft,
-        silvery-white alkali metal. Under standard conditions, it is the lightest metal and the
-        lightest solid element.`
+    Nombre: 'Hydrogen',
+    Dirección: 'adada',
+    Categoría: '1.0079',
+    FechaDeSalida: 'Has',
+    FechaDeLlegada: 'rara',
+    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
+        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   }, {
-    position: 4,
-    Oferta: 'Beryllium',
-    Precio: 9.0122,
-    description: `Beryllium is a chemical element with symbol Be and atomic number 4. It is a
-        relatively rare element in the universe, usually occurring as a product of the spallation of
-        larger atomic nuclei that have collided with cosmic rays.`
+    Nombre: 'Hydrogen',
+    Dirección: 'adada',
+    Categoría: '1.0079',
+    FechaDeSalida: 'Has',
+    FechaDeLlegada: "rara",
+    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
+        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   }, {
-    position: 5,
-    Oferta: 'Boron',
-    Precio: 10.811,
-    description: `Boron is a chemical element with symbol B and atomic number 5. Produced entirely
-        by cosmic ray spallation and supernovae and not by stellar nucleosynthesis, it is a
-        low-abundance element in the Solar system and in the Earth's crust.`
+    Nombre: 'Hydrogen',
+    Dirección: 'adada',
+    Categoría: '1.0079',
+    FechaDeSalida: 'Has',
+    FechaDeLlegada: "rara",
+    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
+        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   }, {
-    position: 6,
-    Oferta: 'Carbon',
-    Precio: 12.0107,
-    description: "Carbon is a chemical element with symbol C and atomic number 6. It is nonmetallic " +
-      "and tetravalent—making four electrons available to form covalent chemical bonds. It belongs " +
-      "to group 14 of the periodic table."
+    Nombre: 'Hydrogen',
+    Dirección: 'adada',
+    Categoría: '1.0079',
+    FechaDeSalida: 'Has',
+    FechaDeLlegada: "rara",
+    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
+        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   },
 ];
+

@@ -1,3 +1,5 @@
+<mat-card>
+  <mat-card-title>{{title}}</mat-card-title>
 <table mat-table
        [dataSource]="dataSource" multiTemplateDataRows
        class="mat-elevation-z8">
@@ -27,7 +29,9 @@
   </tr>
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 </table>
+  <br>
 <button mat-flat-button color="primary" (click)="reserve(expandedElement)"  href=»>
   <mat-icon>add_shopping_cart</mat-icon>
   <span>Reservar</span>
 </button>
+</mat-card>

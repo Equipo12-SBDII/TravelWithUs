@@ -6,9 +6,9 @@ import {Element} from "@angular/compiler";
  * @title Table with expandable rows
  */
 @Component({
-  selector: 'app-table-offers',
-  styleUrls: ['./table-offers.component.scss'],
-  templateUrl: './table-offers.component.html',
+  selector: 'app-table-excursion',
+  styleUrls: ['./table-excursion.component.scss'],
+  templateUrl: './table-excursion.component.html',
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({height: '0px', minHeight: '0'})),
@@ -17,9 +17,9 @@ import {Element} from "@angular/compiler";
     ]),
   ],
 })
-export class TableOffersComponent {
+export class TableExcursionComponent {
   dataSource = ELEMENT_DATA;
-  columnsToDisplay = ['No', 'Precio'];
+  columnsToDisplay = ['Precio', 'DíaDeSalida', 'DíaDeLLegada', 'HoraDeSalida', 'HoraDeLLegada', 'LugarDeSalida', 'LugarDeLLegada'];
   expandedElement: any;
   @Input('title')title: any;
 
@@ -31,40 +31,75 @@ export class TableOffersComponent {
 }
 
 export interface Elements {
-  No: number;
   Precio: number;
+  DíaDeSalida: string;
+  DíaDeLLegada: string;
+  HoraDeSalida: string;
+  HoraDeLLegada: string;
+  LugarDeSalida: string;
+  LugarDeLLegada: string;
   description: string;
 }
 
 const ELEMENT_DATA: Elements[] = [
   {
-    No: 1,
-    Precio: 1.0079,
+    Precio: 5,
+    DíaDeSalida: '1',
+    DíaDeLLegada: '2',
+    HoraDeSalida: '0800',
+    HoraDeLLegada: '1400',
+    LugarDeSalida: 'Hotel',
+    LugarDeLLegada: 'Playa',
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
         atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   }, {
-    No: 2,
-    Precio: 1.0079,
+    Precio: 5,
+    DíaDeSalida: '1',
+    DíaDeLLegada: '2',
+    HoraDeSalida: '0800',
+    HoraDeLLegada: '1400',
+    LugarDeSalida: 'Hotel',
+    LugarDeLLegada: 'Playa',
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
         atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   }, {
-    No: 3,
-    Precio: 1.0079,
-    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
-        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
-  },{
-    No: 4,
-    Precio: 1.0079,
-    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
-        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
-  }, {
-    No: 5,
-    Precio: 1.0079,
+    Precio: 5,
+    DíaDeSalida: '1',
+    DíaDeLLegada: '2',
+    HoraDeSalida: '0800',
+    HoraDeLLegada: '1400',
+    LugarDeSalida: 'Hotel',
+    LugarDeLLegada: 'Playa',
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
         atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   }, {
-    No: 6,
-    Precio: 1.0079,
+    Precio: 5,
+    DíaDeSalida: '1',
+    DíaDeLLegada: '2',
+    HoraDeSalida: '0800',
+    HoraDeLLegada: '1400',
+    LugarDeSalida: 'Hotel',
+    LugarDeLLegada: 'Playa',
+    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
+        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
+  }, {
+    Precio: 5,
+    DíaDeSalida: '1',
+    DíaDeLLegada: '2',
+    HoraDeSalida: '0800',
+    HoraDeLLegada: '1400',
+    LugarDeSalida: 'Hotel',
+    LugarDeLLegada: 'Playa',
+    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
+        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
+  }, {
+    Precio: 5,
+    DíaDeSalida: '1',
+    DíaDeLLegada: '2',
+    HoraDeSalida: '0800',
+    HoraDeLLegada: '1400',
+    LugarDeSalida: 'Hotel',
+    LugarDeLLegada: 'Playa',
     description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
         atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   },
