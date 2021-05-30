@@ -9,7 +9,7 @@ namespace TravelWithUs.DBContext.Repositories
 
     public class ReservaPaqueteRepository : IReservaPaquete
     {
-        // ReservaExcursion usa llaves de tipo rp => new { rp.AgenciaID, rp.TuristaID, rp.Codigo };
+        // ReservaPaquete usa llaves de tipo rp => new { rp.AgenciaID, rp.TuristaID, rp.Codigo };
         private static ConcurrentDictionary<(int, int, int), ReservaPaquete> reservaPaqueteCache;
         private TravelWithUsDbContext db;
 
