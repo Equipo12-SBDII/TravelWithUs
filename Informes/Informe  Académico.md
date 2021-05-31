@@ -22,7 +22,7 @@ Producto de la realización del trabajo se obtuvo un sitio web capaz de cumplir 
 
 #### Home
 
-![](D:\3.1 CC\BD\Proyecto\Backend\TravelWithUs\Informes\home.png)
+![](.\home.png)
 
 
 ------
