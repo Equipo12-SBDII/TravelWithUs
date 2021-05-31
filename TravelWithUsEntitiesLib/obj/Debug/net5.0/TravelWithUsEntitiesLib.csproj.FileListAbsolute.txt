@@ -1,0 +1,15 @@
+C:\Users\Peny\Desktop\SBD2\Proyectos 20-21\TravelWithUs\TravelWithUsEntitiesLib\bin\Debug\net5.0\TravelWithUsEntitiesLib.deps.json
+C:\Users\Peny\Desktop\SBD2\Proyectos 20-21\TravelWithUs\TravelWithUsEntitiesLib\bin\Debug\net5.0\TravelWithUsEntitiesLib.runtimeconfig.json
+C:\Users\Peny\Desktop\SBD2\Proyectos 20-21\TravelWithUs\TravelWithUsEntitiesLib\bin\Debug\net5.0\TravelWithUsEntitiesLib.runtimeconfig.dev.json
+C:\Users\Peny\Desktop\SBD2\Proyectos 20-21\TravelWithUs\TravelWithUsEntitiesLib\bin\Debug\net5.0\TravelWithUsEntitiesLib.dll
+C:\Users\Peny\Desktop\SBD2\Proyectos 20-21\TravelWithUs\TravelWithUsEntitiesLib\bin\Debug\net5.0\ref\TravelWithUsEntitiesLib.dll
+C:\Users\Peny\Desktop\SBD2\Proyectos 20-21\TravelWithUs\TravelWithUsEntitiesLib\bin\Debug\net5.0\TravelWithUsEntitiesLib.pdb
+C:\Users\Peny\Desktop\SBD2\Proyectos 20-21\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.csprojAssemblyReference.cache
+C:\Users\Peny\Desktop\SBD2\Proyectos 20-21\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Peny\Desktop\SBD2\Proyectos 20-21\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.AssemblyInfoInputs.cache
+C:\Users\Peny\Desktop\SBD2\Proyectos 20-21\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.AssemblyInfo.cs
+C:\Users\Peny\Desktop\SBD2\Proyectos 20-21\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.csproj.CoreCompileInputs.cache
+C:\Users\Peny\Desktop\SBD2\Proyectos 20-21\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.dll
+C:\Users\Peny\Desktop\SBD2\Proyectos 20-21\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\ref\TravelWithUsEntitiesLib.dll
+C:\Users\Peny\Desktop\SBD2\Proyectos 20-21\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.pdb
+C:\Users\Peny\Desktop\SBD2\Proyectos 20-21\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.genruntimeconfig.cache
