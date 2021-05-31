@@ -6,9 +6,9 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace TravelWithUsService.Security
+namespace TravelWithUs.DBContext.Security
 {
-    public class CanEditOtherAdminRolesAndClaimsHandler : 
+    public class CanEditOtherAdminRolesAndClaimsHandler :
         AuthorizationHandler<ManageAdminRolesAndClaimsRequirement>
     {
         private readonly IHttpContextAccessor httpContextAccessor;
@@ -17,15 +17,15 @@ namespace TravelWithUsService.Security
             this.httpContextAccessor = httpContextAccessor;
         }
 
-        protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, 
+        protected override Task HandleRequirementAsync(AuthorizationHandlerContext context,
             ManageAdminRolesAndClaimsRequirement requirement)
-        { 
+        {
             string loggedInAdminId = context.User.Claims.FirstOrDefault(
                 c => c.Type == ClaimTypes.NameIdentifier).Value;
 
             string adminIdBeingEdited = httpContextAccessor.HttpContext.Request.Path.Value.Split('/').Last();
 
-            if(context.User.IsInRole("Admin") && adminIdBeingEdited.ToLower() != loggedInAdminId.ToLower())
+            if (context.User.IsInRole("Admin") && adminIdBeingEdited.ToLower() != loggedInAdminId.ToLower())
                 context.Succeed(requirement);
             return Task.CompletedTask;
         }

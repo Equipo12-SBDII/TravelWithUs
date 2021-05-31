@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Project.Security
+namespace TravelWithUs.DBContext.Security
 {
     public class SuperAdminHandler : AuthorizationHandler<ManageAdminRolesAndClaimsRequirement>
     {
@@ -12,7 +12,7 @@ namespace Project.Security
         {
             if (context.User.IsInRole("Super Admin"))
                 context.Succeed(requirement);
-            return Task.CompletedTask; 
+            return Task.CompletedTask;
         }
     }
 }

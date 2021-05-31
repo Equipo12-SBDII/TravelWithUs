@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TravelWithUsService.Security
+namespace TravelWithUs.DBContext.Security
 {
     public class ManageAdminRolesAndClaimsRequirement : IAuthorizationRequirement
     {

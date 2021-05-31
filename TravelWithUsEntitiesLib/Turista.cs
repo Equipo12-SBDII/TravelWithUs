@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Identity;
 
 
 namespace TravelWithUs.Models
 {
-    public class Turista:IdentityUser
+    public class Turista
     {
         [Required]
         [Column("IdT")]
@@ -25,7 +24,7 @@ namespace TravelWithUs.Models
 
         public virtual ICollection<ReservaIndividual> ReservasIndividuales { get; set; }
         public virtual ICollection<ReservaPaquete> ReservasPaquetes { get; set; }
-        public virtual ICollection<ReservaExcursion> ReservasExcursiones{ get; set; }
+        public virtual ICollection<ReservaExcursion> ReservasExcursiones { get; set; }
 
         public Turista()
         {

@@ -4,31 +4,31 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Project.Models;
+using TravelWithUs.Models;
 
-namespace TravelWithUsService.Security
+namespace TravelWithUs.DBContext.Security
 {
     public class SecuritySeed
     {
 
-        public static void SeedData(UserManager<Turista> userManager, RoleManager<IdentityRole> roleManager,TravelWithUsDbContext context)
+        public static void SeedData(UserManager<Turista> userManager, RoleManager<IdentityRole> roleManager, TravelWithUsDbContext context)
         {
             SeedRoles(roleManager);
-            SeedUsers(userManager,context);
+            SeedUsers(userManager, context);
         }
 
         private static void SeedUsers(UserManager<Turista> userManager, TravelWithUsDbContext context)
         {
-           
-            if(userManager.FindByNameAsync("Admin").Result == null)
+
+            if (userManager.FindByNameAsync("Admin").Result == null)
             {
                 var user = new Turista
-                { 
+                {
                     Nombre = "Admin",
                     TuristaID = 100,
-                    Nacionalidad = "Cuba"
-                    NormalizedUserName = "ADMIN",
-                    UserName = "Admin",
+                    Nacionalidad = "Cuba",
+                    // NormalizedUserName = "ADMIN",
+                    // UserName = "Admin",
                     // SecurityStamp = Guid.NewGuid().ToString(),
                     // LockoutEnabled = false,
                 };
@@ -42,10 +42,10 @@ namespace TravelWithUsService.Security
                 }
                 catch (Exception e)
                 {
-                   var d = e.InnerException;
+                    var d = e.InnerException;
                 }
             }
-            
+
         }
 
         private static void SeedRoles(RoleManager<IdentityRole> roleManager)
@@ -57,10 +57,10 @@ namespace TravelWithUsService.Security
                 role.NormalizedName = "ADMIN";
                 IdentityResult identityResult = roleManager.CreateAsync(role).Result;
             }
-           
+
         }
 
-      
+
 
     }
 }

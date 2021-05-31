@@ -21,6 +21,7 @@ using System.IO;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerUI;
+using TravelWithUs.DBContext.Security;
 
 namespace TravelWithUsService
 {
