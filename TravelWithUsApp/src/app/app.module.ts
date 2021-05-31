@@ -46,6 +46,12 @@ import { HotelsComponent } from './hotels/hotels.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { MyReservesComponent } from './my-reserves/my-reserves.component';
 import { HotelService } from './components/table-hotels/hotel.service';
+import {AgenciesService} from "./components/table-agencies/agencies.service";
+import {TuristaService} from "./components/table-tourist/tourist.service";
+import {PacksService} from "./components/table-packs/packs.service";
+import {ExcursionService} from "./components/table-excursion/excursion.service";
+import {OfferService} from "./offers/offer.service";
+import {TableOffersService} from "./components/table-offers/table-offers.service";
 
 @NgModule({
   declarations: [
@@ -99,7 +105,7 @@ import { HotelService } from './components/table-hotels/hotel.service';
     MatTableModule,
 
   ],
-  providers: [HotelService],
+  providers: [HotelService, AgenciesService, TuristaService, PacksService, ExcursionService, TableOffersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

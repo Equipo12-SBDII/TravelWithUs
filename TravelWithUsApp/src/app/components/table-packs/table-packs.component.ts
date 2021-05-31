@@ -1,6 +1,10 @@
-import {Component, Input} from '@angular/core';
+import {Component, Inject, Input} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {Element} from "@angular/compiler";
+import {DOCUMENT} from "@angular/common";
+import {ExcursionService} from "../table-excursion/excursion.service";
+import {PacksService} from "./packs.service";
+import {Paquete} from "./packs";
 
 /**
  * @title Table with expandable rows
@@ -18,11 +22,26 @@ import {Element} from "@angular/compiler";
   ],
 })
 export class TablePacksComponent {
+  packsList: Paquete[] = []
   dataSource = ELEMENT_DATA;
-  columnsToDisplay = ['Precio', 'Duración'];
+  columnsToDisplay = ['precio', 'duracion'];
   expandedElement: any;
   @Input('title')title: any;
 
+  constructor(@Inject(DOCUMENT) private document: any, private packService: PacksService) { }
+  ngOnInit() {
+    this.OnGet();
+  }
+  OnGet() {
+    this.packService.GetPaquete().subscribe(
+      (response) => {
+        this.packsList = response;
+        console.log('Helloooooooo.')
+        console.log(this.packsList);
+      },
+      (err) => console.log(err),
+    );
+  }
   reserve(expandedElement: any) {
     if(expandedElement) {
       console.log(expandedElement)

@@ -1,6 +1,10 @@
-import {Component, Input} from '@angular/core';
+import {Component, Inject, Input} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {Element} from "@angular/compiler";
+import {Agencia} from "./agencies";
+import {DOCUMENT} from "@angular/common";
+import {ExcursionService} from "../table-excursion/excursion.service";
+import {AgenciesService} from "./agencies.service";
 
 /**
  * @title Table with expandable rows
@@ -18,10 +22,25 @@ import {Element} from "@angular/compiler";
   ],
 })
 export class TableAgenciesComponent {
-  dataSource = ELEMENT_DATA;
-  columnsToDisplay = ['Nombre', 'Dirección', 'Email', 'NúmeroDeFax'];
+  agenciesList: Agencia[] = []
+  columnsToDisplay = ['nombre', 'direccion', 'email', 'fax'];
   expandedElement: any;
   @Input('title')title: any;
+
+  constructor(@Inject(DOCUMENT) private document: any, private agencyService: AgenciesService) { }
+  ngOnInit() {
+    this.OnGet();
+  }
+  OnGet() {
+    this.agencyService.GetAgencia().subscribe(
+      (response) => {
+        this.agenciesList = response;
+        console.log('Helloooooooo.')
+        console.log(this.agenciesList);
+      },
+      (err) => console.log(err),
+    );
+  }
 
   reserve(expandedElement: any) {
     if(expandedElement) {
@@ -29,58 +48,4 @@ export class TableAgenciesComponent {
     }
   }
 }
-
-export interface Elements {
-  Nombre: string;
-  Email: string;
-  Dirección: string;
-  NúmeroDeFax: string;
-  description: string;
-}
-
-const ELEMENT_DATA: Elements[] = [
-  {
-    Nombre: 'Hydrogen',
-    Email: '1.0079',
-    Dirección: 'adada',
-    NúmeroDeFax: 'Has',
-    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
-        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
-  }, {
-    Nombre: 'Hydrogen',
-    Email: '1.0079',
-    Dirección: 'adada',
-    NúmeroDeFax: 'Has',
-    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
-        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
-  }, {
-    Nombre: 'Hydrogen',
-    Email: '1.0079',
-    Dirección: 'adada',
-    NúmeroDeFax: 'Has',
-    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
-        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
-  }, {
-    Nombre: 'Hydrogen',
-    Email: '1.0079',
-    Dirección: 'adada',
-    NúmeroDeFax: 'Has',
-    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
-        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
-  }, {
-    Nombre: 'Hydrogen',
-    Email: '1.0079',
-    Dirección: 'adada',
-    NúmeroDeFax: 'Has',
-    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
-        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
-  }, {
-    Nombre: 'Hydrogen',
-    Email: '1.0079',
-    Dirección: 'adada',
-    NúmeroDeFax: 'Has',
-    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
-        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
-  },
-];
 

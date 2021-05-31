@@ -1,16 +1,16 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
-import { Oferta } from './offers';
+import { Paquete } from './packs';
 import { Observable } from "rxjs";
 
 @Injectable()
-export class TableOffersService {
-  private dataPath = 'https://localhost:5001/api/oferta';
+export class PacksService {
+  private dataPath = 'https://localhost:5001/api/paquete';
 
   constructor(private http: HttpClient) { }
 
-  GetOferta() {
-    return this.http.get<Oferta[]>(this.dataPath);
+  GetPaquete() {
+    return this.http.get<Paquete[]>(this.dataPath);
   }
 
 }

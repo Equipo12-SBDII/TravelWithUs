@@ -1,6 +1,9 @@
-import {Component, Input} from '@angular/core';
+import {Component, Inject, Input} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {Element} from "@angular/compiler";
+import {Oferta} from "./offers";
+import {TableOffersService} from "./table-offers.service";
+import {DOCUMENT} from "@angular/common";
 
 /**
  * @title Table with expandable rows
@@ -18,10 +21,26 @@ import {Element} from "@angular/compiler";
   ],
 })
 export class TableOffersComponent {
+  offersList: Oferta[] = [];
   dataSource = ELEMENT_DATA;
-  columnsToDisplay = ['Nombre', 'Hotel', 'Precio'];
+  columnsToDisplay = ['nombre', 'hotel', 'precio'];
   expandedElement: any;
   @Input('title')title: any;
+
+  ngOnInit() {
+    this.OnGet();
+  }
+  constructor(@Inject(DOCUMENT) private document: any, private offersService: TableOffersService) { }
+  OnGet() {
+    this.offersService.GetOferta().subscribe(
+      (response) => {
+        this.offersList = response;
+        console.log('Helloooooooo.')
+        console.log(this.offersList);
+      },
+      (err) => console.log(err),
+    );
+  }
 
   reserve(expandedElement: any) {
     if(expandedElement) {
