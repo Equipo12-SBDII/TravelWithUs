@@ -22,7 +22,6 @@ import { Hotel } from './hotel.model';
 })
 export class TableHotelsComponent implements OnInit {
   hotelList: Hotel[] = [];
-  dataSource = ELEMENT_DATA;
   columnsToDisplay = ['hotelID', 'nombre', 'direccion', 'categoria'];
   expandedElement: any;
   @Input('title') title: any;
@@ -56,65 +55,3 @@ export class TableHotelsComponent implements OnInit {
       );
     }
 }
-
-export interface Elements {
-  Nombre: string;
-  Dirección: string;
-  Categoría: string;
-  FechaDeSalida: string;
-  FechaDeLlegada: string;
-  description: string;
-}
-
-const ELEMENT_DATA: Elements[] = [
-  {
-    Nombre: 'Hydrogen',
-    Dirección: 'adada',
-    Categoría: '1.0079',
-    FechaDeSalida: 'Has',
-    FechaDeLlegada: "rara",
-    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
-        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
-  }, {
-    Nombre: 'Hydrogen',
-    Dirección: 'adada',
-    Categoría: '1.0079',
-    FechaDeSalida: 'Has',
-    FechaDeLlegada: "rara",
-    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
-        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
-  }, {
-    Nombre: 'Hydrogen',
-    Dirección: 'adada',
-    Categoría: '1.0079',
-    FechaDeSalida: 'Has',
-    FechaDeLlegada: 'rara',
-    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
-        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
-  }, {
-    Nombre: 'Hydrogen',
-    Dirección: 'adada',
-    Categoría: '1.0079',
-    FechaDeSalida: 'Has',
-    FechaDeLlegada: "rara",
-    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
-        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
-  }, {
-    Nombre: 'Hydrogen',
-    Dirección: 'adada',
-    Categoría: '1.0079',
-    FechaDeSalida: 'Has',
-    FechaDeLlegada: "rara",
-    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
-        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
-  }, {
-    Nombre: 'Hydrogen',
-    Dirección: 'adada',
-    Categoría: '1.0079',
-    FechaDeSalida: 'Has',
-    FechaDeLlegada: "rara",
-    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
-        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
-  },
-];
-

@@ -22,7 +22,7 @@ import {DOCUMENT} from "@angular/common";
 })
 export class TableOffersComponent {
   offersList: Oferta[] = [];
-  dataSource = ELEMENT_DATA;
+  //dataSource = ELEMENT_DATA;
   columnsToDisplay = ['nombre', 'hotel', 'precio'];
   expandedElement: any;
   @Input('title')title: any;
@@ -49,7 +49,7 @@ export class TableOffersComponent {
   }
 }
 
-export interface Elements {
+/* export interface Elements {
   Nombre: string;
   Hotel: string;
   Precio: number;
@@ -95,3 +95,4 @@ const ELEMENT_DATA: Elements[] = [
         atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
   },
 ];
+ */

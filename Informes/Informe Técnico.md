@@ -1,8 +1,7 @@
 # Informe Técnico
 
-## TravelWithUs
+## We Travel With Us
 
-------
 
 ## Autores:
 
@@ -81,7 +80,7 @@
 #### Reserva Individual
 
 | Llave | Nombre | Tipo |
-| :---- | :----- | :--- |
+| :-- | :----- | :--- |
 |       |        |      |
 |       |        |      |
 |       |        |      |

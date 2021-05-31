@@ -18,16 +18,23 @@ Para el desarrollo de este sitio web, decidimos trabajar enfocados en una arquit
 ---
 ## Resultados Obtenidos:
 
-Presentar el software, lo que ve el usuario, ejemplificando algunas opciones, las más usadas o novedosas.
+Producto de la realización del trabajo se obtuvo un sitio web capaz de cumplir con los ya planteados requerimientos. Se logró satisfacer cada una de las necesidades propuestas por la aplicación, permitiendo decir que esta cumple con nuestras expectativas. El proyecto responde a las exigencias impuestas, como son un modelo de base de datos correctamente elaborado y un eficaz uso de las herramientas necesarias para el desarrollo de nuestra aplicación.
+
+#### Home
+
+![](D:\3.1 CC\BD\Proyecto\Backend\TravelWithUs\Informes\home.png)
+
 
 ------
 
+#### Register
+
+![](D:\3.1 CC\BD\Proyecto\Backend\TravelWithUs\Informes\register.png)
+
 ## Conclusiones:
 
-A modo de conclusiones se puede decir que, realizando un correcto desarrollo conceptual y uso de un modelo de
-bases de datos, pues es casi seguro un desarrollo eficiente de un producto de alta calidad, así como el buen uso de
-los elementos correspondientes a la ingeniería de software, los cuales complementan el desarrollo
-de la aplicación y generan una calidad en el resultado.
+A modo de conclusiones se puede decir que, realizando un correcto uso y desarrollo conceptual de un modelo de
+bases de datos, pues es casi seguro el desarrollo eficiente de un producto de alta calidad. Esto, sumado a la certera utilización de los elementos correspondientes a la ingeniería de software, los cuales constituyen un factor primordial en el desenvolvimiento de la aplicación, permitió que el resultado obtenido constituyera una aplicación de buena calificación.
 
 
 ---
