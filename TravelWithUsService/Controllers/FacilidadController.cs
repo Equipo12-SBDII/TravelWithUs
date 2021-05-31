@@ -19,24 +19,15 @@ namespace TravelWithUsService.Controllers
         }
 
         // GET: api/facilidad
-        // GET: api/facilidad/?genre=[genre]
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Facilidad>))]
         public async Task<IEnumerable<Facilidad>> GetFacilidades(string genre)
         {
-            if (string.IsNullOrEmpty(genre))
-            {
-                return await this.repo.RetrieveAllAsync();
-            }
-            else
-            {
-                return (await this.repo.RetrieveAllAsync())
-                        .Where(f => f.Genre == genre);
-            }
+            return await this.repo.RetrieveAllAsync();
         }
 
         // GET: api/facilidad/[id]
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         [ProducesResponseType(200, Type = typeof(Facilidad))]
         [ProducesResponseType(404)]
         public async Task<IActionResult> Get(int id)
@@ -82,7 +73,7 @@ namespace TravelWithUsService.Controllers
 
         // PUT: api/facilidad/[id]
         // BODY: Facilidad (JSON)
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -110,7 +101,7 @@ namespace TravelWithUsService.Controllers
             return new NoContentResult();   // 204 No Content
         }
         // DELETE: api/facilidad/[id]
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]

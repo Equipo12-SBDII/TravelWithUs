@@ -1,7 +1,9 @@
-import {Component, Inject, Input} from '@angular/core';
-import {animate, state, style, transition, trigger} from '@angular/animations';
-import {Element} from "@angular/compiler";
-import {DOCUMENT} from "@angular/common";
+import { Component, Inject, Input, OnInit } from '@angular/core';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { Element } from "@angular/compiler";
+import { DOCUMENT } from "@angular/common";
+import { HotelService } from './hotel.service';
+import { Hotel } from './hotel.model';
 
 /**
  * @title Table with expandable rows
@@ -12,28 +14,36 @@ import {DOCUMENT} from "@angular/common";
   templateUrl: './table-hotels.component.html',
   animations: [
     trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
   ],
 })
-export class TableHotelsComponent {
+export class TableHotelsComponent implements OnInit {
+  hotelList: any = [];
   dataSource = ELEMENT_DATA;
   columnsToDisplay = ['Nombre', 'Dirección', 'Categoría', 'FechaDeSalida', 'FechaDeLlegada'];
   expandedElement: any;
-  @Input('title')title: any;
+  @Input('title') title: any;
 
-  constructor(@Inject(DOCUMENT) private document: any) { }
+  constructor(@Inject(DOCUMENT) private document: any, private hotelService: HotelService) { }
+
+  ngOnInit() {
+    this.hotelService.GetHotel().subscribe(
+      (data) => { console.log(data) },
+      (err) => console.log(err)
+    );
+  }
 
   reserve(expandedElement: any) {
-    if(expandedElement) {
+    if (expandedElement) {
       this.document.location.href = 'hotelpage';
     }
   }
 
   pageRedirect(expandedElement: any) {
-    if(expandedElement) {
+    if (expandedElement) {
       this.document.location.href = 'hotelpage';
     }
   }

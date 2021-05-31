@@ -1,5 +1,7 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {DOCUMENT} from "@angular/common";
+import { Component, Inject, OnInit } from '@angular/core';
+import { DOCUMENT } from "@angular/common";
+import { OfferService } from "./offer.service";
+import { Offer } from './offer.model'
 
 @Component({
   selector: 'app-offers',
@@ -7,10 +9,15 @@ import {DOCUMENT} from "@angular/common";
   styleUrls: ['./offers.component.scss']
 })
 export class OffersComponent implements OnInit {
-
-  constructor(@Inject(DOCUMENT) private document: any) { }
+  offerList!: Offer[];
+  constructor(@Inject(DOCUMENT) private document: any, private offerService: OfferService) { }
 
   ngOnInit(): void {
+    this.offerService.getData().subscribe(
+      (data) => {
+        this.offerList = data;
+      }, (err) => console.log(err)
+    );
   }
 
 }

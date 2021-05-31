@@ -11,7 +11,7 @@ namespace TravelWithUsService.Controllers
     [ApiController]
     public class HotelController : ControllerBase
     {
-         private IHotel repo;
+        private IHotel repo;
 
         public HotelController(IHotel repo)
         {
@@ -20,25 +20,16 @@ namespace TravelWithUsService.Controllers
 
 
         // GET: api/hotel
-        // GET: api/hotel/?genre=[genre]
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Hotel>))]
-        public async Task<IEnumerable<Hotel>> GetHoteles(string genre)
+        public async Task<IEnumerable<Hotel>> GetHoteles()
         {
-            if (string.IsNullOrEmpty(genre))
-            {
-                return await this.repo.RetrieveAllAsync();
-            }
-            else
-            {
-                return (await this.repo.RetrieveAllAsync())
-                        .Where(f => f.Genre == genre);
-            }
+            return await this.repo.RetrieveAllAsync();
         }
 
 
         // GET: api/hotel/[id]
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         [ProducesResponseType(200, Type = typeof(Hotel))]
         [ProducesResponseType(404)]
         public async Task<IActionResult> Get(int id)
@@ -84,7 +75,7 @@ namespace TravelWithUsService.Controllers
 
         // PUT: api/hotel/[id]
         // BODY: Hotel (JSON)
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -114,7 +105,7 @@ namespace TravelWithUsService.Controllers
         }
 
         // DELETE: api/hotel/[id]
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]

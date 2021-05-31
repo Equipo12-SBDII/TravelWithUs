@@ -17,6 +17,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 
 
+using System.IO;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.AspNetCore.SwaggerUI;
+
 namespace TravelWithUsService
 {
     public class Startup
@@ -31,19 +36,24 @@ namespace TravelWithUsService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            string databasePath = System.IO.Path.Combine(
-                "..", "TravelWithUsDB.db");
+            // string databasePath = System.IO.Path.Combine(
+            //     "..", "TravelWithUsDB.db");
+            // services.AddDbContext<TravelWithUsDbContext>(options =>
+            //     options.UseSqlite($"Data Source={databasePath}")
+            // );
             services.AddDbContext<TravelWithUsDbContext>(options =>
-                options.UseSqlite($"Data Source={databasePath}")
-            );
-
-            services.AddControllers();
+                options.UseSqlServer($"Server=(localDB)\\MSSQLLocalDB;Database=TravelWithUsDB;Integrated Security=true;"));
+            services.AddControllers()
+            .AddXmlDataContractSerializerFormatters()
+            .AddXmlSerializerFormatters()
+            .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TravelWithUsService", Version = "v1" });
             });
 
-             services.AddAuthorization(options =>
+
+            services.AddAuthorization(options =>
             {
                 options.AddPolicy("ManageRolesAndClaimsPolicy",
                     policy => policy.AddRequirements(new ManageAdminRolesAndClaimsRequirement()));
@@ -61,12 +71,20 @@ namespace TravelWithUsService
                     policy => policy.RequireRole("Admin"));
             });
 
+            services.AddScoped<IAgencia, AgenciaRepository>();
+            services.AddScoped<IExcursion, ExcursionRepository>();
+            services.AddScoped<IFacilidad, FacilidadRepository>();
+            services.AddScoped<IHotel, HotelRepository>();
+            services.AddScoped<IOferta, OfertaRepository>();
+            services.AddScoped<IPaquete, PaqueteRepository>();
+            services.AddScoped<IReservaExcursion, ReservaExcursionRepository>();
+            services.AddScoped<IReservaIndividual, ReservaIndividualRepository>();
+            services.AddScoped<IReservaPaquete, ReservaPaqueteRepository>();
+            services.AddScoped<ITurista, TuristaRepository>();
 
-            services.AddScoped<IAgencia, AgenciaRepository>()
-            .AddScoped<IExcursion, ExcursionRepository>()
-            .AddScoped<IFacilidad, FacilidadRepository>()
-            .AddScoped<IHotel, HotelRepository>();
 
+            services.AddScoped<IAuthorizationHandler, CanEditOtherAdminRolesAndClaimsHandler>();
+            services.AddSingleton<IAuthorizationHandler, SuperAdminHandler>();
 
         }
 
@@ -77,8 +95,15 @@ namespace TravelWithUsService
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TravelWithUsService v1"));
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "TravelWithUsService v1");
+
+                    c.SupportedSubmitMethods(new[] {SubmitMethod.Get, SubmitMethod.Post,
+                    SubmitMethod.Put, SubmitMethod.Delete });
+                });
             }
+
 
             app.UseHttpsRedirection();
 
