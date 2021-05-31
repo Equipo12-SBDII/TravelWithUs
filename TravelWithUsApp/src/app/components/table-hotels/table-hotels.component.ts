@@ -21,19 +21,16 @@ import { Hotel } from './hotel.model';
   ],
 })
 export class TableHotelsComponent implements OnInit {
-  hotelList: any = [];
+  hotelList: Hotel[] = [];
   dataSource = ELEMENT_DATA;
-  columnsToDisplay = ['Nombre', 'Dirección', 'Categoría', 'FechaDeSalida', 'FechaDeLlegada'];
+  columnsToDisplay = ['hotelID', 'descripcion', 'direccion', 'categoria'];
   expandedElement: any;
   @Input('title') title: any;
 
   constructor(@Inject(DOCUMENT) private document: any, private hotelService: HotelService) { }
 
   ngOnInit() {
-    this.hotelService.GetHotel().subscribe(
-      (data) => { console.log(data) },
-      (err) => console.log(err)
-    );
+    this.OnGet();
   }
 
   reserve(expandedElement: any) {
@@ -46,6 +43,17 @@ export class TableHotelsComponent implements OnInit {
     if (expandedElement) {
       this.document.location.href = 'hotelpage';
     }
+  }
+
+  OnGet() {
+    this.hotelService.GetHotel().subscribe(
+      (response) => {
+        this.hotelList = response;
+        console.log('Helloooooooo.')
+        console.log(this.hotelList);
+      },
+      (err) => console.log(err),
+    );
   }
 }
 

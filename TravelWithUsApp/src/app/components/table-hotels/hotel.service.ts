@@ -1,12 +1,12 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Hotel } from './hotel.model';
 import { Observable } from "rxjs";
 
 @Injectable()
 export class HotelService {
   private dataPath = 'https://localhost:5001/api/hotel';
-  hoteles!: Observable<Hotel[]>;
+
   constructor(private http: HttpClient) { }
 
   GetHotel() {
