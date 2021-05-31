@@ -16,4 +16,8 @@ export class NavbarComponent implements OnInit {
   logof() {
     this.document.location.href = 'login';
   }
+
+  reserves() {
+    this.document.location.href = 'myreserves';
+  }
 }

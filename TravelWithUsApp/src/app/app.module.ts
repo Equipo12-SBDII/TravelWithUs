@@ -37,6 +37,14 @@ import {PacksComponent} from "./packs/packs.component";
 import { TouristComponent } from './tourist/tourist.component';
 import { AgenciesComponent } from './agencies/agencies.component';
 import { ExcursionComponent } from './excursion/excursion.component';
+import { TableAgenciesComponent } from './components/table-agencies/table-agencies.component';
+import { TableTouristComponent } from './components/table-tourist/table-tourist.component';
+import { TableExcursionComponent } from './components/table-excursion/table-excursion.component';
+import { TablePacksComponent } from './components/table-packs/table-packs.component';
+import { TableOffersHotelComponent } from './components/table-offers-hotel/table-offers-hotel.component';
+import { HotelsComponent } from './hotels/hotels.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { MyReservesComponent } from './my-reserves/my-reserves.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +66,15 @@ import { ExcursionComponent } from './excursion/excursion.component';
     PacksComponent,
     TouristComponent,
     AgenciesComponent,
-    ExcursionComponent
+    ExcursionComponent,
+    TableAgenciesComponent,
+    TableTouristComponent,
+    TableExcursionComponent,
+    TablePacksComponent,
+    TableOffersHotelComponent,
+    HotelsComponent,
+    CarouselComponent,
+    MyReservesComponent
   ],
   imports: [
     BrowserModule,
