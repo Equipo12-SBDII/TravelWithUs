@@ -4,11 +4,17 @@ import { from } from "rxjs";
 
 import { Offer } from './offer.model'
 
-@Injectable
+@Injectable({
+  providedIn: 'root'
+})
 export class OfferService {
-  serverPath = 'https://localhost:5001/api/oferta'
+  private serverPath = 'https://localhost:5001/api/oferta'
   constructor(private http: HttpClient) {
 
+  }
+
+  getData() {
+    return this.http.get<Offer[]>(this.serverPath);
   }
 
 }
