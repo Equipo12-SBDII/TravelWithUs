@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsService\\TravelWithUsService.csproj": {}
+    "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsService\\TravelWithUsService.csproj": {}
   },
   "projects": {
-    "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj": {
+    "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj",
+        "projectUniqueName": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj",
         "projectName": "TravelWithUsContextLib",
-        "projectPath": "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj",
+        "projectPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj",
         "packagesPath": "C:\\Users\\Cynthia-PC\\.nuget\\packages\\",
-        "outputPath": "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\obj\\",
+        "outputPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Cynthia-PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,8 +26,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj": {
-                "projectPath": "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj"
+              "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj": {
+                "projectPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj"
               }
             }
           }
@@ -70,14 +70,14 @@
         }
       }
     },
-    "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj": {
+    "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj",
+        "projectUniqueName": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj",
         "projectName": "TravelWithUsEntitiesLib",
-        "projectPath": "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj",
+        "projectPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj",
         "packagesPath": "C:\\Users\\Cynthia-PC\\.nuget\\packages\\",
-        "outputPath": "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\obj\\",
+        "outputPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Cynthia-PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -144,14 +144,14 @@
         }
       }
     },
-    "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsService\\TravelWithUsService.csproj": {
+    "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsService\\TravelWithUsService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsService\\TravelWithUsService.csproj",
+        "projectUniqueName": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsService\\TravelWithUsService.csproj",
         "projectName": "TravelWithUsService",
-        "projectPath": "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsService\\TravelWithUsService.csproj",
+        "projectPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsService\\TravelWithUsService.csproj",
         "packagesPath": "C:\\Users\\Cynthia-PC\\.nuget\\packages\\",
-        "outputPath": "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsService\\obj\\",
+        "outputPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Cynthia-PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -166,8 +166,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj": {
-                "projectPath": "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj"
+              "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj": {
+                "projectPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj"
               }
             }
           }
@@ -182,7 +182,7 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore.SQLite": {
+            "Microsoft.EntityFrameworkCore.SqLite": {
               "target": "Package",
               "version": "[5.0.5, )"
             },

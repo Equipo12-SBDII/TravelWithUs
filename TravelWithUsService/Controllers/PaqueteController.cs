@@ -19,29 +19,20 @@ namespace TravelWithUsService.Controllers
         }
 
         // GET: api/paquete
-        // GET: api/paquete/?genre=[genre]
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Paquete>))]
-        public async Task<IEnumerable<Paquete>> GetPaquetes(string genre)
+        public async Task<IEnumerable<Paquete>> GetPaquetes()
         {
-            if (string.IsNullOrEmpty(genre))
-            {
-                return await this.repo.RetrieveAllAsync();
-            }
-            else
-            {
-                return (await this.repo.RetrieveAllAsync())
-                        .Where(f => f.Genre == genre);
-            }
+            return await this.repo.RetrieveAllAsync();
         }
 
         // GET: api/paquete/[id]
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         [ProducesResponseType(200, Type = typeof(Paquete))]
         [ProducesResponseType(404)]
         public async Task<IActionResult> Get(int id)
         {
-           Paquete paquete = await this.repo.RetrieveAsync(id);
+            Paquete paquete = await this.repo.RetrieveAsync(id);
 
             if (paquete == null)
             {
@@ -71,24 +62,24 @@ namespace TravelWithUsService.Controllers
                 return BadRequest(ModelState); // 400 Bad Request
             }
 
-            ReservaExcursion added = await repo.CreateAsync(paquete);
+            Paquete added = await this.repo.CreateAsync(paquete);
 
             return CreatedAtRoute( // 201 Created
                 routeName: nameof(this.Get),
-                routeValues: new { id = added.CodigoP },
+                routeValues: new { id = added.Codigo },
                 value: added
             );
         }
 
         // PUT: api/paquete/[id]
         // BODY: Paquete (JSON)
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         public async Task<IActionResult> Update([FromBody] Paquete paquete, int id)
         {
-            if (paquete == null || paquete.CodigoP != id)
+            if (paquete == null || paquete.Codigo != id)
             {
                 return BadRequest(); // 400 Bad Request
             }
@@ -105,12 +96,12 @@ namespace TravelWithUsService.Controllers
                 return NotFound();  // 404 Resource not found
             }
 
-            await this.repo.UpdateAsync(id,paquete);
+            await this.repo.UpdateAsync(id, paquete);
 
             return new NoContentResult();   // 204 No Content
         }
         // DELETE: api/paquete/[id]
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -136,16 +127,4 @@ namespace TravelWithUsService.Controllers
 
         }
     }
-    }
 }
-
-
-
-
-
-
-
-
-
-
-

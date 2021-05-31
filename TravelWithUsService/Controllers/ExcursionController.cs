@@ -19,24 +19,15 @@ namespace TravelWithUsService.Controllers
         }
 
         // GET: api/excursion
-        // GET: api/excursion/?genre=[genre]
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Excursion>))]
-        public async Task<IEnumerable<Excursion>> GetExcursiones(string genre)
+        public async Task<IEnumerable<Excursion>> GetExcursiones()
         {
-            if (string.IsNullOrEmpty(genre))
-            {
-                return await this.repo.RetrieveAllAsync();
-            }
-            else
-            {
-                return (await this.repo.RetrieveAllAsync())
-                        .Where(f => f.Genre == genre);
-            }
+            return await this.repo.RetrieveAllAsync();
         }
 
         // GET: api/excursion/[id]
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         [ProducesResponseType(200, Type = typeof(Excursion))]
         [ProducesResponseType(404)]
         public async Task<IActionResult> Get(int id)
@@ -82,7 +73,7 @@ namespace TravelWithUsService.Controllers
 
         // PUT: api/excursion/[id]
         // BODY: Excursion (JSON)
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -110,7 +101,7 @@ namespace TravelWithUsService.Controllers
             return new NoContentResult();   // 204 No Content
         }
         // DELETE: api/excursion/[id]
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]

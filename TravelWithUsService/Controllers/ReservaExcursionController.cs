@@ -24,24 +24,16 @@ namespace TravelWithUsService.Controllers
         [ProducesResponseType(200, Type = typeof(IEnumerable<ReservaExcursion>))]
         public async Task<IEnumerable<ReservaExcursion>> GetReservasExcursiones(string genre)
         {
-            if (string.IsNullOrEmpty(genre))
-            {
-                return await this.repo.RetrieveAllAsync();
-            }
-            else
-            {
-                return (await this.repo.RetrieveAllAsync())
-                        .Where(f => f.Genre == genre);
-            }
+            return await this.repo.RetrieveAllAsync();
         }
 
-        // GET: api/reservaExcursion/idA/idE/idT
-        [HttpGet("{idA}/{idE}/{idT}")]
+        // GET: api/reservaExcursion/[idA]/[idE]/[idT]
+        [HttpGet("{idA:int}/{idE:int}/{idT:int}")]
         [ProducesResponseType(200, Type = typeof(ReservaExcursion))]
         [ProducesResponseType(404)]
         public async Task<IActionResult> Get(int idA, int idE, int idT)
         {
-           ReservaExcursion r = await this.repo.RetrieveAsync( idA, idE,  idT);
+            ReservaExcursion r = await this.repo.RetrieveAsync(idA, idE, idT);
 
             if (r == null)
             {
@@ -59,7 +51,7 @@ namespace TravelWithUsService.Controllers
         [HttpPost]
         [ProducesResponseType(201, Type = typeof(ReservaExcursion))]
         [ProducesResponseType(400)]
-        public async Task<IActionResult> Create([FromBody]ReservaExcursion r)
+        public async Task<IActionResult> Create([FromBody] ReservaExcursion r)
         {
             if (r == null)
             {
@@ -75,20 +67,20 @@ namespace TravelWithUsService.Controllers
 
             return CreatedAtRoute( // 201 Created
                 routeName: nameof(this.Get),
-                routeValues: new { idA = added.IdA, idE=added.IdE, idT=added.idT},  
+                routeValues: new { idA = added.AgenciaID, idE = added.ExcursionID, idT = added.TuristaID },
                 value: added
             );
         }
 
         // PUT: api/reservaExcursion/idA/idE/idT
         // BODY: ReservaExcursion (JSON)
-        [HttpGet("{idA}/{idE}/{idT}")]
+        [HttpGet("{idA:int}/{idE:int}/{idT:int}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> Update([FromBody] ReservaExcursion r, int idA, int idE, int idT)
+        public async Task<IActionResult> Update([FromBody] ReservaExcursion re, int idA, int idE, int idT)
         {
-            if (r== null || r.AgenciaID!= idA  || r.ExcursionID != idE || r.TuristaID != idT)
+            if (re == null || re.AgenciaID != idA || re.ExcursionID != idE || re.TuristaID != idT)
             {
                 return BadRequest(); // 400 Bad Request
             }
@@ -98,31 +90,31 @@ namespace TravelWithUsService.Controllers
                 return BadRequest(ModelState); // 400 Bad request
             }
 
-            var existing = await this.repo.RetrieveAsync( idA, idE,  idT);
+            var existing = await this.repo.RetrieveAsync(idA, idE, idT);
 
             if (existing == null)
             {
                 return NotFound();  // 404 Resource not found
             }
 
-            await this.repo.UpdateAsync( idA,  idE, idT, r);
+            await this.repo.UpdateAsync(re, idA, idE, idT);
 
             return new NoContentResult();   // 204 No Content
         }
         // DELETE: api/reservaExcursion/idA/idE/idT
-        [HttpGet("{idA}/{idE}/{idT}")]
+        [HttpGet("{idA:int}/{idE:int}/{idT:int}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         public async Task<IActionResult> Delete(int idA, int idE, int idT)
         {
-            ReservaExcursion r = await this.repo.RetrieveAsync( idA,  idE, idT);
+            ReservaExcursion r = await this.repo.RetrieveAsync(idA, idE, idT);
             if (r == null)
             {
                 return NotFound();  // 404 Resource No Found
             }
 
-            bool? deleted = await this.repo.DeleteAsync(idA,  idE,  idT);
+            bool? deleted = await this.repo.DeleteAsync(idA, idE, idT);
             if (deleted.HasValue && deleted.Value)
             {
                 return new NoContentResult();   // 204 No Content
@@ -130,22 +122,10 @@ namespace TravelWithUsService.Controllers
             else
             {
                 return BadRequest(  // 400 Bad Request
-                    $"ReservaExcursion with id { idA,  idE, idT} was found but failed to delete."
+                    $"ReservaExcursion with id ({idA}, {idE}, {idT}) was found but failed to delete."
                 );
             }
 
         }
     }
-    }
 }
-
-
-
-
-
-
-
-
-
-
-

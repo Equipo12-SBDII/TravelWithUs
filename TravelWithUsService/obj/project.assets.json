@@ -6326,7 +6326,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "Microsoft.EntityFrameworkCore.SQLite >= 5.0.5",
+      "Microsoft.EntityFrameworkCore.SqLite >= 5.0.5",
       "Swashbuckle.AspNetCore >= 5.6.3",
       "TravelWithUsContextLib >= 1.0.0"
     ]
@@ -6337,11 +6337,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsService\\TravelWithUsService.csproj",
+      "projectUniqueName": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsService\\TravelWithUsService.csproj",
       "projectName": "TravelWithUsService",
-      "projectPath": "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsService\\TravelWithUsService.csproj",
+      "projectPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsService\\TravelWithUsService.csproj",
       "packagesPath": "C:\\Users\\Cynthia-PC\\.nuget\\packages\\",
-      "outputPath": "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsService\\obj\\",
+      "outputPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsService\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Cynthia-PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -6356,8 +6356,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj": {
-              "projectPath": "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj"
+            "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj": {
+              "projectPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj"
             }
           }
         }
@@ -6372,7 +6372,7 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.SQLite": {
+          "Microsoft.EntityFrameworkCore.SqLite": {
             "target": "Package",
             "version": "[5.0.5, )"
           },
@@ -6402,13 +6402,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsService\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

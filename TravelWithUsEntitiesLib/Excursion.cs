@@ -1,4 +1,4 @@
- using System.Collections.Generic;
+using System.Collections.Generic;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -19,23 +19,23 @@ namespace TravelWithUs.Models
 
         [Column("DescripcionE")]
         [MaxLength(1000)]
-        public string Descripcion{get;set;}
+        public string Descripcion { get; set; }
 
-        [Column("DiaSalidaE")]
+        [Column("FechaSalidaE")]
         [Required]
-        public DateTime DiaSalida { get; set; }
+        public DateTime FechaSalida { get; set; }
 
-        [Column("DiaLlegadaE")]
+        [Column("FechaLlegadaE")]
         [Required]
-        public DateTime DiaLlegada { get; set; }
+        public DateTime FechaLlegada { get; set; }
 
-        [Column("HoraSalidaE")]
-        [Required]
-        public DateTime HoraSalida { get; set; }
+        // [Column("HoraSalidaE")]
+        // [Required]
+        // public DateTime HoraSalida { get; set; }
 
-        [Column("HoraLlegadaE")]
-        [Required]
-        public DateTime HoraLlegada { get; set; }
+        // [Column("HoraLlegadaE")]
+        // [Required]
+        // public DateTime HoraLlegada { get; set; }
 
         [Column("LugarSalidaE")]
         [Required]

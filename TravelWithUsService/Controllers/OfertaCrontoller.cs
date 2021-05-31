@@ -13,35 +13,26 @@ namespace TravelWithUsService.Controllers
     {
         private IOferta repo;
 
-        public OfertaController(IHotel repo)
+        public OfertaController(IOferta repo)
         {
             this.repo = repo;
         }
 
         // GET: api/oferta
-        // GET: api/oferta/?genre=[genre]
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Oferta>))]
         public async Task<IEnumerable<Oferta>> GetOfertas(string genre)
         {
-            if (string.IsNullOrEmpty(genre))
-            {
-                return await this.repo.RetrieveAllAsync();
-            }
-            else
-            {
-                return (await this.repo.RetrieveAllAsync())
-                        .Where(f => f.Genre == genre);
-            }
+            return await this.repo.RetrieveAllAsync();
         }
 
-        // GET: api/oferta/[id]
-        [HttpGet("{id}")]
+        // GET: api/oferta/[idO]/[IdH]
+        [HttpGet("{idO:int}/{idH:int}")]
         [ProducesResponseType(200, Type = typeof(Hotel))]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> Get(int id)
+        public async Task<IActionResult> Get(int idO, int idH)
         {
-            Oferta oferta = await this.repo.RetrieveAsync(id);
+            Oferta oferta = await this.repo.RetrieveAsync(idO, idH);
 
             if (oferta == null)
             {
@@ -49,7 +40,7 @@ namespace TravelWithUsService.Controllers
             }
             else
             {
-                return Ok(oferta );
+                return Ok(oferta);
             }
         }
 
@@ -75,20 +66,20 @@ namespace TravelWithUsService.Controllers
 
             return CreatedAtRoute( // 201 Created
                 routeName: nameof(this.Get),
-                routeValues: new { id = added.OfertaID},
+                routeValues: new { idO = added.OfertaID, idH = added.HotelID },
                 value: added
             );
         }
 
-        // PUT: api/oferta/[id]
+        // PUT: api/oferta/[idO]/[idH]
         // BODY: Oferta (JSON)
-        [HttpPut("{id}")]
+        [HttpPut("{idO:int}/{idH:int}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> Update([FromBody] Oferta oferta, int id)
+        public async Task<IActionResult> Update([FromBody] Oferta oferta, int idO, int idH)
         {
-            if (oferta == null || oferta.OfertaID!= id)
+            if (oferta == null || oferta.OfertaID != idO || oferta.HotelID != idH)
             {
                 return BadRequest(); // 400 Bad Request
             }
@@ -98,47 +89,32 @@ namespace TravelWithUsService.Controllers
                 return BadRequest(ModelState); // 400 Bad request
             }
 
-            var existing = await this.repo.RetrieveAsync(id);
+            var existing = await this.repo.RetrieveAsync(idO, idH);
 
             if (existing == null)
             {
                 return NotFound();  // 404 Resource not found
             }
 
-            await this.repo.UpdateAsync(id, oferta);
+            await this.repo.UpdateAsync(oferta, idO, idH);
 
             return new NoContentResult();   // 204 No Content
-<<<<<<< HEAD
-<<<<<<< HEAD
         }
-        // DELETE: api/hotel/[id]
-        [HttpDelete("{id}")]
+
+        // DELETE: api/oferta/[idO]/[idH]
+        [HttpDelete("{idO:int}/{idH:int}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int idO, int idH)
         {
-=======
-=======
->>>>>>> a2d3f6724d2566d85a3c477dcbd0ee7caaedd300
-        }
-
-
-        // DELETE: api/oferta/[id]
-        [HttpDelete("{id}")]
-        [ProducesResponseType(204)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
-        public async Task<IActionResult> Delete(int id)
-        {
-            Oferta oferta = await this.repo.RetrieveAsync(id);
+            Oferta oferta = await this.repo.RetrieveAsync(idO, idH);
             if (oferta == null)
             {
                 return NotFound();  // 404 Resource No Found
             }
 
-            bool? deleted = await this.repo.DeleteAsync(id);
+            bool? deleted = await this.repo.DeleteAsync(idO, idH);
             if (deleted.HasValue && deleted.Value)
             {
                 return new NoContentResult();   // 204 No Content
@@ -146,14 +122,14 @@ namespace TravelWithUsService.Controllers
             else
             {
                 return BadRequest(  // 400 Bad Request
-                    $"Oferta with id {id} was found but failed to delete."
+                    $"Oferta with id ({idO}, {idH}) was found but failed to delete."
                 );
             }
 
         }
     }
 }
-}
+
 
 
 

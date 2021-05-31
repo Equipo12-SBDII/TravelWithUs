@@ -19,26 +19,17 @@ namespace TravelWithUsService.Controllers
         }
 
 
-        
-        // GET: api/agencia
-        // GET: api/agencia/?genre=[genre]
+
+        // GET: api/agencias
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Agencia>))]
-        public async Task<IEnumerable<Agencia>> GetAgencias(string genre)
+        public async Task<IEnumerable<Agencia>> GetAgencias()
         {
-            if (string.IsNullOrEmpty(genre))
-            {
-                return await this.repo.RetrieveAllAsync();
-            }
-            else
-            {
-                return (await this.repo.RetrieveAllAsync())
-                        .Where(f => f.Genre == genre);
-            }
+            return await this.repo.RetrieveAllAsync();
         }
 
         // GET: api/agencia/[id]
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         [ProducesResponseType(200, Type = typeof(Agencia))]
         [ProducesResponseType(404)]
         public async Task<IActionResult> Get(int id)
@@ -65,7 +56,7 @@ namespace TravelWithUsService.Controllers
         {
             if (agencia == null)
             {
-                return BadRequest()  ;// 400 Bad Request
+                return BadRequest();// 400 Bad Request
             }
 
             if (!ModelState.IsValid)
@@ -84,7 +75,7 @@ namespace TravelWithUsService.Controllers
 
         // PUT: api/agencia/[id]
         // BODY: Agencia (JSON)
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -113,7 +104,7 @@ namespace TravelWithUsService.Controllers
 
         }
         // DELETE: api/agencia/[id]
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
