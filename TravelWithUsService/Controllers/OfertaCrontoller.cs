@@ -13,7 +13,7 @@ namespace TravelWithUsService.Controllers
     {
         private IOferta repo;
 
-        public HotelController(IHotel repo)
+        public OfertaController(IHotel repo)
         {
             this.repo = repo;
         }
@@ -109,15 +109,15 @@ namespace TravelWithUsService.Controllers
 
             return new NoContentResult();   // 204 No Content
 <<<<<<< HEAD
-    }
-  // DELETE: api/hotel/[id]
-    [HttpDelete("{id}")]
-    [ProducesResponseType(204)]
-    [ProducesResponseType(400)]
-    [ProducesResponseType(404)]
-    
-    public async Task<IActionResult> Delete(int id)
-    {
+        }
+        // DELETE: api/hotel/[id]
+        [HttpDelete("{id}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+
+        public async Task<IActionResult> Delete(int id)
+        {
 =======
         }
         // DELETE: api/hotel/[id]
@@ -148,7 +148,7 @@ namespace TravelWithUsService.Controllers
 
         }
     }
-    }
+}
 }
 
 
