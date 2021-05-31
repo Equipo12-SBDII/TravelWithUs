@@ -82,6 +82,7 @@ import { HotelService } from './components/table-hotels/hotel.service';
     BrowserAnimationsModule,
     routing,
     FormsModule,
+    HttpClientModule,
     MatSelectModule,
     BrowserAnimationsModule,
     MatInputModule,
@@ -95,7 +96,8 @@ import { HotelService } from './components/table-hotels/hotel.service';
     MatListModule,
     MatDialogModule,
     MatMenuModule,
-    MatTableModule
+    MatTableModule,
+
   ],
   providers: [HotelService],
   bootstrap: [AppComponent]

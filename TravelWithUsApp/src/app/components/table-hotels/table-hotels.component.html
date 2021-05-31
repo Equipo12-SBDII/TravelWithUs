@@ -1,12 +1,9 @@
 <mat-card>
   <mat-card-title>{{title}}</mat-card-title>
-  <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
-    <ng-container matColumnDef="{{column}}" *ngFor="let column of hotelList">
+  <table mat-table fixedLayout='true' [dataSource]="hotelList" multiTemplateDataRows class="mat-elevation-z8">
+    <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
       <th mat-header-cell *matHeaderCellDef> {{column}} </th>
-      <td mat-cell *matCellDef="let element"> {{element[column.Nombre]}} </td>
-      <td mat-cell *matCellDef="let element"> {{element[column.Descripcion]}} </td>
-      <td mat-cell *matCellDef="let element"> {{element[column.Direccion]}} </td>
-      <td mat-cell *matCellDef="let element"> {{element[column.Categoria]}} </td>
+      <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
     </ng-container>
 
     <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
@@ -14,7 +11,7 @@
       <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
         <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
           <div class="example-element-description">
-            {{element.description}}
+            {{element.ofertas}}
             <br><br>
             <button style="margin-left: 4px" mat-raised-button color="warn" (click)="pageRedirect(expandedElement)">Sus
               Ofertas</button>
