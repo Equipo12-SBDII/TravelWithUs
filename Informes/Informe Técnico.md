@@ -14,7 +14,78 @@
 
 ## Diccionario de Datos:
 
-Ni idea de que es eso.
+#### Agencia
+
+| Llave | Nombre | Tipo |
+| :---- | :----- | :--- |
+|       |        |      |
+|       |        |      |
+|       |        |      |
+
+#### Hotel
+
+| Llave | Nombre | Tipo |
+| :---- | :----- | :--- |
+|       |        |      |
+|       |        |      |
+|       |        |      |
+
+#### Turista
+
+| Llave | Nombre | Tipo |
+| :---- | :----- | :--- |
+|       |        |      |
+|       |        |      |
+|       |        |      |
+
+#### Oferta
+
+| Llave | Nombre | Tipo |
+| :---- | :----- | :--- |
+|       |        |      |
+|       |        |      |
+|       |        |      |
+
+#### Excursión
+
+| Llave | Nombre | Tipo |
+| :---- | :----- | :--- |
+|       |        |      |
+|       |        |      |
+|       |        |      |
+
+#### Excursión Prolongada
+
+| Llave | Nombre | Tipo |
+| :---- | :----- | :--- |
+|       |        |      |
+|       |        |      |
+|       |        |      |
+
+#### Paquete
+
+| Llave | Nombre | Tipo |
+| :---- | :----- | :--- |
+|       |        |      |
+|       |        |      |
+|       |        |      |
+
+#### Facilidad
+
+| Llave | Nombre | Tipo |
+| :---- | :----- | :--- |
+|       |        |      |
+|       |        |      |
+|       |        |      |
+
+#### Reserva Individual
+
+| Llave | Nombre | Tipo |
+| :---- | :----- | :--- |
+|       |        |      |
+|       |        |      |
+|       |        |      |
+
 
 ------
 
