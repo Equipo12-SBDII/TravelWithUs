@@ -6,45 +6,41 @@ using TravelWithUs.Models;
 
 namespace TravelWithUs.DBContext.Repositories
 {
-    // ReservaIndividual usa llaves de tipo ri => new { ri.AgenciaID, ri.HotelID, ri.OfertaID, ri.TuristaID });
     public class ReservaIndividualRepository : IReservaIndividual
     {
-        private static ConcurrentDictionary<(int, int, int, int), ReservaIndividual> reservaIndividualCache;
+        private static ConcurrentDictionary<int, ReservaIndividual> reservaIndividualCache;
         private TravelWithUsDbContext db;
 
         public ReservaIndividualRepository(TravelWithUsDbContext dataBase)
         {
             this.db = dataBase;
 
-            if (reservaIndividualCache == null)
+            if ( reservaindividualCache == null)
             {
-                reservaIndividualCache = new ConcurrentDictionary<(int, int, int, int), ReservaIndividual>(
-                    this.db.ReservasIndividuales.ToDictionary(
-                        ri => (ri.AgenciaID, ri.HotelID, ri.OfertaID, ri.TuristaID)));
+                reservaIndividualCache = new ConcurrentDictionary<int,ReservaIndividual>(
+                    this.db.ReservasIndividuales.ToDictionary(re =using System.Collections.Concurrent;
 
             }
-        } //me preocupan los metodos del concurrente dictionary
-        public async Task<ReservaIndividual> CreateAsync(ReservaIndividual ri)
+        } 
+         public async Task<ReservaIndividual> CreateAsync(ReservaIndividual r)
         {
-            await this.db.ReservasIndividuales.AddAsync(ri);
+            await this.db.ReservasIndividuales.AddAsync(p);
             int affected = await this.db.SaveChangesAsync();
             if (affected == 1)
             {
-                return reservaIndividualCache.AddOrUpdate((ri.AgenciaID, ri.HotelID, ri.OfertaID, ri.TuristaID),
-                    ri, this.UpdateCache);
+                return reservaIndividualCache.AddOrUpdate(r.ReservaIndividualID,  r, this.UpdateCache);
             }
             return null;
         }
 
-        public async Task<bool?> DeleteAsync(int idA, int idH, int idO, int idT)
+        public async Task<bool?> DeleteAsync(int idA, int idO, int idT)
         {
-            var key = (idA, idH, idO, idT);
-            ReservaIndividual ri = await this.db.ReservasIndividuales.FindAsync(idA, idH, idO, idT);
-            this.db.ReservasIndividuales.Remove(ri);
+            ReservaExcursion r = await this.db.ReservasIndividuales.FindAsync(int idA, int idO, int idT);
+            this.db.ReservasIndividuales.Remove(r);
             int affected = await this.db.SaveChangesAsync();
             if (affected == 1)
             {
-                return reservaIndividualCache.TryRemove(key, out ri);
+                return reservaExcursionCache.TryRemove(int idA, int idO, int idT, out r);  
             }
             return null;
         }
@@ -59,37 +55,35 @@ namespace TravelWithUs.DBContext.Repositories
             );
         }
 
-        public Task<ReservaIndividual> RetrieveAsync(int idA, int idH, int idO, int idT)
+        public Task<ReservaExcursion> RetrieveAsync(int idA, int idO, int idT)
         {
-            var key = (idA, idH, idO, idT);
             return Task.Run(
                 () =>
                 {
-                    reservaIndividualCache.TryGetValue(key, out ReservaIndividual ri);
-                    return ri;
+                    reservaIndividualCache.TryGetValue(int idA, int idO, int idT, out ReservaIndividual r);
+                    return r;
                 }
             );
         }
 
-        public async Task<ReservaIndividual> UpdateAsync(ReservaIndividual ri, int idA, int idH, int idO, int idT)
+        public async Task<ReservaIndividual> UpdateAsync(int idA, int idO, int idT, ReservaIndividual r)
         {
-            var key = (idA, idH, idO, idT);
-            this.db.ReservasIndividuales.Update(ri);
+            this.db.ReservasIndividuales.Update(r);
             int affected = await this.db.SaveChangesAsync();
             if (affected == 1)
             {
-                return UpdateCache(key, ri);
+                return UpdateCache(int idA, int idE, int idT, r);
             }
 
             return null;
         }
 
-        private ReservaIndividual UpdateCache((int, int, int, int) key, ReservaIndividual r)
+        private ReservaIndividual UpdateCache(int idA, int idO, int idT,, ReservaIndividual r)
         {
             ReservaIndividual old;
-            if (reservaIndividualCache.TryGetValue(key, out old))
+            if (reservaIndividualCache.TryGetValue(int idA, int idO, int idT, out old))
             {
-                if (reservaIndividualCache.TryUpdate(key, r, old))
+                if (reservaIndividualCache.TryUpdate(int idA, int idO, int idT, r, old))
                 {
                     return r;
                 }

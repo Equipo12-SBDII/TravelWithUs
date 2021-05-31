@@ -4,7 +4,7 @@ using System;
 
 namespace TravelWithUs.DBContext
 {
-    public class TravelWithUsDbContext : DbContext
+    public class TravelWithUsDbContext : IdentityDbContext
     {
         public TravelWithUsDbContext()
         {
@@ -127,6 +127,10 @@ namespace TravelWithUs.DBContext
                 .WithMany(h => h.Ofertas)
                 .HasForeignKey(o => o.HotelID);
 
+           SeedData(modelBuilder)
+        }
+    private void SeedData(ModelBuilder modelBuilder)
+    { 
             modelBuilder.Entity<Agencia>().HasData(
                 new { AgenciaID = 1, Nombre = "Cubanacan", Direccion = "Playa", Email = "cubanacan@gmail.com", Fax = "78538964", Descripcion = "Agencia de turismo que le permitira conocer diferentes lugares en toda la isla, con excelentes servicios en hoteles y casas de arrendamiento, asi como alquiler de autos." },
                 new { AgenciaID = 2, Nombre = "Gaviota", Direccion = "Plaza", Email = "gaviota@gmail.com", Fax = "76885479", Descripcion = "La Agencia de Viajes gaviota brinda las facilidadesd de conocer maravillosos lugares de Cuba a la vez que disfruta de una agradable estancia. Cuenta con servicio de diferentes aerolíneas , con precios módicos y excelente calidad." },
@@ -164,7 +168,13 @@ namespace TravelWithUs.DBContext
             modelBuilder.Entity<Oferta>().HasData(
                 new { OfertaID = 1, HotelID = 1, Descripcion = "Habitación para dos personas con cama matrimonial para una excelente velada romántica. Baño con jacuzzy con sales arómaticas ", Precio = (decimal)75.00 }
             );
-        }
 
+
+            modelBuilder.Entity<Turista>().HasData(
+                new { TuristaID = 1, Nombre = "Penelope", Nacionalidad = "Cuba"}
+            )
+
+    }
+    
     }
 }

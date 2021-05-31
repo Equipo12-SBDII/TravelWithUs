@@ -14,6 +14,8 @@ using Microsoft.OpenApi.Models;
 using TravelWithUs.DBContext.Repositories;
 using TravelWithUs.DBContext;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+
 
 using System.IO;
 using Microsoft.AspNetCore.Mvc.Formatters;
@@ -59,6 +61,25 @@ namespace TravelWithUsService
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TravelWithUsService", Version = "v1" });
             });
 
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("ManageRolesAndClaimsPolicy",
+                    policy => policy.AddRequirements(new ManageAdminRolesAndClaimsRequirement()));
+
+                options.AddPolicy("DeleteRolePolicy",
+                    policy => policy.RequireClaim("Delete Role", "true"));
+
+                options.AddPolicy("EditRolePolicy",
+                    policy => policy.RequireClaim("Edit Role", "true"));
+
+                options.AddPolicy("CreateRolePolicy",
+                    policy => policy.RequireClaim("Create Role", "true"));
+
+                options.AddPolicy("AdminRolePolicy",
+                    policy => policy.RequireRole("Admin"));
+            });
+
             services.AddScoped<IAgencia, AgenciaRepository>();
             services.AddScoped<IExcursion, ExcursionRepository>();
             services.AddScoped<IFacilidad, FacilidadRepository>();
@@ -70,6 +91,9 @@ namespace TravelWithUsService
             services.AddScoped<IReservaPaquete, ReservaPaqueteRepository>();
             services.AddScoped<ITurista, TuristaRepository>();
 
+
+            services.AddScoped<IAuthorizationHandler, CanEditOtherAdminRolesAndClaimsHandler>();
+            services.AddSingleton<IAuthorizationHandler, SuperAdminHandler>();
 
         }
 
