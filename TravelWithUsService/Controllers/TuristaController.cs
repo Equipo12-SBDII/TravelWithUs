@@ -76,7 +76,7 @@ namespace TravelWithUsService.Controllers
             Agencia added = await repo.CreateAsync(turista );
 
             return CreatedAtRoute( // 201 Created
-                routeName: nameof(this.GetAgencia),
+                routeName: nameof(this.Get),
                 routeValues: new { id = added.TuristaID },
                 value: added
             );
