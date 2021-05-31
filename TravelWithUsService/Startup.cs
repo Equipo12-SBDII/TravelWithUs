@@ -41,10 +41,19 @@ namespace TravelWithUsService
             // );
             services.AddDbContext<TravelWithUsDbContext>(options =>
                 options.UseSqlServer($"Server=(localDB)\\MSSQLLocalDB;Database=TravelWithUsDB;Integrated Security=true;"));
-            services.AddControllers()
-            .AddXmlDataContractSerializerFormatters()
-            .AddXmlSerializerFormatters()
-            .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.WithOrigins("http://localhost:4200")
+                                        .AllowAnyHeader()
+                                        .AllowAnyMethod();
+                });
+            });
+
+
+            services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TravelWithUsService", Version = "v1" });
@@ -80,10 +89,11 @@ namespace TravelWithUsService
                 });
             }
 
-
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 
