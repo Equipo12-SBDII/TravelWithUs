@@ -22,6 +22,11 @@ namespace TravelWithUs.Models
         [MaxLength(120)]
         public string Nacionalidad { get; set; }
 
+        [Column("EmailT")]
+        [MaxLength(120)]
+        [RegularExpression(@"[a-zA-Z0-9\.-_]+@[a-zA-Z0-9\.-_]+")]
+        [Required]
+        public string Email { get; set; }
         public virtual ICollection<ReservaIndividual> ReservasIndividuales { get; set; }
         public virtual ICollection<ReservaPaquete> ReservasPaquetes { get; set; }
         public virtual ICollection<ReservaExcursion> ReservasExcursiones { get; set; }

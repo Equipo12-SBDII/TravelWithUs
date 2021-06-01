@@ -171,7 +171,7 @@ namespace TravelWithUs.DBContext
 
 
             modelBuilder.Entity<Turista>().HasData(
-                new { TuristaID = 1, Nombre = "Penelope", Nacionalidad = "Cuba" }
+                new { TuristaID = 1, Nombre = "Penelope", Nacionalidad = "Cuba", Email = "penny@travelwithus.com" }
             );
 
         }
