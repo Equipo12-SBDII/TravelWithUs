@@ -35,9 +35,20 @@ namespace TravelWithUs.DBContext.Repositories
             throw new System.NotImplementedException();
         }
 
-        public Task<IEnumerable<Hotel>> GetHotelsInPackagesAsync()
+        public async Task<IEnumerable<Hotel>> GetHotelsInPackagesAsync()
         {
+            PaqueteRepository packetRepo = new PaqueteRepository(this.dbContext);
+            ExcursionRepository excursionRepo = new ExcursionRepository(this.dbContext);
+            //HotelRepository  hotelRepo = new HotelRepository(dbContext);
+
+            //List<Hotel> hotels = new List<Hotel>();
+
+            var allpackage = await packetRepo.RetrieveAllAsync();
+            //var allhotels = await hotelRepo.RetrieveAllAsync();
+            //foreach package in allpackage
+
             throw new System.NotImplementedException();
+
         }
 
         public Task<IEnumerable<Hotel>> GetHotelsInPackagesAsync(int idP)
@@ -50,7 +61,11 @@ namespace TravelWithUs.DBContext.Repositories
             throw new System.NotImplementedException();
         }
 
+<<<<<<< HEAD
         public async Task<IEnumerable<TuristaIndividualRepitente>> GetTuristasRepitentesAsync()
+=======
+        public Task<IEnumerable<TuristaIndividualRepitente>> GetRepetitiveTouristAsync()
+>>>>>>> d495176b3b9eb4f5800878a1d7ab5dca852dc259
         {
             TuristaRepository turistaRepo = new TuristaRepository(this.dbContext);
             var turistas = await turistaRepo.RetrieveAllAsync();

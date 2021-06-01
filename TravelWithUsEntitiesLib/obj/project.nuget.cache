@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OOmC9uHKy1cP1B90o8jF0jlLE+uTvZqM8jtWxVARmpElG44AT+ZhJvv9ZPYzks12Y0LyOyKluA70H1EqNq6oDw==",
+  "dgSpecHash": "XLgByESaaew1WTqwqL4bHkDSFPT1C0SMsoSSNJXfqTt4mT5f3/iYt0x7jsv6dN8UQd06+eFvK6yjoxFBrRj5Vw==",
   "success": true,
-  "projectFilePath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj",
+  "projectFilePath": "d:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Cynthia-PC\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Cynthia-PC\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
