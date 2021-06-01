@@ -47,5 +47,7 @@ bases de datos, pues es casi seguro el desarrollo eficiente de un producto de al
 ## Bibliografía:
 
 C# 9 and .Net 5 Modern Cross-Platform Development 2020 , Mark J. Price.
-Aspnet Tutorial .
+
+Aspnet Tutorial.
+
 Cursos online de www.w3schools.com de HTML, CCS, ASPNET y ANGULAR.
