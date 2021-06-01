@@ -56,7 +56,7 @@ namespace TravelWithUs.DBContext.Repositories
 
         public Task<IEnumerable<TuristaIndividualRepitente>> GetRepetitiveTouristAsync()
         {
-          
+            throw new System.NotImplementedException();
         }
     }
 }

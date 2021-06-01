@@ -10,7 +10,7 @@ namespace TravelWithUs.DBContext.Repositories
         Task<IEnumerable<Hotel>> GetHotelsInPackagesAsync();
         Task<IEnumerable<Hotel>> GetHotelsInPackagesAsync(int idP);
         Task<IEnumerable<GananciaAgencia>> GetExpectedProfitAsync();
-        Task<IEnumerable<TuristaIndividualRepitente>> GetTuristasRepitentesAsync();
+        Task<IEnumerable<TuristaIndividualRepitente>> GetRepetitiveTouristAsync();
         Task<IEnumerable<ExcursionExtendida>> GetExtendedExcursion();
         Task<PaqueteSobreMedia> GetPackagesOverMean();
 

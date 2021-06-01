@@ -16,3 +16,21 @@ C:\Users\Peny\Desktop\SBD2\Proyectos 20-21\TravelWithUs\TravelWithUsContextLib\o
 C:\Users\Peny\Desktop\SBD2\Proyectos 20-21\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\ref\TravelWithUsContextLib.dll
 C:\Users\Peny\Desktop\SBD2\Proyectos 20-21\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\TravelWithUsContextLib.pdb
 C:\Users\Peny\Desktop\SBD2\Proyectos 20-21\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\TravelWithUsContextLib.genruntimeconfig.cache
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\bin\Debug\net5.0\TravelWithUsContextLib.deps.json
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\bin\Debug\net5.0\TravelWithUsContextLib.runtimeconfig.json
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\bin\Debug\net5.0\TravelWithUsContextLib.runtimeconfig.dev.json
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\bin\Debug\net5.0\TravelWithUsContextLib.dll
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\bin\Debug\net5.0\ref\TravelWithUsContextLib.dll
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\bin\Debug\net5.0\TravelWithUsContextLib.pdb
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\bin\Debug\net5.0\TravelWithUsEntitiesLib.dll
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\bin\Debug\net5.0\TravelWithUsEntitiesLib.pdb
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\TravelWithUsContextLib.csprojAssemblyReference.cache
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\TravelWithUsContextLib.GeneratedMSBuildEditorConfig.editorconfig
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\TravelWithUsContextLib.AssemblyInfoInputs.cache
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\TravelWithUsContextLib.AssemblyInfo.cs
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\TravelWithUsContextLib.csproj.CoreCompileInputs.cache
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\TravelWithUsContextLib.csproj.CopyComplete
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\TravelWithUsContextLib.dll
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\ref\TravelWithUsContextLib.dll
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\TravelWithUsContextLib.pdb
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsContextLib\obj\Debug\net5.0\TravelWithUsContextLib.genruntimeconfig.cache
