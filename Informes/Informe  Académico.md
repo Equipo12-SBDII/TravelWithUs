@@ -47,4 +47,6 @@ Ahí, pues recomiendas.
 
 ## Bibliografía:
 
-Google, el poderoso.
+C# 9 and .Net 5 Modern Cross-Platform Development 2020 , Mark J. Price. 
+Aspnet Tutorial 
+cursos online de www.w3schools.com de HTML, CCS, ASPNET y ANGULAR.
