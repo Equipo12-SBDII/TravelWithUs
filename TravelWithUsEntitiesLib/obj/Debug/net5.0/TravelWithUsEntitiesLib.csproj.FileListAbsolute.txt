@@ -13,3 +13,18 @@ C:\Users\Peny\Desktop\SBD2\Proyectos 20-21\TravelWithUs\TravelWithUsEntitiesLib\
 C:\Users\Peny\Desktop\SBD2\Proyectos 20-21\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\ref\TravelWithUsEntitiesLib.dll
 C:\Users\Peny\Desktop\SBD2\Proyectos 20-21\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.pdb
 C:\Users\Peny\Desktop\SBD2\Proyectos 20-21\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.genruntimeconfig.cache
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\bin\Debug\net5.0\TravelWithUsEntitiesLib.deps.json
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\bin\Debug\net5.0\TravelWithUsEntitiesLib.runtimeconfig.json
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\bin\Debug\net5.0\TravelWithUsEntitiesLib.runtimeconfig.dev.json
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\bin\Debug\net5.0\TravelWithUsEntitiesLib.dll
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\bin\Debug\net5.0\ref\TravelWithUsEntitiesLib.dll
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\bin\Debug\net5.0\TravelWithUsEntitiesLib.pdb
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.csprojAssemblyReference.cache
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.GeneratedMSBuildEditorConfig.editorconfig
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.AssemblyInfoInputs.cache
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.AssemblyInfo.cs
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.csproj.CoreCompileInputs.cache
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.dll
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\ref\TravelWithUsEntitiesLib.dll
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.pdb
+d:\Vik\Univ\3er año\Base de Datos II\Project\TravelWithUs\TravelWithUsEntitiesLib\obj\Debug\net5.0\TravelWithUsEntitiesLib.genruntimeconfig.cache
