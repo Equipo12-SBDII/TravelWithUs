@@ -22,9 +22,9 @@ import { Paquete } from "./packs";
   ],
 })
 export class TablePacksComponent {
-  packsList: any[] = [];
+  packsList: Paquete[] = [];
   count: number = 0;
-  columnsToDisplay = ['lugar', 'fechasalida', 'duracion'];
+  columnsToDisplay = ['codigo', 'duracion', 'precio'];
   expandedElement: any;
   @Input('title') title: any;
 
@@ -35,8 +35,8 @@ export class TablePacksComponent {
   OnGet() {
     this.packService.GetPaquete().subscribe(
       (response) => {
-        this.packsList = response['paquetes'];
-        this.count = response['count'];
+        this.packsList = response;
+        this.count = this.packsList.length;
         console.log('Helloooooooo.')
         console.log(this.packsList);
       },
