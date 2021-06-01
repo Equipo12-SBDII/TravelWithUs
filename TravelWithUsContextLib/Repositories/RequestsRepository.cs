@@ -38,23 +38,22 @@ namespace TravelWithUs.DBContext.Repositories
 
         public async Task<IEnumerable<Hotel>> GetHotelsInPackagesAsync()
         {
-            PaqueteRepository packetRepo = new PaqueteRepository(this.dbContext);
-            ExcursionRepository excursionRepo = new ExcursionRepository(this.dbContext);
-            //HotelRepository  hotelRepo = new HotelRepository(dbContext);
+            HotelRepository hotelRepo = new HotelRepository(this.dbContext);
 
-            //List<Hotel> hotels = new List<Hotel>();
+            var hoteles = await hotelRepo.RetrieveAllAsync();
+            var query = hoteles.Where(h =>
+                    h.Excursiones.Count > 0
+                    && h.Excursiones.Any(e => e.Paquetes.Count > 0)
+                    );
 
-            var allpackage = await packetRepo.RetrieveAllAsync();
-            //var allhotels = await hotelRepo.RetrieveAllAsync();
-            //foreach package in allpackage
-
-            throw new System.NotImplementedException();
-
+            return query;
         }
 
-        public Task<IEnumerable<Hotel>> GetHotelsInPackagesAsync(int idP)
+        public async Task<IEnumerable<Hotel>> GetHotelsInPackagesAsync(int idP)
         {
-            throw new System.NotImplementedException();
+            PaqueteRepository paqueteRepo = new PaqueteRepository(this.dbContext);
+            var paquete = await paqueteRepo.RetrieveAsync(idP);
+            return paquete.Excursion.Hoteles;
         }
 
         public async Task<PaqueteSobreMedia> GetPackagesOverMean()
