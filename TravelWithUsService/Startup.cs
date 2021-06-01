@@ -14,14 +14,12 @@ using Microsoft.OpenApi.Models;
 using TravelWithUs.DBContext.Repositories;
 using TravelWithUs.DBContext;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Authorization;
 
 
 using System.IO;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerUI;
-using TravelWithUs.DBContext.Security;
 
 namespace TravelWithUsService
 {
@@ -63,23 +61,23 @@ namespace TravelWithUsService
             });
 
 
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("ManageRolesAndClaimsPolicy",
-                    policy => policy.AddRequirements(new ManageAdminRolesAndClaimsRequirement()));
+            // services.AddAuthorization(options =>
+            // {
+            //     options.AddPolicy("ManageRolesAndClaimsPolicy",
+            //         policy => policy.AddRequirements(new ManageAdminRolesAndClaimsRequirement()));
 
-                options.AddPolicy("DeleteRolePolicy",
-                    policy => policy.RequireClaim("Delete Role", "true"));
+            //     options.AddPolicy("DeleteRolePolicy",
+            //         policy => policy.RequireClaim("Delete Role", "true"));
 
-                options.AddPolicy("EditRolePolicy",
-                    policy => policy.RequireClaim("Edit Role", "true"));
+            //     options.AddPolicy("EditRolePolicy",
+            //         policy => policy.RequireClaim("Edit Role", "true"));
 
-                options.AddPolicy("CreateRolePolicy",
-                    policy => policy.RequireClaim("Create Role", "true"));
+            //     options.AddPolicy("CreateRolePolicy",
+            //         policy => policy.RequireClaim("Create Role", "true"));
 
-                options.AddPolicy("AdminRolePolicy",
-                    policy => policy.RequireRole("Admin"));
-            });
+            //     options.AddPolicy("AdminRolePolicy",
+            //         policy => policy.RequireRole("Admin"));
+            // });
 
             services.AddScoped<IAgencia, AgenciaRepository>();
             services.AddScoped<IExcursion, ExcursionRepository>();
@@ -94,8 +92,8 @@ namespace TravelWithUsService
             services.AddScoped<IRequestsRepository, RequestsRepository>();
 
 
-            services.AddScoped<IAuthorizationHandler, CanEditOtherAdminRolesAndClaimsHandler>();
-            services.AddSingleton<IAuthorizationHandler, SuperAdminHandler>();
+            // services.AddScoped<IAuthorizationHandler, CanEditOtherAdminRolesAndClaimsHandler>();
+            // services.AddSingleton<IAuthorizationHandler, SuperAdminHandler>();
 
         }
 

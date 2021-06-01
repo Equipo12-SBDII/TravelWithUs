@@ -1,10 +1,10 @@
-import {Component, Inject, Input} from '@angular/core';
-import {animate, state, style, transition, trigger} from '@angular/animations';
-import {Element} from "@angular/compiler";
-import {Agencia} from "./agencies";
-import {DOCUMENT} from "@angular/common";
-import {ExcursionService} from "../table-excursion/excursion.service";
-import {AgenciesService} from "./agencies.service";
+import { Component, Inject, Input } from '@angular/core';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { Element } from "@angular/compiler";
+import { Agencia } from "./agencies";
+import { DOCUMENT } from "@angular/common";
+import { ExcursionService } from "../table-excursion/excursion.service";
+import { AgenciesService } from "./agencies.service";
 
 /**
  * @title Table with expandable rows
@@ -15,17 +15,17 @@ import {AgenciesService} from "./agencies.service";
   templateUrl: './table-agencies.component.html',
   animations: [
     trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
   ],
 })
 export class TableAgenciesComponent {
   agenciesList: Agencia[] = []
-  columnsToDisplay = ['nombre', 'direccion', 'email', 'fax'];
+  columnsToDisplay = ['nombreAgencia', 'gananciaEsperada', 'cantidadDeReservas'];
   expandedElement: any;
-  @Input('title')title: any;
+  @Input('title') title: any;
 
   constructor(@Inject(DOCUMENT) private document: any, private agencyService: AgenciesService) { }
   ngOnInit() {
@@ -43,7 +43,7 @@ export class TableAgenciesComponent {
   }
 
   reserve(expandedElement: any) {
-    if(expandedElement) {
+    if (expandedElement) {
       console.log(expandedElement);
     }
   }

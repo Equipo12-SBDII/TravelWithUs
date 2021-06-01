@@ -1,16 +1,10 @@
 ﻿export class Agencia {
-  agenciaID: number;
   nombre: string;
-  descripcion: string;
-  direccion: string;
-  email: string;
-  fax: string;
-  constructor(id: number, nombre: string, descripcion: string, direccion: string, email: string, fax: string) {
-    this.agenciaID = id;
-    this.nombre= nombre;
-    this.descripcion = descripcion;
-    this.direccion = direccion;
-    this.email = email;
-    this.fax = fax;
+  ganancia: number;
+  cantidadReservas: number;
+  constructor(id: number, nombre: string, ganancia: number, cantidadReservas: number) {
+    this.nombre = nombre;
+    this.ganancia = ganancia;
+    this.cantidadReservas = cantidadReservas;
   }
 }
