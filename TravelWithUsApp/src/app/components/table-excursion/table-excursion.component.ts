@@ -1,10 +1,10 @@
-import {Component, Inject, Input} from '@angular/core';
-import {animate, state, style, transition, trigger} from '@angular/animations';
-import {Element} from "@angular/compiler";
-import {Excursion} from "./excursion";
-import {DOCUMENT} from "@angular/common";
-import {HotelService} from "../table-hotels/hotel.service";
-import {ExcursionService} from "./excursion.service";
+import { Component, Inject, Input } from '@angular/core';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { Element } from "@angular/compiler";
+import { Excursion } from "./excursion";
+import { DOCUMENT } from "@angular/common";
+import { HotelService } from "../table-hotels/hotel.service";
+import { ExcursionService } from "./excursion.service";
 
 /**
  * @title Table with expandable rows
@@ -15,17 +15,17 @@ import {ExcursionService} from "./excursion.service";
   templateUrl: './table-excursion.component.html',
   animations: [
     trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
   ],
 })
 export class TableExcursionComponent {
   excursionList: Excursion[] = []
-  columnsToDisplay = ['precio', 'fechadesalida', 'fechadellegada', 'lugardesalida', 'lugardellegada'];
+  columnsToDisplay = ['lugar', 'fechasalida', 'duracion'];
   expandedElement: any;
-  @Input('title')title: any;
+  @Input('title') title: any;
 
 
   constructor(@Inject(DOCUMENT) private document: any, private excursionService: ExcursionService) { }
@@ -43,7 +43,7 @@ export class TableExcursionComponent {
     );
   }
   reserve(expandedElement: any) {
-    if(expandedElement) {
+    if (expandedElement) {
       console.log(expandedElement)
     }
   }

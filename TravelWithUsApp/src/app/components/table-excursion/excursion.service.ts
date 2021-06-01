@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 
 @Injectable()
 export class ExcursionService {
-  private dataPath = 'https://localhost:5001/api/excursion';
+  private dataPath = 'https://localhost:5001/api/request/excursionExtendida';
 
   constructor(private http: HttpClient) { }
 

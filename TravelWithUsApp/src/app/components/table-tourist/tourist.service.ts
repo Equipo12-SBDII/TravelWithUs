@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 
 @Injectable()
 export class TuristaService {
-  private dataPath = 'https://localhost:5001/api/turista';
+  private dataPath = 'https://localhost:5001/api/request/repetitiveTourist';
 
   constructor(private http: HttpClient) { }
 
