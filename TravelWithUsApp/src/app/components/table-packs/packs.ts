@@ -11,11 +11,4 @@
   }
 }
 
-export class PaqueteMedia {
-  paquetes: Paquete[];
-  count: number;
-  constructor(paquetes: Paquete[], count: number) {
-    this.paquetes = paquetes;
-    this.count = count;
-  }
-}
+

@@ -23,7 +23,7 @@ import { Turista } from "./tourist";
 })
 export class TableTouristComponent {
   touristList: Turista[] = []
-  columnsToDisplay = ['nombre', 'email', 'viajes'];
+  columnsToDisplay = ['nombreTurista', 'emailTurista', 'cantidadViajes'];
   expandedElement: any;
   @Input('title') title: any;
 
