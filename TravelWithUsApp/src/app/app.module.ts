@@ -36,7 +36,6 @@ import { TableAgenciesComponent } from './components/table-agencies/table-agenci
 import { TableTouristComponent } from './components/table-tourist/table-tourist.component';
 import { TableExcursionComponent } from './components/table-excursion/table-excursion.component';
 import { TablePacksComponent } from './components/table-packs/table-packs.component';
-import { TableOffersHotelComponent } from './components/table-offers-hotel/table-offers-hotel.component';
 import { HotelsComponent } from './hotels/hotels.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { MyReservesComponent } from './my-reserves/my-reserves.component';
@@ -45,7 +44,6 @@ import {AgenciesService} from "./components/table-agencies/agencies.service";
 import {TuristaService} from "./components/table-tourist/tourist.service";
 import {PacksService} from "./components/table-packs/packs.service";
 import {ExcursionService} from "./components/table-excursion/excursion.service";
-import {OfferService} from "./offers/offer.service";
 import {TableOffersService} from "./components/table-offers/table-offers.service";
 
 @NgModule({
@@ -67,7 +65,6 @@ import {TableOffersService} from "./components/table-offers/table-offers.service
     TableTouristComponent,
     TableExcursionComponent,
     TablePacksComponent,
-    TableOffersHotelComponent,
     HotelsComponent,
     CarouselComponent,
     MyReservesComponent,
