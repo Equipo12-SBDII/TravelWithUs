@@ -63,23 +63,23 @@ namespace TravelWithUsService
             });
 
 
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("ManageRolesAndClaimsPolicy",
-                    policy => policy.AddRequirements(new ManageAdminRolesAndClaimsRequirement()));
+            // services.AddAuthorization(options =>
+            // {
+            //     options.AddPolicy("ManageRolesAndClaimsPolicy",
+            //         policy => policy.AddRequirements(new ManageAdminRolesAndClaimsRequirement()));
 
-                options.AddPolicy("DeleteRolePolicy",
-                    policy => policy.RequireClaim("Delete Role", "true"));
+            //     options.AddPolicy("DeleteRolePolicy",
+            //         policy => policy.RequireClaim("Delete Role", "true"));
 
-                options.AddPolicy("EditRolePolicy",
-                    policy => policy.RequireClaim("Edit Role", "true"));
+            //     options.AddPolicy("EditRolePolicy",
+            //         policy => policy.RequireClaim("Edit Role", "true"));
 
-                options.AddPolicy("CreateRolePolicy",
-                    policy => policy.RequireClaim("Create Role", "true"));
+            //     options.AddPolicy("CreateRolePolicy",
+            //         policy => policy.RequireClaim("Create Role", "true"));
 
-                options.AddPolicy("AdminRolePolicy",
-                    policy => policy.RequireRole("Admin"));
-            });
+            //     options.AddPolicy("AdminRolePolicy",
+            //         policy => policy.RequireRole("Admin"));
+            // });
 
             services.AddScoped<IAgencia, AgenciaRepository>();
             services.AddScoped<IExcursion, ExcursionRepository>();
@@ -93,8 +93,8 @@ namespace TravelWithUsService
             services.AddScoped<ITurista, TuristaRepository>();
 
 
-            services.AddScoped<IAuthorizationHandler, CanEditOtherAdminRolesAndClaimsHandler>();
-            services.AddSingleton<IAuthorizationHandler, SuperAdminHandler>();
+            // services.AddScoped<IAuthorizationHandler, CanEditOtherAdminRolesAndClaimsHandler>();
+            // services.AddSingleton<IAuthorizationHandler, SuperAdminHandler>();
 
         }
 
