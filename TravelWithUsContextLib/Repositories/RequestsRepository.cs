@@ -18,15 +18,7 @@ namespace TravelWithUs.DBContext.Repositories
         {
             AgenciaRepository agenciaRepo = new AgenciaRepository(this.dbContext);
             var agencias = await agenciaRepo.RetrieveAllAsync();
-<<<<<<< HEAD
-            IEnumerable<GananciaAgencia> query = agencias
-                .Select(a => new GananciaAgencia(
-                    a.Nombre,
-                    a.ReservasExcursiones.Sum(re => re.Excursion.Precio)
-                    + a.ReservasIndividuales.Sum(ri => ri.Precio)
-                    + a.ReservasPaquetes.Sum(rp => rp.Precio)
-                    , a.ReservasExcursiones.Count + a.ReservasIndividuales.Count + a.ReservasPaquetes.Count)
-=======
+
             var query = agencias.Select(a => new GananciaAgencia(
                 a.Nombre,
                 a.ReservasExcursiones.Sum(re => re.Excursion.Precio)
@@ -35,7 +27,6 @@ namespace TravelWithUs.DBContext.Repositories
                 , a.ReservasExcursiones.Count
                 + a.ReservasIndividuales.Count
                 + a.ReservasPaquetes.Count)
->>>>>>> b7c725c64e45088226147d4e95a73a3ea1421bae
                 );
 
             return query;
@@ -78,12 +69,8 @@ namespace TravelWithUs.DBContext.Repositories
             return query;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        public async Task<IEnumerable<TuristaIndividualRepitente>> GetTuristasRepitentesAsync()
-=======
-        public Task<IEnumerable<TuristaIndividualRepitente>> GetRepetitiveTouristAsync()
->>>>>>> d495176b3b9eb4f5800878a1d7ab5dca852dc259
+
+        public async Task<IEnumerable<TuristaIndividualRepitente>> GetRepetitiveTouristAsync()
         {
             TuristaRepository turistaRepo = new TuristaRepository(this.dbContext);
             var turistas = await turistaRepo.RetrieveAllAsync();
@@ -92,17 +79,6 @@ namespace TravelWithUs.DBContext.Repositories
                     , t.ReservasIndividuales.Count
                 ))
                 .Where(tr => tr.CantidadViajes > 1);
-=======
-        public async Task<IEnumerable<TuristaIndividualRepitente>> GetRepetitiveTouristAsync()
-        {
-            TuristaRepository turistaRepo = new TuristaRepository(this.dbContext);
-            var turistas = await turistaRepo.RetrieveAllAsync();
-            var query = turistas.Where(t => t.ReservasIndividuales.Count > 1)
-            .Select(t => new TuristaIndividualRepitente(
-                t.Nombre, t.Email, t.ReservasIndividuales.Count
-            ));
->>>>>>> b7c725c64e45088226147d4e95a73a3ea1421bae
-
             return query;
         }
     }
