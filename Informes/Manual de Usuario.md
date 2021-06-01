@@ -49,7 +49,7 @@ El sistema operativo recomendado:
 
 El acceso a la aplicación sólo exigirá un navegador de Internet (Firefox, Chrome, Edge, etc.), el cual permita acceder a la página web de nuestro sitio.
 
-Será necesario tener instalado para el funcionamiento la plataforma los siguientes softwares:
+Será necesario tener instalado para el funcionamiento del servidor de la plataforma los siguientes softwares:
 
 - SDK de .NET v5 o superior 
 - NodeJs v14 o superior

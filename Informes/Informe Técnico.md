@@ -114,21 +114,54 @@
 
 ## Esquema con el diseño de la aplicación:
 
-No sé a que se refiere.
+![](.\esquema.png)
 
 ------
 
 ## Esquema de las clases definidas:
 
-Tampoco.
+```c#
+//Entidades
+public class Agencia {...}
+public class Excursion {...}
+public class Facilidad {...}
+public class Hotel {...}
+public class Oferta {...}
+public class Paquete {...}
+public class ReservaExcursion {...}
+public class ReservaIndividual {...}
+public class ReservaPaquete {...}
+public class Turista {...}
+
+//Repositorios
+public class AgenciaRepository : IAgencia {...}
+public class ExcursionRepository : IExcursion {...}
+public class FacilidadRepository : IFacilidad {...}
+public class HotelRepository : IHotel {...}
+public class OfertaRepository : IOferta {...}
+public class PaqueteRepository : IPaquete {...}
+public class ReservaExcursionRepository : IReservaExcursion {...}
+public class ReservaIndividualRepository : IReservaIndividual {...}
+public class ReservaPaqueteRepository : IReservaPaquete {...}
+public class TuristaRepository : ITurista {...}
+
+//Clases Auxiliares
+public class ExcursionExtendida {...}
+public class GananciaAgencia {...}
+public class PaqueteSobreMedida {...}
+public class TuristaIndividualRepitente {...}
+
+public class TravelWithUsDbContext : DbContext {...}
+```
 
 ------
 
 ## Algo más:
 A continuación, listaremos las tecnologías escogidas para resolver los detalles de implementación de nuestro software. 
-•	C# (C Sharp)
-•	Microsoft SQL Server 
-•	Entity Framework Core
-•	 Angular
-•	 ASP.Net Core
- 
+
+- C# (C Sharp)
+- Microsoft SQL Server 
+- Entity Framework Core
+- Angular
+- ASP.Net Core
+

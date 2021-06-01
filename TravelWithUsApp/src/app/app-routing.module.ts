@@ -13,7 +13,7 @@ import {HotelsComponent} from "./hotels/hotels.component";
 import {MyReservesComponent} from "./my-reserves/my-reserves.component";
 
 const appRoutes = [
-  { path: "", component: LoginComponent, pathMatch: "full" },
+  { path: "", component: HomeComponent, pathMatch: "full" },
   { path: "login", component: LoginComponent, pathMatch: "full" },
   { path: "register", component: RegisterComponent, pathMatch: "full" },
   { path: "home", component: HomeComponent, pathMatch: "full" },
