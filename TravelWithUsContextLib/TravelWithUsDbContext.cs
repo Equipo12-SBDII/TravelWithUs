@@ -224,13 +224,13 @@ namespace TravelWithUs.DBContext
               }
 
                modelBuilder.Entitity<ReservaPaquete>().HasData(
-                new {TuirstaID= 7, AgenciaID=2, Codigo=1, Acompanantes =1, Precio=(decimal)30, Participante=2, Salida= new DateTime(2021, 10, 12, 7, 0, 0)  },
-                new {TuirstaID= 2, AgenciaID=2, HotelID=1,  Acompanantes =2, Precio=(decimal)40, Participante=4, Salida= new DateTime(2021, 10, 8, 9, 0, 0)  },
-                new {TuirstaID= 3, AgenciaID=1, HotelID=3, Acompanantes =0, Precio=(decimal)20, Participante=2 , Salida= new DateTime(2021, 5, 1, 9, 0, 0)  },
-                new {TuirstaID= 2, AgenciaID=5, HotelID=4,  Acompanantes =1, Precio=(decimal)50, Participante=5 , Salida= new DateTime(2021, 15, 11, 7, 0, 0)  },
-                new {TuirstaID= 7, AgenciaID=2, HotelID=1,  Acompanantes =1, Precio=(decimal)30, Participante=10 , Salida= new DateTime(2021, 10, 12, 7, 0, 0)  },
-                new {TuirstaID= 8, AgenciaID=3, HotelID=2,  Acompanantes =5, Precio=(decimal)30,Participante=4, Salida= new DateTime(2021, 10, 12, 7, 0, 0)  },
-                new {TuirstaID= 2, AgenciaID=3,  HotelID=3 },
+                new {TuirstaID= 7, AgenciaID=2, Codigo=1,  Precio=(decimal)30, Participante=2, Salida= new DateTime(2021, 10, 12, 7, 0, 0)  },
+                new {TuirstaID= 2, AgenciaID=2, Codigo=1,   Precio=(decimal)40, Participante=4, Salida= new DateTime(2021, 10, 8, 9, 0, 0)  },
+                new {TuirstaID= 3, AgenciaID=1, Codigo=3,  Precio=(decimal)20, Participante=2 , Salida= new DateTime(2021, 5, 1, 9, 0, 0)  },
+                new {TuirstaID= 2, AgenciaID=5, Codigo=4,   Precio=(decimal)50, Participante=5 , Salida= new DateTime(2021, 15, 11, 7, 0, 0)  },
+                new {TuirstaID= 7, AgenciaID=2, Codigo=1,   Precio=(decimal)30, Participante=10 , Salida= new DateTime(2021, 10, 12, 7, 0, 0)  },
+                new {TuirstaID= 8, AgenciaID=3, Codigo=2,   Precio=(decimal)30,Participante=4, Salida= new DateTime(2021, 10, 12, 7, 0, 0)  },
+                new {TuirstaID= 8, AgenciaID=3, Codigo=2,   Precio=(decimal)40,Participante=5, Salida= new DateTime(2021, 10, 12, 7, 0, 0)  },
               }
     
 
