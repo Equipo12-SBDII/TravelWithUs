@@ -125,5 +125,10 @@ Tampoco.
 ------
 
 ## Algo más:
-
-Cualquier otra información que sea necesaria para dar mantenimiento al sistema.
+A continuación, listaremos las tecnologías escogidas para resolver los detalles de implementación de nuestro software. 
+•	C# (C Sharp)
+•	Microsoft SQL Server 
+•	Entity Framework Core
+•	 Angular
+•	 ASP.Net Core
+ 
