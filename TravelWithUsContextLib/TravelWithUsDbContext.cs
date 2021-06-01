@@ -129,6 +129,7 @@ namespace TravelWithUs.DBContext
 
             SeedData(modelBuilder);
         }
+        
         private void SeedData(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Agencia>().HasData(

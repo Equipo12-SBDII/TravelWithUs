@@ -44,7 +44,7 @@ namespace TravelWithUsService.Controllers
             return await this.repo.GetHotelsInPackagesAsync();
         }
 
-        // GET: api/request/excursionExtendida/1
+        // GET: api/request/hotelInPackage/1
         [HttpGet("hotelinPackage/{idP:int}")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Hotel>))]
         public async Task<IEnumerable<Hotel>> GetHotelInPackage(int idP)
@@ -62,12 +62,12 @@ namespace TravelWithUsService.Controllers
         }
 
 
-        // GET: api/request/paquete
-        [HttpGet]
+        // GET: api/request/packagesOverMean
+        [HttpGet("packagesOverMean")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Paquete>))]
-        public async Task<IEnumerable<Hotel>> GetPaquetes()
+        public async Task<PaqueteSobreMedia> GetPackagesOverMean()
         {
-            return await this.repo.GetHotelsInPackagesAsync();
+            return await this.repo.GetPackagesOverMean();
         }
 
 

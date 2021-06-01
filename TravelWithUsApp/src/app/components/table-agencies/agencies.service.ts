@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 
 @Injectable()
 export class AgenciesService {
-  private dataPath = 'https://localhost:5001/api/agencia';
+  private dataPath = 'https://localhost:5001/api/request/gananciaAgencia';
 
   constructor(private http: HttpClient) { }
 

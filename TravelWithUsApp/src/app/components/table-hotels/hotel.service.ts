@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 
 @Injectable()
 export class HotelService {
-  private dataPath = 'https://localhost:5001/api/hotel';
+  private dataPath = 'https://localhost:5001/api/request/hotelInPackage';
 
   constructor(private http: HttpClient) { }
 
