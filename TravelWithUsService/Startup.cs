@@ -91,6 +91,7 @@ namespace TravelWithUsService
             services.AddScoped<IReservaIndividual, ReservaIndividualRepository>();
             services.AddScoped<IReservaPaquete, ReservaPaqueteRepository>();
             services.AddScoped<ITurista, TuristaRepository>();
+            services.AddScoped<IRequestsRepository, RequestsRepository>();
 
 
             services.AddScoped<IAuthorizationHandler, CanEditOtherAdminRolesAndClaimsHandler>();
