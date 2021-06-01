@@ -1,11 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using TravelWithUs.Models;
 using System;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace TravelWithUs.DBContext
 {
-    public class TravelWithUsDbContext : IdentityDbContext
+    public class TravelWithUsDbContext : DbContext
     {
         public TravelWithUsDbContext()
         {

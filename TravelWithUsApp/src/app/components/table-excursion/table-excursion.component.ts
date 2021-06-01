@@ -1,6 +1,10 @@
-import {Component, Input} from '@angular/core';
+import {Component, Inject, Input} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {Element} from "@angular/compiler";
+import {Excursion} from "./excursion";
+import {DOCUMENT} from "@angular/common";
+import {HotelService} from "../table-hotels/hotel.service";
+import {ExcursionService} from "./excursion.service";
 
 /**
  * @title Table with expandable rows
@@ -18,89 +22,29 @@ import {Element} from "@angular/compiler";
   ],
 })
 export class TableExcursionComponent {
-  dataSource = ELEMENT_DATA;
-  columnsToDisplay = ['Precio', 'DíaDeSalida', 'DíaDeLLegada', 'HoraDeSalida', 'HoraDeLLegada', 'LugarDeSalida', 'LugarDeLLegada'];
+  excursionList: Excursion[] = []
+  columnsToDisplay = ['precio', 'fechadesalida', 'fechadellegada', 'lugardesalida', 'lugardellegada'];
   expandedElement: any;
   @Input('title')title: any;
 
+
+  constructor(@Inject(DOCUMENT) private document: any, private excursionService: ExcursionService) { }
+  ngOnInit() {
+    this.OnGet();
+  }
+  OnGet() {
+    this.excursionService.GetExcursion().subscribe(
+      (response) => {
+        this.excursionList = response;
+        console.log('Helloooooooo.')
+        console.log(this.excursionList);
+      },
+      (err) => console.log(err),
+    );
+  }
   reserve(expandedElement: any) {
     if(expandedElement) {
       console.log(expandedElement)
     }
   }
 }
-
-export interface Elements {
-  Precio: number;
-  DíaDeSalida: string;
-  DíaDeLLegada: string;
-  HoraDeSalida: string;
-  HoraDeLLegada: string;
-  LugarDeSalida: string;
-  LugarDeLLegada: string;
-  description: string;
-}
-
-const ELEMENT_DATA: Elements[] = [
-  {
-    Precio: 5,
-    DíaDeSalida: '1',
-    DíaDeLLegada: '2',
-    HoraDeSalida: '0800',
-    HoraDeLLegada: '1400',
-    LugarDeSalida: 'Hotel',
-    LugarDeLLegada: 'Playa',
-    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
-        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
-  }, {
-    Precio: 5,
-    DíaDeSalida: '1',
-    DíaDeLLegada: '2',
-    HoraDeSalida: '0800',
-    HoraDeLLegada: '1400',
-    LugarDeSalida: 'Hotel',
-    LugarDeLLegada: 'Playa',
-    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
-        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
-  }, {
-    Precio: 5,
-    DíaDeSalida: '1',
-    DíaDeLLegada: '2',
-    HoraDeSalida: '0800',
-    HoraDeLLegada: '1400',
-    LugarDeSalida: 'Hotel',
-    LugarDeLLegada: 'Playa',
-    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
-        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
-  }, {
-    Precio: 5,
-    DíaDeSalida: '1',
-    DíaDeLLegada: '2',
-    HoraDeSalida: '0800',
-    HoraDeLLegada: '1400',
-    LugarDeSalida: 'Hotel',
-    LugarDeLLegada: 'Playa',
-    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
-        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
-  }, {
-    Precio: 5,
-    DíaDeSalida: '1',
-    DíaDeLLegada: '2',
-    HoraDeSalida: '0800',
-    HoraDeLLegada: '1400',
-    LugarDeSalida: 'Hotel',
-    LugarDeLLegada: 'Playa',
-    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
-        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
-  }, {
-    Precio: 5,
-    DíaDeSalida: '1',
-    DíaDeLLegada: '2',
-    HoraDeSalida: '0800',
-    HoraDeLLegada: '1400',
-    LugarDeSalida: 'Hotel',
-    LugarDeLLegada: 'Playa',
-    description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
-        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
-  },
-];
