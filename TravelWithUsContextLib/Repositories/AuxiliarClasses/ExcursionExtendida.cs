@@ -11,7 +11,7 @@ namespace TravelWithUs.DBContext.Repositories
         public ExcursionExtendida(string lugar, DateTime fechasalida, int duracion)
         {
             this.LugarExcursion = lugar;
-            this.FechaSalidaExcursion = fecha;
+            this.FechaSalidaExcursion = fechasalida;
             this.DuracionExcursion = duracion;
         }
     }
