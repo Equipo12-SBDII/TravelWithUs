@@ -43,9 +43,15 @@ namespace TravelWithUs.DBContext.Repositories
             throw new System.NotImplementedException();
         }
 
-        public Task<PaqueteSobreMedia> GetPackagesOverMean()
+        public async Task<PaqueteSobreMedia> GetPackagesOverMean()
         {
-            throw new System.NotImplementedException();
+            PaqueteRepository paqueteRepo = new PaqueteRepository(this.dbContext);
+            var paquetes = await paqueteRepo.RetrieveAllAsync();
+            decimal media = paquetes.Average(p => p.Precio);
+            PaqueteSobreMedia query = new PaqueteSobreMedia(
+                paquetes.Where(p => p.Precio > media));
+
+            return query;
         }
 
         public Task<IEnumerable<TuristaIndividualRepitente>> GetRepetitiveTouristAsync()
