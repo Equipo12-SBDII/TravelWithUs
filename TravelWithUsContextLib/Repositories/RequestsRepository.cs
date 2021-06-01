@@ -35,7 +35,7 @@ namespace TravelWithUs.DBContext.Repositories
         { 
             ExcursionRepository excursionRepo = new ExcursionRepository(this.dbContext);
             var excursiones = excursionRepo.RetrieveAllAsync();
-            var query = excursiones.Where(h => h.Hoteles != null).Select(e => new ExcursionExtendida(e.LugarSalida, e.FechaSalida, long(dateDiff("d", e.FechaLlegada, e.FechaSalida))));
+            var query = excursiones.Where(h => h.Hoteles != null).Select(e => new ExcursionExtendida(e.LugarSalida, e.FechaSalida, DateDiff("d", e.FechaLlegada, e.FechaSalida)));
             return query;       
             
         }
