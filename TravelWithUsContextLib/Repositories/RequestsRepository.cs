@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TravelWithUs.Models;
 using TravelWithUs.DBContext;
+using System;
 
 namespace TravelWithUs.DBContext.Repositories
 {
@@ -31,27 +32,41 @@ namespace TravelWithUs.DBContext.Repositories
             return query;
         }
 
-        public Task<IEnumerable<ExcursionExtendida>> GetExtendedExcursion()
-        { 
+        public async Task<IEnumerable<ExcursionExtendida>> GetExtendedExcursion()
+        {
             ExcursionRepository excursionRepo = new ExcursionRepository(this.dbContext);
-            var excursiones = excursionRepo.RetrieveAllAsync();
-            var query = excursiones.Where(h => h.Hoteles != null).Select(e => new ExcursionExtendida(e.LugarSalida, e.FechaSalida, DateDiff("d", e.FechaLlegada, e.FechaSalida)));
-            return query;       
-            
+            var excursiones = await excursionRepo.RetrieveAllAsync();
+            var query = excursiones.Where(h => h.Hoteles != null)
+                    .Select(e => new ExcursionExtendida(
+                        e.LugarSalida
+                        , e.FechaSalida
+                        , (int)e.FechaLlegada.Subtract(e.FechaSalida).Days));
+            return query;
+
         }
 
         public async Task<IEnumerable<Hotel>> GetHotelsInPackagesAsync()
         {
-            PaqueteRepository packageRepo = new PaqueteRepository(this.dbContext);
-            ExcursionRepository excursionRepo = new ExcursionRepository(this.dbContext);
-           
-            var allpackage = await packetRepo.RetrieveAllAsync();
+            HotelRepository hotelRepo = new HotelRepository(this.dbContext);
 
-            var query  = 
-        
+            var hoteles = await hotelRepo.RetrieveAllAsync();
+            var query = hoteles.Where(h =>
+                    h.Excursiones.Count > 0
+                    && h.Excursiones.Any(e => e.Paquetes.Count > 0)
+                    );
+
+            return query;
         }
 
-       
+        public async Task<IEnumerable<Hotel>> GetHotelsInPackagesAsync(int idP)
+        {
+            PaqueteRepository paqueteRepo = new PaqueteRepository(this.dbContext);
+            var paquete = await paqueteRepo.RetrieveAsync(idP);
+            return paquete.Excursion.Hoteles;
+        }
+
+
+
 
         public async Task<PaqueteSobreMedia> GetPackagesOverMean()
         {
