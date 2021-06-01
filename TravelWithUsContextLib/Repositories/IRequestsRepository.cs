@@ -1,19 +1,18 @@
 using System.Collections.Generic;
-using System.Linq;
 using TravelWithUs.Models;
-
+using System.Threading.Tasks;
 
 
 namespace TravelWithUs.DBContext.Repositories
 {
     public interface IRequestsRepository
     {
-        IEnumerable<Hotel> GetHotelsInPackagesAsync();
-        IEnumerable<Hotel> GetHotelsInPackagesAsync(int idP);
-        IEnumerable<GananciaAgencia> GetExpectedProfitAsync();
-        IEnumerable<TuristaIndividualRepitente> GetTuristasRepitentesAsync();
-        IEnumerable<ExcursionExtendida> GetExtendedExcursion();
-        PaqueteSobreMedia GetPackagesOverMean();
+        Task<IEnumerable<Hotel>> GetHotelsInPackagesAsync();
+        Task<IEnumerable<Hotel>> GetHotelsInPackagesAsync(int idP);
+        Task<IEnumerable<GananciaAgencia>> GetExpectedProfitAsync();
+        Task<IEnumerable<TuristaIndividualRepitente>> GetTuristasRepitentesAsync();
+        Task<IEnumerable<ExcursionExtendida>> GetExtendedExcursion();
+        Task<PaqueteSobreMedia> GetPackagesOverMean();
 
     }
 }
