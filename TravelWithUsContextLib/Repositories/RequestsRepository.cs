@@ -50,9 +50,17 @@ namespace TravelWithUs.DBContext.Repositories
             throw new System.NotImplementedException();
         }
 
-        public Task<IEnumerable<TuristaIndividualRepitente>> GetTuristasRepitentesAsync()
+        public async Task<IEnumerable<TuristaIndividualRepitente>> GetTuristasRepitentesAsync()
         {
-            throw new System.NotImplementedException();
+            TuristaRepository turistaRepo = new TuristaRepository(this.dbContext);
+            var turistas = await turistaRepo.RetrieveAllAsync();
+            var query = turistas.Select(t => new TuristaIndividualRepitente(
+                    t.Nombre, t.Email
+                    , t.ReservasIndividuales.Count
+                ))
+                .Where(tr => tr.CantidadViajes > 1);
+
+            return query;
         }
     }
 }
