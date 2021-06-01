@@ -1,3 +1,5 @@
+<mat-card>
+  <mat-card-title>Hoteles en paquetes</mat-card-title>
 <mat-accordion>
   <mat-expansion-panel (opened)="panelOpenState = true"
                        (closed)="panelOpenState = false">
@@ -10,8 +12,6 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
     <p>{{description}}</p>
-    <br>
-    <button mat-stroked-button color="accent" (click)="urlRedirect()">Visitar Página Oficial</button>
-    <button style="margin-left: 4px" mat-stroked-button color="warn" (click)="pageRedirect()">Sus Ofertas</button>
   </mat-expansion-panel>
 </mat-accordion>
+</mat-card>

@@ -1,47 +1,45 @@
 <div>
   <div class="row">
     <div class="col-3">
-          <h4>Agencia</h4>
+          <h4>Agencia</h4><br>
           <mat-form-field appearance="fill">
-            <mat-label>Agencia Favorita</mat-label>
             <select matNativeControl (change)="selectAge($event)">
               <option value=""></option>
-              <option *ngFor="let option of agencies" [value]="option.value"
-                      [selected]="selectedAge === option.value">{{ option.viewValue }} - ${{option.price}}</option>
+              <option *ngFor="let option of agencies" [value]="option.nombre"
+                      [selected]="selectedAge === option.nombre">{{ option.nombre }}</option>
             </select>
           </mat-form-field>
           <p>Su selección: {{selectedAge}}</p>
         </div>
     <div class="col-3">
-          <h4>Compañía</h4>
+          <h4>Oferta</h4><br>
           <mat-form-field appearance="fill">
-            <mat-label>Compañía Favorita</mat-label>
-            <select matNativeControl (change)="selectCom($event)">
+            <select matNativeControl (change)="selectOff($event)">
               <option value=""></option>
-              <option *ngFor="let option of companies" [value]="option.value"
-                      [selected]="selectedCom === option.value">{{ option.viewValue }} - ${{option.price}}</option>
+              <option *ngFor="let option of offers" [value]="option.nombre"
+                      [selected]="selectedOff === option.nombre">{{ option.nombre }} - ${{option.precio}}</option>
             </select>
           </mat-form-field>
-          <p>Su selección: {{selectedCom}}</p>
+          <p>Su selección: {{selectedOff}}</p>
     </div>
     <div class="col-3">
-          <h4>Hotel</h4>
+          <h4>Turista</h4><br>
           <mat-form-field appearance="fill">
-            <mat-label>Hotel favorito</mat-label>
-            <select matNativeControl (change)="selectHot($event)">
+            <select matNativeControl (change)="selectTou($event)">
               <option value=""></option>
-              <option *ngFor="let option of hotels" [value]="option.value"
-                      [selected]="selectedHot === option.value">{{ option.viewValue }} - ${{option.price}}</option>
+              <option *ngFor="let option of tourist" [value]="option.nombre"
+                      [selected]="selectedTou === option.nombre">{{ option.nombre }}</option>
             </select>
           </mat-form-field>
-          <p>Su selección: {{selectedHot}}</p>
-
+          <p>Su selección: {{selectedTou}}</p>
         </div>
       </div>
-  <p>Precio de la reserva: ${{reservedPrice}}</p>
+  <br>
+  <h4>Precio de la reserva: ${{reservedPrice}}</h4>
+  <br>
   <div>
-    <button mat-raised-button (click)="price()">Calcular Precio</button>
-    <button mat-raised-button color="primary">Reservar</button>
+    <button mat-stroked-button (click)="price()">Calcular Precio</button>
+    <button style="margin-left: 5px" mat-raised-button color="primary">Reservar</button>
   </div>
 </div>
 
