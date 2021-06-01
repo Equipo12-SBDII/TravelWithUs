@@ -16,16 +16,18 @@ namespace TravelWithUs.DBContext.Repositories
 
         public async Task<IEnumerable<GananciaAgencia>> GetExpectedProfitAsync()
         {
-            // ReservaExcursionRepository reRepo = new ReservaExcursionRepository(this.dbContext);
-            // ReservaIndividualRepository riRepo = new ReservaIndividualRepository(this.dbContext);
-            // ReservaPaqueteRepository rpRepo = new ReservaPaqueteRepository(this.dbContext);
+            AgenciaRepository agenciaRepo = new AgenciaRepository(this.dbContext);
+            var agencias = await agenciaRepo.RetrieveAllAsync();
+            IEnumerable<GananciaAgencia> query = agencias
+                .Select(a => new GananciaAgencia(
+                    a.Nombre,
+                    a.ReservasExcursiones.Sum(re => re.Excursion.Precio)
+                    + a.ReservasIndividuales.Sum(ri => ri.Precio)
+                    + a.ReservasPaquetes.Sum(rp => rp.Precio)
+                    , a.ReservasExcursiones.Count + a.ReservasIndividuales.Count + a.ReservasPaquetes.Count)
+                );
 
-            // var reAll = await reRepo.RetrieveAllAsync();
-            // var riAll = await riRepo.RetrieveAllAsync();
-            // var rpAll = await rpRepo.RetrieveAllAsync();
-            // var reAgencia = reAll.GroupBy(re => re.Excursion.Precio)
-            //                 .Where(re => )
-            throw new System.NotImplementedException();
+            return query;
         }
 
         public Task<IEnumerable<ExcursionExtendida>> GetExtendedExcursion()
