@@ -5,13 +5,13 @@ namespace TravelWithUs.DBContext.Repositories
     public class ExcursionExtendida
     {
         public string LugarExcursion { get; private set; }
-        public DateTime SalidaExcursion { get; private set; }
+        public DateTime FechaSalidaExcursion { get; private set; }
         public int DuracionExcursion { get; private set; }
 
-        public ExcursionExtendida(string lugar, DateTime salida, int duracion)
+        public ExcursionExtendida(string lugar, DateTime fechasalida, int duracion)
         {
             this.LugarExcursion = lugar;
-            this.SalidaExcursion = salida;
+            this.FechaSalidaExcursion = fecha;
             this.DuracionExcursion = duracion;
         }
     }

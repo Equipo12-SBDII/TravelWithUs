@@ -32,30 +32,24 @@ namespace TravelWithUs.DBContext.Repositories
         }
 
         public Task<IEnumerable<ExcursionExtendida>> GetExtendedExcursion()
-        {
-            throw new System.NotImplementedException();
+        { 
+            ExcursionRepository excursionRepo = new ExcursionRepository(this.dbContext);
+            var excursiones = excursionRepo.RetrieveAllAsync();
+            var query = excursiones.Where(h => h.Hoteles != null).Select(e => new ExcursionExtendida(e.LugarSalida, e.FechaSalida, long(dateDiff("d", e.FechaLlegada, e.FechaSalida))));
+            return query;       
+            
         }
 
         public async Task<IEnumerable<Hotel>> GetHotelsInPackagesAsync()
         {
-            PaqueteRepository packetRepo = new PaqueteRepository(this.dbContext);
+            PaqueteRepository packageRepo = new PaqueteRepository(this.dbContext);
             ExcursionRepository excursionRepo = new ExcursionRepository(this.dbContext);
-            //HotelRepository  hotelRepo = new HotelRepository(dbContext);
-
-            //List<Hotel> hotels = new List<Hotel>();
-
+           
             var allpackage = await packetRepo.RetrieveAllAsync();
-            //var allhotels = await hotelRepo.RetrieveAllAsync();
-            //foreach package in allpackage
-
-            throw new System.NotImplementedException();
-
+        
         }
 
-        public Task<IEnumerable<Hotel>> GetHotelsInPackagesAsync(int idP)
-        {
-            throw new System.NotImplementedException();
-        }
+       
 
         public async Task<PaqueteSobreMedia> GetPackagesOverMean()
         {
