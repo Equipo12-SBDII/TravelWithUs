@@ -114,7 +114,7 @@
 
 ## Esquema con el diseño de la aplicación:
 
-No sé a que se refiere.
+![](.\esquema.png)
 
 ------
 
