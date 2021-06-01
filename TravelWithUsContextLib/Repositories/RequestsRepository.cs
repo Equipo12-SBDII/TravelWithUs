@@ -18,6 +18,7 @@ namespace TravelWithUs.DBContext.Repositories
         {
             AgenciaRepository agenciaRepo = new AgenciaRepository(this.dbContext);
             var agencias = await agenciaRepo.RetrieveAllAsync();
+<<<<<<< HEAD
             IEnumerable<GananciaAgencia> query = agencias
                 .Select(a => new GananciaAgencia(
                     a.Nombre,
@@ -25,6 +26,16 @@ namespace TravelWithUs.DBContext.Repositories
                     + a.ReservasIndividuales.Sum(ri => ri.Precio)
                     + a.ReservasPaquetes.Sum(rp => rp.Precio)
                     , a.ReservasExcursiones.Count + a.ReservasIndividuales.Count + a.ReservasPaquetes.Count)
+=======
+            var query = agencias.Select(a => new GananciaAgencia(
+                a.Nombre,
+                a.ReservasExcursiones.Sum(re => re.Excursion.Precio)
+                + a.ReservasIndividuales.Sum(ri => ri.Precio)
+                + a.ReservasPaquetes.Sum(rp => rp.Precio)
+                , a.ReservasExcursiones.Count
+                + a.ReservasIndividuales.Count
+                + a.ReservasPaquetes.Count)
+>>>>>>> b7c725c64e45088226147d4e95a73a3ea1421bae
                 );
 
             return query;
@@ -56,11 +67,19 @@ namespace TravelWithUs.DBContext.Repositories
             throw new System.NotImplementedException();
         }
 
-        public Task<PaqueteSobreMedia> GetPackagesOverMean()
+        public async Task<PaqueteSobreMedia> GetPackagesOverMean()
         {
-            throw new System.NotImplementedException();
+            PaqueteRepository paqueteRepo = new PaqueteRepository(this.dbContext);
+            var paquetes = await paqueteRepo.RetrieveAllAsync();
+            decimal media = paquetes.Average(p => p.Precio);
+            var query = new PaqueteSobreMedia(paquetes.Where(
+                p => p.Precio > media
+            ));
+
+            return query;
         }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         public async Task<IEnumerable<TuristaIndividualRepitente>> GetTuristasRepitentesAsync()
 =======
@@ -74,6 +93,16 @@ namespace TravelWithUs.DBContext.Repositories
                     , t.ReservasIndividuales.Count
                 ))
                 .Where(tr => tr.CantidadViajes > 1);
+=======
+        public async Task<IEnumerable<TuristaIndividualRepitente>> GetRepetitiveTouristAsync()
+        {
+            TuristaRepository turistaRepo = new TuristaRepository(this.dbContext);
+            var turistas = await turistaRepo.RetrieveAllAsync();
+            var query = turistas.Where(t => t.ReservasIndividuales.Count > 1)
+            .Select(t => new TuristaIndividualRepitente(
+                t.Nombre, t.Email, t.ReservasIndividuales.Count
+            ));
+>>>>>>> b7c725c64e45088226147d4e95a73a3ea1421bae
 
             return query;
         }
