@@ -46,6 +46,8 @@ namespace TravelWithUs.DBContext.Repositories
             ExcursionRepository excursionRepo = new ExcursionRepository(this.dbContext);
            
             var allpackage = await packetRepo.RetrieveAllAsync();
+
+            var query  = 
         
         }
 

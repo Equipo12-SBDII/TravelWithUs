@@ -19,15 +19,10 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { SidebarComponent } from "./components/sidebar/sidebar.component";
-import { ExpansionPanelComponent } from './components/expansion-panel/expansion-panel.component';
 import { MatExpansionModule } from "@angular/material/expansion";
 import { MatDatepickerModule } from "@angular/material/datepicker";
-import { HotelpageComponent } from './hotelpage/hotelpage.component';
-import { ReservesComponent } from './components/reserves/reserves.component';
 import { MatListModule } from "@angular/material/list";
 import { MatDialogModule } from "@angular/material/dialog";
-import { DialogComponent, DialogElementsExampleDialog } from './components/dialog/dialog.component';
 import { MatMenuModule } from "@angular/material/menu";
 import { TableHotelsComponent } from './components/table-hotels/table-hotels.component';
 import { MatTableModule } from "@angular/material/table";
@@ -61,12 +56,6 @@ import {TableOffersService} from "./components/table-offers/table-offers.service
     HomeComponent,
     ReserveComponent,
     NavbarComponent,
-    SidebarComponent,
-    ExpansionPanelComponent,
-    HotelpageComponent,
-    ReservesComponent,
-    DialogComponent,
-    DialogElementsExampleDialog,
     TableHotelsComponent,
     TableOffersComponent,
     OffersComponent,
