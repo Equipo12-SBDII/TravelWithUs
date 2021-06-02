@@ -193,14 +193,14 @@ namespace TravelWithUs.DBContext
                 new { TuristaID = 9, Nombre = "Yen Gij", Nacionalidad = "japon", Email = "yen@travelwithus.com" },
                 new { TuristaID = 10, Nombre = "Liana Ruz", Nacionalidad = "Suecia", Email = "ruz@travelwithus.com" }
             );
-            modelBuilder.Entitity<Paquete>().HasData(
+            modelBuilder.Entity<Paquete>().HasData(
                 new{ Codigo = 1, Descripcion="Viaje maritimo" ,Precio=(decimal)75 ,Duracion= new TimeSpan(5,10,4)},
                 new{ Codigo = 2, Descripcion="Viaje rural" ,Precio=(decimal)50 ,Duracion= new TimeSpan(3,10,4)},
                 new{ Codigo = 1, Descripcion="Viaje a zona de playa " ,Precio=(decimal)100 ,Duracion= new TimeSpan(2,10,4) },
                 new{ Codigo = 1, Descripcion="Viaje a lugares historicos" ,Precio=(decimal)60 ,Duracion= new TimeSpan(7,10,5) }
             );
 
-            modelBuilder.Entitity<ReservaExcursion>().HasData(
+            modelBuilder.Entity<ReservaExcursion>().HasData(
                 new {TuirstaID= 7, AgenciaID=2, ExcursionID=1 },
                 new {TuirstaID= 5, AgenciaID=5, ExcursionID=1 },
                 new {TuirstaID= 4, AgenciaID=1, ExcursionID=1 },
@@ -210,7 +210,7 @@ namespace TravelWithUs.DBContext
                 new {TuirstaID= 2, AgenciaID=3, ExcursionID=3 }
               );
 
-            modelBuilder.Entitity<ReservaIndividual>().HasData(
+            modelBuilder.Entity<ReservaIndividual>().HasData(
                new {TuirstaID= 7, AgenciaID=2, HotelID=1, OfertaID=1, Acompanantes =1, Precio=(decimal)30, Llegada=new DateTime(2021, 7, 12, 7, 0, 0) , Salida= new DateTime(2021, 10, 12, 7, 0, 0)  },
                new {TuirstaID= 2, AgenciaID=2, HotelID=1, OfertaID=3, Acompanantes =2, Precio=(decimal)40, Llegada=new DateTime(2021, 7, 10, 7, 0, 0) , Salida= new DateTime(2021, 10, 8, 9, 0, 0)  },
                new {TuirstaID= 3, AgenciaID=1, HotelID=3, OfertaID=1, Acompanantes =0, Precio=(decimal)20, Llegada=new DateTime(2021, 4, 1, 12, 0, 0) , Salida= new DateTime(2021, 5, 1, 9, 0, 0)  },
@@ -220,7 +220,7 @@ namespace TravelWithUs.DBContext
                new {TuirstaID= 2, AgenciaID=3,  HotelID=3 }
             );
 
-             modelBuilder.Entitity<ReservaPaquete>().HasData(
+             modelBuilder.Entity<ReservaPaquete>().HasData(
               new {TuirstaID= 7, AgenciaID=2, Codigo=1,  Precio=(decimal)30, Participante=2, Salida= new DateTime(2021, 10, 12, 7, 0, 0)  },
               new {TuirstaID= 2, AgenciaID=2, Codigo=1,   Precio=(decimal)40, Participante=4, Salida= new DateTime(2021, 10, 8, 9, 0, 0)  },
               new {TuirstaID= 3, AgenciaID=1, Codigo=3,  Precio=(decimal)20, Participante=2 , Salida= new DateTime(2021, 5, 1, 9, 0, 0)  },
