@@ -17,7 +17,6 @@ namespace TravelWithUs.DBContext
 
         }
 
-
         public DbSet<Agencia> Agencias { get; set; }
         public DbSet<Excursion> Excursiones { get; set; }
         public DbSet<Facilidad> Facilidades { get; set; }
@@ -136,7 +135,7 @@ namespace TravelWithUs.DBContext
                 new { AgenciaID = 1, Nombre = "Cubanacan", Direccion = "Playa", Email = "cubanacan@gmail.com", Fax = "78538964", Descripcion = "Agencia de turismo que le permitira conocer diferentes lugares en toda la isla, con excelentes servicios en hoteles y casas de arrendamiento, asi como alquiler de autos." },
                 new { AgenciaID = 2, Nombre = "Gaviota", Direccion = "Plaza", Email = "gaviota@gmail.com", Fax = "76885479", Descripcion = "La Agencia de Viajes gaviota brinda las facilidadesd de conocer maravillosos lugares de Cuba a la vez que disfruta de una agradable estancia. Cuenta con servicio de diferentes aerolíneas , con precios módicos y excelente calidad." },
                 new { AgenciaID = 3, Nombre = "EcoCuba", Direccion = "Habana Vieja", Email = "ecocuba@gmail.com", Fax = "72086942", Descripcion = "Agencia especializada en el turismo ecológico. Cuenta con excursiones a verdaderas maravillas naturales de Cuba y hospedajes en lugares en su mayoría rurales , especial para disfrutar de un ambiente sano." },
-                new { AgenciaID = 4, Nombre = "CaribeTour", Direccion = "Playa", Email = "caribe@gmail.com", Fax = "72028546", Descripcion = " Agencia cubana que cuenta con mas de 200 sitios turísticos para visitar en Cuba en su catálogo , la mayoría de estos con estrecha relación con otros países del caribe y América Latina. " }
+                new { AgenciaID = 4, Nombre = "CaribeTour", Direccion = "Playa", Email = "caribe@gmail.com", Fax = "72028546", Descripcion = " Agencia cubana que cuenta con mas de 200 sitios turísticos para visitar en Cuba en su catálogo , la mayoría de estos con estrecha relación con otros países del caribe y América Latina. " },
                 new { AgenciaID = 5, Nombre = "CubaViaje", Direccion = "Vedado", Email = "cubaviaje@gmail.com", Fax = "72028642", Descripcion = " Agencia cubana creada hace poco mas de dos años que en su catálogo muestra diversas opciones encaminadas principalmente al publico joven. " }
 
             );
@@ -177,7 +176,7 @@ namespace TravelWithUs.DBContext
                 new { OfertaID = 1, HotelID = 3, Descripcion = "Habitación para dos personas . Baño con jacuzzy con sales arómaticas ", Precio = (decimal)60.00 },
                 new { OfertaID = 2, HotelID = 3, Descripcion = "Habitación familiar para un dia y una noche con servivio d spa. ", Precio = (decimal)100.00 },
                 new { OfertaID = 3, HotelID = 3, Descripcion = "Habitación para una persona con servicio a la habitacion ", Precio = (decimal)40.00 },
-                new { OfertaID = 2, HotelID = 4, Descripcion = "Fin de semana romantico ,para parejas de aniversario con descuento. ", Precio = (decimal)80.00 },
+                new { OfertaID = 2, HotelID = 4, Descripcion = "Fin de semana romantico ,para parejas de aniversario con descuento. ", Precio = (decimal)80.00 }
 
             );
 
@@ -193,16 +192,13 @@ namespace TravelWithUs.DBContext
                 new { TuristaID = 8, Nombre = "Hissake Li", Nacionalidad = "Japon", Email = "li@travelwithus.com" },
                 new { TuristaID = 9, Nombre = "Yen Gij", Nacionalidad = "japon", Email = "yen@travelwithus.com" },
                 new { TuristaID = 10, Nombre = "Liana Ruz", Nacionalidad = "Suecia", Email = "ruz@travelwithus.com" }
-
             );
             modelBuilder.Entitity<Paquete>().HasData(
                 new{ Codigo = 1, Descripcion="Viaje maritimo" ,Precio=(decimal)75 ,Duracion= new TimeSpan(5,10,4)},
                 new{ Codigo = 2, Descripcion="Viaje rural" ,Precio=(decimal)50 ,Duracion= new TimeSpan(3,10,4)},
                 new{ Codigo = 1, Descripcion="Viaje a zona de playa " ,Precio=(decimal)100 ,Duracion= new TimeSpan(2,10,4) },
-                new{ Codigo = 1, Descripcion="Viaje a lugares historicos" ,Precio=(decimal)60 ,Duracion= new TimeSpan(7,10,5) },
-
-
-            )
+                new{ Codigo = 1, Descripcion="Viaje a lugares historicos" ,Precio=(decimal)60 ,Duracion= new TimeSpan(7,10,5) }
+            );
 
             modelBuilder.Entitity<ReservaExcursion>().HasData(
                 new {TuirstaID= 7, AgenciaID=2, ExcursionID=1 },
@@ -211,28 +207,29 @@ namespace TravelWithUs.DBContext
                 new {TuirstaID= 1, AgenciaID=2, ExcursionID=2 },
                 new {TuirstaID= 9, AgenciaID=2, ExcursionID=1 },
                 new {TuirstaID= 6, AgenciaID=2, ExcursionID=4 },
-                new {TuirstaID= 2, AgenciaID=3, ExcursionID=3 },
-              }
+                new {TuirstaID= 2, AgenciaID=3, ExcursionID=3 }
+              );
 
-             modelBuilder.Entitity<ReservaIndividual>().HasData(
-                new {TuirstaID= 7, AgenciaID=2, HotelID=1, OfertaID=1, Acompanantes =1, Precio=(decimal)30, Llegada=new DateTime(2021, 7, 12, 7, 0, 0) , Salida= new DateTime(2021, 10, 12, 7, 0, 0)  },
-                new {TuirstaID= 2, AgenciaID=2, HotelID=1, OfertaID=3, Acompanantes =2, Precio=(decimal)40, Llegada=new DateTime(2021, 7, 10, 7, 0, 0) , Salida= new DateTime(2021, 10, 8, 9, 0, 0)  },
-                new {TuirstaID= 3, AgenciaID=1, HotelID=3, OfertaID=1, Acompanantes =0, Precio=(decimal)20, Llegada=new DateTime(2021, 4, 1, 12, 0, 0) , Salida= new DateTime(2021, 5, 1, 9, 0, 0)  },
-                new {TuirstaID= 2, AgenciaID=5, HotelID=4, OfertaID=2, Acompanantes =1, Precio=(decimal)50, Llegada=new DateTime(2021, 12, 10, 7, 0, 0) , Salida= new DateTime(2021, 15, 11, 7, 0, 0)  },
-                new {TuirstaID= 7, AgenciaID=2, HotelID=1, OfertaID=2, Acompanantes =1, Precio=(decimal)30, Llegada=new DateTime(2021, 7, 12, 7, 0, 0) , Salida= new DateTime(2021, 10, 12, 7, 0, 0)  },
-                new {TuirstaID= 8, AgenciaID=3, HotelID=2, OfertaID=3, Acompanantes =5, Precio=(decimal)30, Llegada=new DateTime(2021, 7, 12, 7, 0, 0) , Salida= new DateTime(2021, 10, 12, 7, 0, 0)  },
-                new {TuirstaID= 2, AgenciaID=3,  HotelID=3 },
-              }
+            modelBuilder.Entitity<ReservaIndividual>().HasData(
+               new {TuirstaID= 7, AgenciaID=2, HotelID=1, OfertaID=1, Acompanantes =1, Precio=(decimal)30, Llegada=new DateTime(2021, 7, 12, 7, 0, 0) , Salida= new DateTime(2021, 10, 12, 7, 0, 0)  },
+               new {TuirstaID= 2, AgenciaID=2, HotelID=1, OfertaID=3, Acompanantes =2, Precio=(decimal)40, Llegada=new DateTime(2021, 7, 10, 7, 0, 0) , Salida= new DateTime(2021, 10, 8, 9, 0, 0)  },
+               new {TuirstaID= 3, AgenciaID=1, HotelID=3, OfertaID=1, Acompanantes =0, Precio=(decimal)20, Llegada=new DateTime(2021, 4, 1, 12, 0, 0) , Salida= new DateTime(2021, 5, 1, 9, 0, 0)  },
+               new {TuirstaID= 2, AgenciaID=5, HotelID=4, OfertaID=2, Acompanantes =1, Precio=(decimal)50, Llegada=new DateTime(2021, 12, 10, 7, 0, 0) , Salida= new DateTime(2021, 15, 11, 7, 0, 0)  },
+               new {TuirstaID= 7, AgenciaID=2, HotelID=1, OfertaID=2, Acompanantes =1, Precio=(decimal)30, Llegada=new DateTime(2021, 7, 12, 7, 0, 0) , Salida= new DateTime(2021, 10, 12, 7, 0, 0)  },
+               new {TuirstaID= 8, AgenciaID=3, HotelID=2, OfertaID=3, Acompanantes =5, Precio=(decimal)30, Llegada=new DateTime(2021, 7, 12, 7, 0, 0) , Salida= new DateTime(2021, 10, 12, 7, 0, 0)  },
+               new {TuirstaID= 2, AgenciaID=3,  HotelID=3 }
+            );
 
-               modelBuilder.Entitity<ReservaPaquete>().HasData(
-                new {TuirstaID= 7, AgenciaID=2, Codigo=1,  Precio=(decimal)30, Participante=2, Salida= new DateTime(2021, 10, 12, 7, 0, 0)  },
-                new {TuirstaID= 2, AgenciaID=2, Codigo=1,   Precio=(decimal)40, Participante=4, Salida= new DateTime(2021, 10, 8, 9, 0, 0)  },
-                new {TuirstaID= 3, AgenciaID=1, Codigo=3,  Precio=(decimal)20, Participante=2 , Salida= new DateTime(2021, 5, 1, 9, 0, 0)  },
-                new {TuirstaID= 2, AgenciaID=5, Codigo=4,   Precio=(decimal)50, Participante=5 , Salida= new DateTime(2021, 15, 11, 7, 0, 0)  },
-                new {TuirstaID= 7, AgenciaID=2, Codigo=1,   Precio=(decimal)30, Participante=10 , Salida= new DateTime(2021, 10, 12, 7, 0, 0)  },
-                new {TuirstaID= 8, AgenciaID=3, Codigo=2,   Precio=(decimal)30,Participante=4, Salida= new DateTime(2021, 10, 12, 7, 0, 0)  },
-                new {TuirstaID= 8, AgenciaID=3, Codigo=2,   Precio=(decimal)40,Participante=5, Salida= new DateTime(2021, 10, 12, 7, 0, 0)  },
-              }
+             modelBuilder.Entitity<ReservaPaquete>().HasData(
+              new {TuirstaID= 7, AgenciaID=2, Codigo=1,  Precio=(decimal)30, Participante=2, Salida= new DateTime(2021, 10, 12, 7, 0, 0)  },
+              new {TuirstaID= 2, AgenciaID=2, Codigo=1,   Precio=(decimal)40, Participante=4, Salida= new DateTime(2021, 10, 8, 9, 0, 0)  },
+              new {TuirstaID= 3, AgenciaID=1, Codigo=3,  Precio=(decimal)20, Participante=2 , Salida= new DateTime(2021, 5, 1, 9, 0, 0)  },
+              new {TuirstaID= 2, AgenciaID=5, Codigo=4,   Precio=(decimal)50, Participante=5 , Salida= new DateTime(2021, 15, 11, 7, 0, 0)  },
+              new {TuirstaID= 7, AgenciaID=2, Codigo=1,   Precio=(decimal)30, Participante=10 , Salida= new DateTime(2021, 10, 12, 7, 0, 0)  },
+              new {TuirstaID= 8, AgenciaID=3, Codigo=2,   Precio=(decimal)30,Participante=4, Salida= new DateTime(2021, 10, 12, 7, 0, 0)  },
+              new {TuirstaID= 8, AgenciaID=3, Codigo=2,   Precio=(decimal)40,Participante=5, Salida= new DateTime(2021, 10, 12, 7, 0, 0)  }
+            );
+        }
     
 
     }
