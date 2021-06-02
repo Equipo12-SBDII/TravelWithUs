@@ -6,13 +6,17 @@ namespace TravelWithUs.DBContext.Repositories
 {
     public class PaqueteSobreMedia
     {
-        public IEnumerable<Paquete> PaquetesSobreMedia { get; private set; }
-        public int Count { get; private set; }
+        public int Codigo { get; private set; }
+        public int Duracion { get; private set; }
+        public string Descripcion { get; private set; }
+        public decimal Precio { get; private set; }
 
-        public PaqueteSobreMedia(IEnumerable<Paquete> paquetes)
+        public PaqueteSobreMedia(int codigo, int duracion, string descripcion, decimal precio)
         {
-            this.PaquetesSobreMedia = paquetes;
-            this.Count = paquetes.ToArray().Length;
+            this.Codigo = codigo;
+            this.Duracion = duracion;
+            this.Descripcion = descripcion;
+            this.Precio = precio;
         }
 
     }

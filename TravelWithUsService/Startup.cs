@@ -14,6 +14,7 @@ using Microsoft.OpenApi.Models;
 using TravelWithUs.DBContext.Repositories;
 using TravelWithUs.DBContext;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 
 
 using System.IO;
@@ -40,8 +41,11 @@ namespace TravelWithUsService
             // services.AddDbContext<TravelWithUsDbContext>(options =>
             //     options.UseSqlite($"Data Source={databasePath}")
             // );
+
             services.AddDbContext<TravelWithUsDbContext>(options =>
                 options.UseSqlServer($"Server=(localDB)\\MSSQLLocalDB;Database=TravelWithUsDB;Integrated Security=true;"));
+
+            this.Migrate(services.BuildServiceProvider());
 
             services.AddCors(options =>
             {
@@ -54,7 +58,10 @@ namespace TravelWithUsService
             });
 
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(
+                options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TravelWithUsService", Version = "v1" });
@@ -125,6 +132,14 @@ namespace TravelWithUsService
             {
                 endpoints.MapControllers();
             });
+        }
+
+        private void Migrate(IServiceProvider serviceProvider)
+        {
+            var logger = serviceProvider.GetRequiredService<ILogger<TravelWithUsDbContext>>();
+            logger.LogInformation("Migrating database schema");
+            var context = serviceProvider.GetRequiredService<TravelWithUsDbContext>();
+            context.Database.Migrate();
         }
     }
 }

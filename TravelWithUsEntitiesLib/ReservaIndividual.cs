@@ -29,8 +29,7 @@ namespace TravelWithUs.Models
         [MaxLength(40)]
         public string Aerolinea { get; set; }
 
-        [Column("PrecioRI")]
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [Column(TypeName = "decimal(5,2)")]
         [Required]
         public decimal Precio { get; set; }
 

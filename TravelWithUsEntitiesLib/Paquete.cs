@@ -17,7 +17,7 @@ namespace TravelWithUs.Models
         [MaxLength(240)]
         public string Descripcion { get; set; }
 
-        [Column("PrecioP)")]
+        [Column(TypeName = "decimal(5,2)")]
         [Required]
         public decimal Precio { get; set; }
 

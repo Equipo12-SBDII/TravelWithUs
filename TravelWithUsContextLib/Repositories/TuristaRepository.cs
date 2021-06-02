@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TravelWithUs.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace TravelWithUs.DBContext.Repositories
 {
@@ -18,7 +19,9 @@ namespace TravelWithUs.DBContext.Repositories
             if (turistaCache == null)
             {
                 turistaCache = new ConcurrentDictionary<int, Turista>(
-                    this.db.Turistas.ToDictionary(t => t.TuristaID)
+                    this.db.Turistas
+                    .Include(t => t.ReservasIndividuales)
+                    .ToDictionary(t => t.TuristaID)
                 );
             }
         }

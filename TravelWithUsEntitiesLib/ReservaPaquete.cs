@@ -29,9 +29,8 @@ namespace TravelWithUs.Models
         [Column("CantParticipantes")]
         public int Participantes { get; set; }
 
-        [Column("PrecioRP")]
+        [Column(TypeName = "decimal(5,2)")]
         [Required]
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public decimal Precio { get; set; }
 
         public virtual Turista Turista { get; set; }

@@ -7,12 +7,12 @@ namespace TravelWithUs.DBContext.Repositories
 {
     public interface IRequestsRepository
     {
-        Task<IEnumerable<Hotel>> GetHotelsInPackagesAsync();
+        Task<IEnumerable<HotelEnPaquete>> GetHotelsInPackagesAsync();
         Task<IEnumerable<Hotel>> GetHotelsInPackagesAsync(int idP);
         Task<IEnumerable<GananciaAgencia>> GetExpectedProfitAsync();
         Task<IEnumerable<TuristaIndividualRepitente>> GetRepetitiveTouristAsync();
         Task<IEnumerable<ExcursionExtendida>> GetExtendedExcursion();
-        Task<PaqueteSobreMedia> GetPackagesOverMean();
+        Task<IEnumerable<PaqueteSobreMedia>> GetPackagesOverMean();
 
     }
 }
