@@ -14,6 +14,7 @@ using Microsoft.OpenApi.Models;
 using TravelWithUs.DBContext.Repositories;
 using TravelWithUs.DBContext;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 
 
 using System.IO;
@@ -54,7 +55,10 @@ namespace TravelWithUsService
             });
 
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(
+                options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TravelWithUsService", Version = "v1" });

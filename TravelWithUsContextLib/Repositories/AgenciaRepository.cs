@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using TravelWithUs.Models;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace TravelWithUs.DBContext.Repositories
 {
@@ -19,7 +20,12 @@ namespace TravelWithUs.DBContext.Repositories
             if (agenciaCache == null)
             {
                 agenciaCache = new ConcurrentDictionary<int, Agencia>(
-                    this.db.Agencias.ToDictionary(a => a.AgenciaID)
+                    this.db.Agencias
+                    .Include(a => a.ReservasExcursiones)
+                        .ThenInclude(re => re.Excursion)
+                    .Include(a => a.ReservasIndividuales)
+                    .Include(a => a.ReservasPaquetes)
+                    .ToDictionary(a => a.AgenciaID)
                 );
             }
         }

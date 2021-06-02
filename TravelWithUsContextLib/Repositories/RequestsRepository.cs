@@ -21,9 +21,12 @@ namespace TravelWithUs.DBContext.Repositories
             var agencias = await agenciaRepo.RetrieveAllAsync();
             var query = agencias.Select(a => new GananciaAgencia(
                 a.Nombre,
-                a.ReservasExcursiones.Sum(re => re.Excursion.Precio)
-                + a.ReservasIndividuales.Sum(ri => ri.Precio)
-                + a.ReservasPaquetes.Sum(rp => rp.Precio)
+                (a.ReservasExcursiones != null ?
+                  a.ReservasExcursiones.Sum(re => re.Excursion.Precio) : 0)
+                + (a.ReservasIndividuales != null ?
+                    a.ReservasIndividuales.Sum(ri => ri.Precio) : 0)
+                + (a.ReservasPaquetes != null ?
+                    a.ReservasPaquetes.Sum(rp => rp.Precio) : 0)
                 , a.ReservasExcursiones.Count
                 + a.ReservasIndividuales.Count
                 + a.ReservasPaquetes.Count)
@@ -36,7 +39,7 @@ namespace TravelWithUs.DBContext.Repositories
         {
             ExcursionRepository excursionRepo = new ExcursionRepository(this.dbContext);
             var excursiones = await excursionRepo.RetrieveAllAsync();
-            var query = excursiones.Where(h => h.Hoteles != null)
+            var query = excursiones.Where(h => h.Hoteles.Count > 0)
                     .Select(e => new ExcursionExtendida(
                         e.LugarSalida
                         , e.FechaSalida
@@ -68,14 +71,14 @@ namespace TravelWithUs.DBContext.Repositories
 
 
 
-        public async Task<PaqueteSobreMedia> GetPackagesOverMean()
+        public async Task<IEnumerable<PaqueteSobreMedia>> GetPackagesOverMean()
         {
             PaqueteRepository paqueteRepo = new PaqueteRepository(this.dbContext);
             var paquetes = await paqueteRepo.RetrieveAllAsync();
             decimal media = paquetes.Average(p => p.Precio);
-            var query = new PaqueteSobreMedia(paquetes.Where(
-                p => p.Precio > media
-            ));
+            var query = paquetes.Select(p => new PaqueteSobreMedia(
+                p.Codigo, (int)p.Duracion.Hours, p.Descripcion, p.Precio
+            )).Where(pom => pom.Precio > media);
 
             return query;
         }

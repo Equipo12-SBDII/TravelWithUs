@@ -65,7 +65,7 @@ namespace TravelWithUsService.Controllers
         // GET: api/request/packagesOverMean
         [HttpGet("packagesOverMean")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Paquete>))]
-        public async Task<PaqueteSobreMedia> GetPackagesOverMean()
+        public async Task<IEnumerable<PaqueteSobreMedia>> GetPackagesOverMean()
         {
             return await this.repo.GetPackagesOverMean();
         }

@@ -12,7 +12,7 @@ namespace TravelWithUs.DBContext.Repositories
         Task<IEnumerable<GananciaAgencia>> GetExpectedProfitAsync();
         Task<IEnumerable<TuristaIndividualRepitente>> GetRepetitiveTouristAsync();
         Task<IEnumerable<ExcursionExtendida>> GetExtendedExcursion();
-        Task<PaqueteSobreMedia> GetPackagesOverMean();
+        Task<IEnumerable<PaqueteSobreMedia>> GetPackagesOverMean();
 
     }
 }

@@ -13,7 +13,7 @@ namespace TravelWithUs.Models
         [Key]
         public int ExcursionID { get; set; }
 
-        [Column("PrecioE")]
+        [Column(TypeName = "decimal(5,2)")]
         [Required]
         public decimal Precio { get; set; }
 

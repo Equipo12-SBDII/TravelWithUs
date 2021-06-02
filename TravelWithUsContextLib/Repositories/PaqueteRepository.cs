@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TravelWithUs.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace TravelWithUs.DBContext.Repositories
 {
@@ -18,7 +19,9 @@ namespace TravelWithUs.DBContext.Repositories
             if (paqueteCache == null)
             {
                 paqueteCache = new ConcurrentDictionary<int, Paquete>(
-                    this.db.Paquetes.ToDictionary(p => p.Codigo)
+                    this.db.Paquetes
+                    .Include(p => p.Excursion.Hoteles)
+                    .ToDictionary(p => p.Codigo)
                 );
             }
         }
@@ -80,7 +83,7 @@ namespace TravelWithUs.DBContext.Repositories
 
         private Paquete UpdateCache(int id, Paquete h)
         {
-            Paquete old; 
+            Paquete old;
             if (paqueteCache.TryGetValue(id, out old))
             {
                 if (paqueteCache.TryUpdate(id, h, old))
