@@ -39,16 +39,19 @@ namespace TravelWithUs.DBContext.Repositories
         {
             ExcursionRepository excursionRepo = new ExcursionRepository(this.dbContext);
             var excursiones = await excursionRepo.RetrieveAllAsync();
-            var query = excursiones.Where(h => h.Hoteles.Count > 0)
+            var query = excursiones.Where(e =>
+                e.FechaSalida.DayOfWeek == DayOfWeek.Friday
+                 || e.FechaSalida.DayOfWeek == DayOfWeek.Saturday
+                 || e.FechaSalida.DayOfWeek == DayOfWeek.Sunday)
                     .Select(e => new ExcursionExtendida(
                         e.LugarSalida
                         , e.FechaSalida
-                        , (int)e.FechaLlegada.Subtract(e.FechaSalida).Days));
+                        , (int)e.FechaLlegada.Subtract(e.FechaSalida).Hours));
             return query;
 
         }
 
-        public async Task<IEnumerable<Hotel>> GetHotelsInPackagesAsync()
+        public async Task<IEnumerable<HotelEnPaquete>> GetHotelsInPackagesAsync()
         {
             HotelRepository hotelRepo = new HotelRepository(this.dbContext);
 
@@ -56,7 +59,9 @@ namespace TravelWithUs.DBContext.Repositories
             var query = hoteles.Where(h =>
                     h.Excursiones.Count > 0
                     && h.Excursiones.Any(e => e.Paquetes.Count > 0)
-                    );
+                    ).Select(h => new HotelEnPaquete(
+                        h.Nombre, h.Descripcion, h.Direccion, h.Categoria
+                    ));
 
             return query;
         }

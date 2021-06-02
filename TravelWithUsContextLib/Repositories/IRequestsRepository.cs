@@ -7,7 +7,7 @@ namespace TravelWithUs.DBContext.Repositories
 {
     public interface IRequestsRepository
     {
-        Task<IEnumerable<Hotel>> GetHotelsInPackagesAsync();
+        Task<IEnumerable<HotelEnPaquete>> GetHotelsInPackagesAsync();
         Task<IEnumerable<Hotel>> GetHotelsInPackagesAsync(int idP);
         Task<IEnumerable<GananciaAgencia>> GetExpectedProfitAsync();
         Task<IEnumerable<TuristaIndividualRepitente>> GetRepetitiveTouristAsync();

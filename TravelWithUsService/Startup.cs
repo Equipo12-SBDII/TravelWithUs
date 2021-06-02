@@ -41,8 +41,11 @@ namespace TravelWithUsService
             // services.AddDbContext<TravelWithUsDbContext>(options =>
             //     options.UseSqlite($"Data Source={databasePath}")
             // );
+
             services.AddDbContext<TravelWithUsDbContext>(options =>
                 options.UseSqlServer($"Server=(localDB)\\MSSQLLocalDB;Database=TravelWithUsDB;Integrated Security=true;"));
+
+            this.Migrate(services.BuildServiceProvider());
 
             services.AddCors(options =>
             {
@@ -129,6 +132,14 @@ namespace TravelWithUsService
             {
                 endpoints.MapControllers();
             });
+        }
+
+        private void Migrate(IServiceProvider serviceProvider)
+        {
+            var logger = serviceProvider.GetRequiredService<ILogger<TravelWithUsDbContext>>();
+            logger.LogInformation("Migrating database schema");
+            var context = serviceProvider.GetRequiredService<TravelWithUsDbContext>();
+            context.Database.Migrate();
         }
     }
 }

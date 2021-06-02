@@ -39,7 +39,7 @@ namespace TravelWithUsService.Controllers
         // GET: api/request/hotelInPackage
         [HttpGet("hotelInPackage")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Hotel>))]
-        public async Task<IEnumerable<Hotel>> GetHotelInPackage(string genre)
+        public async Task<IEnumerable<HotelEnPaquete>> GetHotelInPackage(string genre)
         {
             return await this.repo.GetHotelsInPackagesAsync();
         }
