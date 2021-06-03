@@ -70,6 +70,12 @@ namespace TravelWithUsService.Controllers
             return await this.repo.GetPackagesOverMean();
         }
 
-
+        // GET: api/request/individualReservation
+        [HttpGet("individualReservation")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<ReservaIndividualOpciones>))]
+        public async Task<ReservaIndividualOpciones> GetIndividualReservationOptions()
+        {
+            return await this.repo.GetRIOptions();
+        }
     }
 }
