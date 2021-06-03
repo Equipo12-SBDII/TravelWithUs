@@ -9,37 +9,37 @@
                       [selected]="selectedAge === option.nombre">{{ option.nombre }}</option>
             </select>
           </mat-form-field>
-          <p>Su selección: {{selectedAge}}</p>
+          <h5 >Su selección: {{sA.nombre}}</h5>
         </div>
     <div class="col-3">
-          <h4>Oferta</h4><br>
-          <mat-form-field appearance="fill">
-            <select matNativeControl (change)="selectOff($event)">
-              <option value=""></option>
-              <option *ngFor="let option of offers" [value]="option.nombre"
-                      [selected]="selectedOff === option.nombre">{{ option.nombre }} - ${{option.precio}}</option>
-            </select>
-          </mat-form-field>
-          <p>Su selección: {{selectedOff}}</p>
-    </div>
-    <div class="col-3">
           <h4>Turista</h4><br>
-          <mat-form-field appearance="fill">
+          <mat-form-field  appearance="fill">
             <select matNativeControl (change)="selectTou($event)">
               <option value=""></option>
               <option *ngFor="let option of tourist" [value]="option.nombre"
-                      [selected]="selectedTou === option.nombre">{{ option.nombre }}</option>
+                      [selected]="selectedTou === option.nombre">{{ option.nombre }} </option>
             </select>
           </mat-form-field>
-          <p>Su selección: {{selectedTou}}</p>
+          <h5>Su selección: {{sT.nombre}}</h5>
+    </div>
+    <div class="col-4">
+          <h4>Oferta</h4><br>
+          <mat-form-field style="width: 500px" appearance="fill">
+            <select matNativeControl (change)="selectOff($event)">
+              <option value=""></option>
+              <option *ngFor="let option of offers" [value]="option.descripcion"
+                      [selected]="selectedOff === option.descripcion">{{ option.descripcion }} - ${{option.precio}}</option>
+            </select>
+          </mat-form-field>
+          <h5 >Su selección: {{sO.descripcion}}</h5>
+          <h5 *ngIf="sO.precio != -1 && sT.nombre != '' && sA.nombre != ''">Precio: ${{sO.precio}}</h5>
+          <h5 *ngIf="sO.precio != -1 && sT.nombre != '' && sA.nombre != ''">Hotel: {{sO.hotel}}</h5>
         </div>
       </div>
   <br>
-  <h4>Precio de la reserva: ${{reservedPrice}}</h4>
   <br>
-  <div>
-    <button mat-stroked-button (click)="price()">Calcular Precio</button>
-    <button style="margin-left: 5px" mat-raised-button color="primary">Reservar</button>
+  <div *ngIf="sO.precio != -1 && sT.nombre != '' && sA.nombre != ''">
+    <button mat-raised-button color="primary" (click)="reserve()">Reservar</button>
   </div>
 </div>
 

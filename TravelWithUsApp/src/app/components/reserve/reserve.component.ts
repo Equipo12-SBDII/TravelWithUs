@@ -18,22 +18,44 @@ export class ReserveComponent {
   selectedOff: string = '';
   selectedTou: string = '';
   selectedAge: string = '';
+  sO: Oferta = new Oferta(-1,'','',-1,'');
+  sT: Turista = new Turista('','',-1);
+  sA: Agencia = new Agencia(-1,'',-1,-1);
   reservedPrice: number = 0;
 
   selectAge(event: Event) {
     this.selectedAge = (event.target as HTMLSelectElement).value;
+    for(let i of this.agencies){
+      if(i.nombre == this.selectedAge){
+        this.sA = i;
+      }
+    }
   }
   selectTou(event: Event) {
     this.selectedTou = (event.target as HTMLSelectElement).value;
+    for(let i of this.tourist){
+      if(i.nombre == this.selectedTou){
+        this.sT = i;
+      }
+    }
   }
   selectOff(event: Event) {
     this.selectedOff = (event.target as HTMLSelectElement).value;
+    for(let i of this.offers){
+      if(i.descripcion == this.selectedOff){
+        this.sO = i;
+      }
+    }
   }
   price(){
     this.reservedPrice = 0;
     for(let off of this.offers){
       if (off.nombre == this.selectedOff) this.reservedPrice+= off.precio;
     }
+  }
+
+  reserve() {
+
   }
 }
 
