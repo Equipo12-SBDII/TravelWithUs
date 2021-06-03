@@ -72,7 +72,7 @@ namespace TravelWithUsService.Controllers
 
         // GET: api/request/individualReservation
         [HttpGet("individualReservation")]
-        [ProducesResponseType(200, Type = typeof(IEnumerable<ReservaIndividualOpciones>))]
+        [ProducesResponseType(200, Type = typeof(ReservaIndividualOpciones))]
         public async Task<ReservaIndividualOpciones> GetIndividualReservationOptions()
         {
             return await this.repo.GetRIOptions();

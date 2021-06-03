@@ -112,11 +112,12 @@ namespace TravelWithUs.DBContext.Repositories
             var agencias = await agenciaRepo.RetrieveAllAsync();
 
             var turistasReserva = turistas.Select(t => new TuristaParaReserva(t.TuristaID, t.Nombre));
-            var ofertasReserva =  ofertas.Select( o=> new OfertaParaReserva( o.Descripcion, o.OfertaID, o.HotelID));
-            var agenciasReserva = agencias.Select( a => new AgenciaParaReserva(a.AgenciaID, a.Nombre));
+            var ofertasReserva = ofertas.Select(o => new OfertaParaReserva(o.Descripcion, o.OfertaID, o.HotelID));
+            var agenciasReserva = agencias.Select(a => new AgenciaParaReserva(a.AgenciaID, a.Nombre));
 
-            var q =new ReservaIndividualOpciones(ofertasReserva, turistasReserva, agenciasReserva);
-            return q;
+            var r = new ReservaIndividualOpciones(ofertasReserva, turistasReserva, agenciasReserva);
+
+            return r;
         }
     }
 }

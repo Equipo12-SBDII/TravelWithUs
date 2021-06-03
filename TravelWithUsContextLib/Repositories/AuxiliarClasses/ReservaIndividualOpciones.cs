@@ -1,14 +1,16 @@
-using ICollection;
+using System.Collections.Generic;
+using System.Linq;
+using System;
 
 namespace TravelWithUs.DBContext.Repositories
 {
     public class OfertaParaReserva
     {
-        public string Descripcion{get;set;}
-        public int OfertaID {get;set;}
-        public int HotelID{get;set;}
+        public string Descripcion { get; private set; }
+        public int OfertaID { get; private set; }
+        public int HotelID { get; private set; }
         public OfertaParaReserva(string descripcion, int ofertaId, int hotelId)
-        { 
+        {
             this.Descripcion = descripcion;
             this.OfertaID = OfertaID;
             this.HotelID = hotelId;
@@ -16,8 +18,8 @@ namespace TravelWithUs.DBContext.Repositories
     }
     public class TuristaParaReserva
     {
-        public int TuristaID{get; set;}
-        public string Nombre {get; set;}
+        public int TuristaID { get; private set; }
+        public string Nombre { get; private set; }
         public TuristaParaReserva(int turistaId, string nombre)
         {
             this.TuristaID = turistaId;
@@ -26,35 +28,35 @@ namespace TravelWithUs.DBContext.Repositories
     }
 
     public class AgenciaParaReserva
-    {   
-        public int AgenciaID { get; set;}
-        public string Nombre {get; set;}
+    {
+        public int AgenciaID { get; private set; }
+        public string Nombre { get; private set; }
         public AgenciaParaReserva(int agenciaId, string nombre)
         {
             this.AgenciaID = agenciaId;
             this.Nombre = nombre;
 
         }
-       
+
     }
 
- public class  ReservaIndividualOpciones
- { 
-     IEnumerable<OfertaParaReserva> Ofertas{ get; set;}
-     IEnumerable<TuristaParaReserva> Turistas { get; set;}
-     IEnumerable<AgenciaParaReserva> Agencias {get; set;}
-     public ReservaIndividualOpciones(IEnumerable<OfertaParaReserva> ofertas, IEnumerable<TuristaParaReserva> turistas, IEnumerable<AgenciaParaReserva> agencias)
-     {
-         this.Ofertas = ofertas;
-         this.Turistas = turistas;
-         this.Agencias = agencias;
+    public class ReservaIndividualOpciones
+    {
+        public List<OfertaParaReserva> Ofertas { get; private set; }
+        public List<TuristaParaReserva> Turistas { get; private set; }
+        public List<AgenciaParaReserva> Agencias { get; private set; }
+        public ReservaIndividualOpciones(IEnumerable<OfertaParaReserva> ofertas, IEnumerable<TuristaParaReserva> turistas, IEnumerable<AgenciaParaReserva> agencias)
+        {
+            this.Ofertas = new List<OfertaParaReserva>(ofertas);
+            this.Turistas = new List<TuristaParaReserva>(turistas);
+            this.Agencias = new List<AgenciaParaReserva>(agencias);
 
-     }
-   
- 
+        }
 
- }
-    
+
+
+    }
+
 }
 
 
