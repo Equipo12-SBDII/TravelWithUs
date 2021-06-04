@@ -9,11 +9,15 @@ namespace TravelWithUs.DBContext.Repositories
         public string Descripcion { get; private set; }
         public int OfertaID { get; private set; }
         public int HotelID { get; private set; }
-        public OfertaParaReserva(string descripcion, int ofertaId, int hotelId)
+        public string HotelNombre { get; set; }
+        public decimal Price { get; set; }
+        public OfertaParaReserva(string descripcion, int ofertaId, int hotelId, string nombreh, decimal price)
         {
             this.Descripcion = descripcion;
             this.OfertaID = OfertaID;
             this.HotelID = hotelId;
+            this.HotelNombre = nombreh;
+            this.Price = price;
         }
     }
     public class TuristaParaReserva
@@ -50,7 +54,6 @@ namespace TravelWithUs.DBContext.Repositories
             this.Ofertas = new List<OfertaParaReserva>(ofertas);
             this.Turistas = new List<TuristaParaReserva>(turistas);
             this.Agencias = new List<AgenciaParaReserva>(agencias);
-
         }
 
 

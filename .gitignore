@@ -7,6 +7,7 @@ nupkg/
 test
 # Visual Studio Code
 .vscode
+*.code-workspace
 
 # Rider
 .idea
