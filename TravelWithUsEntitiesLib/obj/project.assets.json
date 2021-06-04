@@ -5,7 +5,7 @@
       "Humanizer.Core/2.8.26": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/_._": {}
+          "lib/netstandard2.0/Humanizer.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/Humanizer.dll": {}
@@ -133,7 +133,7 @@
           "Microsoft.EntityFrameworkCore.Relational": "5.0.5"
         },
         "compile": {
-          "lib/netstandard2.1/_._": {}
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Design.dll": {}
         },
         "runtime": {
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Design.dll": {}
@@ -5798,29 +5798,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Peny\\.nuget\\packages\\": {}
+    "C:\\Users\\Cynthia-PC\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Peny\\Desktop\\SBD2\\Proyectos 20-21\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj",
+      "projectUniqueName": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj",
       "projectName": "TravelWithUsEntitiesLib",
-      "projectPath": "C:\\Users\\Peny\\Desktop\\SBD2\\Proyectos 20-21\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj",
-      "packagesPath": "C:\\Users\\Peny\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Peny\\Desktop\\SBD2\\Proyectos 20-21\\TravelWithUs\\TravelWithUsEntitiesLib\\obj\\",
+      "projectPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj",
+      "packagesPath": "C:\\Users\\Cynthia-PC\\.nuget\\packages\\",
+      "outputPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Peny\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Cynthia-PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Paquetes VS\\.dotnet": {},
-        "C:\\Paquetes VS\\NuGetPackages": {},
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\5.0.102": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5844,8 +5839,6 @@
             "version": "[5.0.5, )"
           },
           "Microsoft.EntityFrameworkCore.Design": {
-            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-            "suppressParent": "All",
             "target": "Package",
             "version": "[5.0.5, )"
           },
@@ -5854,8 +5847,6 @@
             "version": "[5.0.5, )"
           },
           "Microsoft.EntityFrameworkCore.Tools": {
-            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-            "suppressParent": "All",
             "target": "Package",
             "version": "[5.0.5, )"
           }

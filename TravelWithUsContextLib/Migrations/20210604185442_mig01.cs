@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TravelWithUsContextLib.Migrations
 {
-    public partial class mig1 : Migration
+    public partial class mig01 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -246,6 +246,7 @@ namespace TravelWithUsContextLib.Migrations
                 name: "ReservasIndividuales",
                 columns: table => new
                 {
+                    IdRI = table.Column<int>(type: "int", nullable: false),
                     IdA = table.Column<int>(type: "int", nullable: false),
                     IdT = table.Column<int>(type: "int", nullable: false),
                     IdH = table.Column<int>(type: "int", nullable: false),
@@ -258,7 +259,7 @@ namespace TravelWithUsContextLib.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ReservasIndividuales", x => new { x.IdA, x.IdH, x.IdO, x.IdT });
+                    table.PrimaryKey("PK_ReservasIndividuales", x => new { x.IdRI, x.IdA, x.IdH, x.IdO, x.IdT });
                     table.ForeignKey(
                         name: "FK_ReservasIndividuales_Agencia_IdA",
                         column: x => x.IdA,
@@ -397,16 +398,16 @@ namespace TravelWithUsContextLib.Migrations
 
             migrationBuilder.InsertData(
                 table: "ReservasIndividuales",
-                columns: new[] { "IdA", "IdH", "IdO", "IdT", "NumAcompanantes", "CompAereaRI", "FechaLlegadaH", "Precio", "FechaSalidaH" },
+                columns: new[] { "IdA", "IdH", "IdO", "IdRI", "IdT", "NumAcompanantes", "CompAereaRI", "FechaLlegadaH", "Precio", "FechaSalidaH" },
                 values: new object[,]
                 {
-                    { 2, 1, 1, 7, 1, null, new DateTime(2021, 7, 12, 7, 0, 0, 0, DateTimeKind.Unspecified), 30m, new DateTime(2021, 10, 12, 7, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 2, 1, 2, 7, 1, null, new DateTime(2021, 7, 12, 7, 0, 0, 0, DateTimeKind.Unspecified), 30m, new DateTime(2021, 10, 12, 7, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 2, 1, 3, 2, 2, null, new DateTime(2021, 7, 10, 7, 0, 0, 0, DateTimeKind.Unspecified), 40m, new DateTime(2021, 10, 8, 9, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 3, 2, 3, 8, 5, null, new DateTime(2021, 7, 12, 7, 0, 0, 0, DateTimeKind.Unspecified), 30m, new DateTime(2021, 10, 12, 7, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 1, 3, 1, 3, 0, null, new DateTime(2021, 4, 1, 12, 0, 0, 0, DateTimeKind.Unspecified), 20m, new DateTime(2021, 5, 1, 9, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 3, 3, 3, 2, 5, null, new DateTime(2021, 7, 12, 7, 0, 0, 0, DateTimeKind.Unspecified), 30m, new DateTime(2021, 10, 12, 7, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 5, 4, 2, 2, 1, null, new DateTime(2021, 12, 10, 7, 0, 0, 0, DateTimeKind.Unspecified), 50m, new DateTime(2021, 12, 11, 7, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { 2, 1, 1, 1, 7, 1, null, new DateTime(2021, 7, 12, 7, 0, 0, 0, DateTimeKind.Unspecified), 30m, new DateTime(2021, 10, 12, 7, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 2, 1, 2, 5, 7, 1, null, new DateTime(2021, 7, 12, 7, 0, 0, 0, DateTimeKind.Unspecified), 30m, new DateTime(2021, 10, 12, 7, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 2, 1, 3, 2, 2, 2, null, new DateTime(2021, 7, 10, 7, 0, 0, 0, DateTimeKind.Unspecified), 40m, new DateTime(2021, 10, 8, 9, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 3, 2, 3, 6, 8, 5, null, new DateTime(2021, 7, 12, 7, 0, 0, 0, DateTimeKind.Unspecified), 30m, new DateTime(2021, 10, 12, 7, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 1, 3, 1, 3, 3, 0, null, new DateTime(2021, 4, 1, 12, 0, 0, 0, DateTimeKind.Unspecified), 20m, new DateTime(2021, 5, 1, 9, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 3, 3, 3, 7, 2, 5, null, new DateTime(2021, 7, 12, 7, 0, 0, 0, DateTimeKind.Unspecified), 30m, new DateTime(2021, 10, 12, 7, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 5, 4, 2, 4, 2, 1, null, new DateTime(2021, 12, 10, 7, 0, 0, 0, DateTimeKind.Unspecified), 50m, new DateTime(2021, 12, 11, 7, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.InsertData(
@@ -452,6 +453,11 @@ namespace TravelWithUsContextLib.Migrations
                 name: "IX_ReservasExcursiones_IdT",
                 table: "ReservasExcursiones",
                 column: "IdT");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ReservasIndividuales_IdA",
+                table: "ReservasIndividuales",
+                column: "IdA");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ReservasIndividuales_IdO_IdH",

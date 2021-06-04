@@ -45,6 +45,7 @@ namespace TravelWithUs.DBContext
             modelBuilder.Entity<ReservaIndividual>()
                 .HasKey(ri => new
                 {
+                    ri.ReservaIndividualID,
                     ri.AgenciaID,
                     ri.HotelID,
                     ri.OfertaID,
@@ -216,13 +217,13 @@ namespace TravelWithUs.DBContext
             );
 
             modelBuilder.Entity<ReservaIndividual>().HasData(
-                    new { TuristaID = 7, AgenciaID = 2, HotelID = 1, OfertaID = 1, Acompanantes = 1, Precio = (decimal)30, Llegada = new DateTime(2021, 7, 12, 7, 0, 0), Salida = new DateTime(2021, 10, 12, 7, 0, 0) },
-                    new { TuristaID = 2, AgenciaID = 2, HotelID = 1, OfertaID = 3, Acompanantes = 2, Precio = (decimal)40, Llegada = new DateTime(2021, 7, 10, 7, 0, 0), Salida = new DateTime(2021, 10, 8, 9, 0, 0) },
-                    new { TuristaID = 3, AgenciaID = 1, HotelID = 3, OfertaID = 1, Acompanantes = 0, Precio = (decimal)20, Llegada = new DateTime(2021, 4, 1, 12, 0, 0), Salida = new DateTime(2021, 5, 1, 9, 0, 0) },
-                    new { TuristaID = 2, AgenciaID = 5, HotelID = 4, OfertaID = 2, Acompanantes = 1, Precio = (decimal)50, Llegada = new DateTime(2021, 12, 10, 7, 0, 0), Salida = new DateTime(2021, 12, 11, 7, 0, 0) },
-                    new { TuristaID = 7, AgenciaID = 2, HotelID = 1, OfertaID = 2, Acompanantes = 1, Precio = (decimal)30, Llegada = new DateTime(2021, 7, 12, 7, 0, 0), Salida = new DateTime(2021, 10, 12, 7, 0, 0) },
-                    new { TuristaID = 8, AgenciaID = 3, HotelID = 2, OfertaID = 3, Acompanantes = 5, Precio = (decimal)30, Llegada = new DateTime(2021, 7, 12, 7, 0, 0), Salida = new DateTime(2021, 10, 12, 7, 0, 0) },
-                    new { TuristaID = 2, AgenciaID = 3, HotelID = 3, OfertaID = 3, Acompanantes = 5, Precio = (decimal)30, Llegada = new DateTime(2021, 7, 12, 7, 0, 0), Salida = new DateTime(2021, 10, 12, 7, 0, 0) }
+                    new { ReservaIndividualID = 1, TuristaID = 7, AgenciaID = 2, HotelID = 1, OfertaID = 1, Acompanantes = 1, Precio = (decimal)30, Llegada = new DateTime(2021, 7, 12, 7, 0, 0), Salida = new DateTime(2021, 10, 12, 7, 0, 0) },
+                    new { ReservaIndividualID = 2, TuristaID = 2, AgenciaID = 2, HotelID = 1, OfertaID = 3, Acompanantes = 2, Precio = (decimal)40, Llegada = new DateTime(2021, 7, 10, 7, 0, 0), Salida = new DateTime(2021, 10, 8, 9, 0, 0) },
+                    new { ReservaIndividualID = 3, TuristaID = 3, AgenciaID = 1, HotelID = 3, OfertaID = 1, Acompanantes = 0, Precio = (decimal)20, Llegada = new DateTime(2021, 4, 1, 12, 0, 0), Salida = new DateTime(2021, 5, 1, 9, 0, 0) },
+                    new { ReservaIndividualID = 4, TuristaID = 2, AgenciaID = 5, HotelID = 4, OfertaID = 2, Acompanantes = 1, Precio = (decimal)50, Llegada = new DateTime(2021, 12, 10, 7, 0, 0), Salida = new DateTime(2021, 12, 11, 7, 0, 0) },
+                    new { ReservaIndividualID = 5, TuristaID = 7, AgenciaID = 2, HotelID = 1, OfertaID = 2, Acompanantes = 1, Precio = (decimal)30, Llegada = new DateTime(2021, 7, 12, 7, 0, 0), Salida = new DateTime(2021, 10, 12, 7, 0, 0) },
+                    new { ReservaIndividualID = 6, TuristaID = 8, AgenciaID = 3, HotelID = 2, OfertaID = 3, Acompanantes = 5, Precio = (decimal)30, Llegada = new DateTime(2021, 7, 12, 7, 0, 0), Salida = new DateTime(2021, 10, 12, 7, 0, 0) },
+                    new { ReservaIndividualID = 7, TuristaID = 2, AgenciaID = 3, HotelID = 3, OfertaID = 3, Acompanantes = 5, Precio = (decimal)30, Llegada = new DateTime(2021, 7, 12, 7, 0, 0), Salida = new DateTime(2021, 10, 12, 7, 0, 0) }
             );
 
             modelBuilder.Entity<ReservaPaquete>().HasData(

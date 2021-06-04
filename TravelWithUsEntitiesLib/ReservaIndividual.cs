@@ -7,6 +7,10 @@ namespace TravelWithUs.Models
     public class ReservaIndividual
     {
         [Required]
+        [Column("IdRI")]
+        public int ReservaIndividualID { get; set; }
+
+        [Required]
         [Column("IdA")]
         public int AgenciaID { get; set; }
 

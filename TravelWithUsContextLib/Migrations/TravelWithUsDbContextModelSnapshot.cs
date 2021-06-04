@@ -589,6 +589,10 @@ namespace TravelWithUsContextLib.Migrations
 
             modelBuilder.Entity("TravelWithUs.Models.ReservaIndividual", b =>
                 {
+                    b.Property<int>("ReservaIndividualID")
+                        .HasColumnType("int")
+                        .HasColumnName("IdRI");
+
                     b.Property<int>("AgenciaID")
                         .HasColumnType("int")
                         .HasColumnName("IdA");
@@ -625,7 +629,9 @@ namespace TravelWithUsContextLib.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("FechaSalidaH");
 
-                    b.HasKey("AgenciaID", "HotelID", "OfertaID", "TuristaID");
+                    b.HasKey("ReservaIndividualID", "AgenciaID", "HotelID", "OfertaID", "TuristaID");
+
+                    b.HasIndex("AgenciaID");
 
                     b.HasIndex("TuristaID");
 
@@ -636,6 +642,7 @@ namespace TravelWithUsContextLib.Migrations
                     b.HasData(
                         new
                         {
+                            ReservaIndividualID = 1,
                             AgenciaID = 2,
                             HotelID = 1,
                             OfertaID = 1,
@@ -647,6 +654,7 @@ namespace TravelWithUsContextLib.Migrations
                         },
                         new
                         {
+                            ReservaIndividualID = 2,
                             AgenciaID = 2,
                             HotelID = 1,
                             OfertaID = 3,
@@ -658,6 +666,7 @@ namespace TravelWithUsContextLib.Migrations
                         },
                         new
                         {
+                            ReservaIndividualID = 3,
                             AgenciaID = 1,
                             HotelID = 3,
                             OfertaID = 1,
@@ -669,6 +678,7 @@ namespace TravelWithUsContextLib.Migrations
                         },
                         new
                         {
+                            ReservaIndividualID = 4,
                             AgenciaID = 5,
                             HotelID = 4,
                             OfertaID = 2,
@@ -680,6 +690,7 @@ namespace TravelWithUsContextLib.Migrations
                         },
                         new
                         {
+                            ReservaIndividualID = 5,
                             AgenciaID = 2,
                             HotelID = 1,
                             OfertaID = 2,
@@ -691,6 +702,7 @@ namespace TravelWithUsContextLib.Migrations
                         },
                         new
                         {
+                            ReservaIndividualID = 6,
                             AgenciaID = 3,
                             HotelID = 2,
                             OfertaID = 3,
@@ -702,6 +714,7 @@ namespace TravelWithUsContextLib.Migrations
                         },
                         new
                         {
+                            ReservaIndividualID = 7,
                             AgenciaID = 3,
                             HotelID = 3,
                             OfertaID = 3,
