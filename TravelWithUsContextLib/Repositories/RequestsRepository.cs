@@ -46,7 +46,8 @@ namespace TravelWithUs.DBContext.Repositories
                     .Select(e => new ExcursionExtendida(
                         e.LugarSalida
                         , e.FechaSalida
-                        , (int)e.FechaLlegada.Subtract(e.FechaSalida).Hours));
+                        , (int)e.FechaLlegada.Subtract(e.FechaSalida).Hours
+                        , e.Descripcion));
             return query;
 
         }
@@ -98,6 +99,25 @@ namespace TravelWithUs.DBContext.Repositories
             ));
 
             return query;
+        }
+
+        public async Task<ReservaIndividualOpciones> GetRIOptions()
+        {
+            TuristaRepository turistaRepo = new TuristaRepository(this.dbContext);
+            OfertaRepository ofertaRepo = new OfertaRepository(this.dbContext);
+            AgenciaRepository agenciaRepo = new AgenciaRepository(this.dbContext);
+
+            var turistas = await turistaRepo.RetrieveAllAsync();
+            var ofertas = await ofertaRepo.RetrieveAllAsync();
+            var agencias = await agenciaRepo.RetrieveAllAsync();
+
+            var turistasReserva = turistas.Select(t => new TuristaParaReserva(t.TuristaID, t.Nombre));
+            var ofertasReserva = ofertas.Select(o => new OfertaParaReserva(o.Descripcion, o.OfertaID, o.HotelID));
+            var agenciasReserva = agencias.Select(a => new AgenciaParaReserva(a.AgenciaID, a.Nombre));
+
+            var r = new ReservaIndividualOpciones(ofertasReserva, turistasReserva, agenciasReserva);
+
+            return r;
         }
     }
 }

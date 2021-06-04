@@ -13,6 +13,9 @@ namespace TravelWithUs.DBContext.Repositories
         Task<IEnumerable<TuristaIndividualRepitente>> GetRepetitiveTouristAsync();
         Task<IEnumerable<ExcursionExtendida>> GetExtendedExcursion();
         Task<IEnumerable<PaqueteSobreMedia>> GetPackagesOverMean();
+        Task<ReservaIndividualOpciones> GetRIOptions();
+
+
 
     }
 }
