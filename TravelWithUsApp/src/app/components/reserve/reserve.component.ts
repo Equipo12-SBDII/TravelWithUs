@@ -1,7 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Agencia} from "../table-agencies/agencies";
-import {Turista} from "../table-tourist/tourist";
-import {Oferta} from "../table-offers/offers";
+import { Component, OnInit } from '@angular/core';
+import { Reserve, Turista, Agencia, Oferta } from './reserve';
 
 /**
  * @title Basic select with initial value and no form
@@ -29,10 +27,10 @@ export class ReserveComponent {
   selectOff(event: Event) {
     this.selectedOff = (event.target as HTMLSelectElement).value;
   }
-  price(){
+  price() {
     this.reservedPrice = 0;
-    for(let off of this.offers){
-      if (off.nombre == this.selectedOff) this.reservedPrice+= off.precio;
+    for (let off of this.offers) {
+      if (off.ofertaDescripcion == this.selectedOff) this.reservedPrice += off.ofertaPrecio;
     }
   }
 }
