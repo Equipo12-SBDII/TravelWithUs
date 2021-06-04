@@ -65,16 +65,17 @@ namespace TravelWithUsService.Controllers
 
             ReservaIndividual added = await repo.CreateAsync(ri);
 
-            return CreatedAtRoute( // 201 Created
-                routeName: nameof(this.Get),
-                routeValues: new { idA = added.AgenciaID, idH = added.HotelID, idO = added.OfertaID, idT = added.TuristaID },
-                value: added
-            );
+            // return CreatedAtRoute( // 201 Created
+            //     routeName: nameof(this.Get),
+            //     routeValues: new { idA = added.AgenciaID, idH = added.HotelID, idO = added.OfertaID, idT = added.TuristaID },
+            //     value: added
+            // );
+            return StatusCode(201);
         }
 
         // PUT: api/reservaIndividual/idA/idO/idT
         // BODY: ReservaIndividual (JSON)
-        [HttpGet("{idA:int}/{idH:int}/{idO:int}/{idT:int}")]
+        [HttpPut("{idA:int}/{idH:int}/{idO:int}/{idT:int}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -101,8 +102,10 @@ namespace TravelWithUsService.Controllers
 
             return new NoContentResult();   // 204 No Content
         }
+
+
         // DELETE: api/reservaIndividual/idA/idO/idT
-        [HttpGet("{idA:int}/{idH:int}/{idO:int}/{idT:int}")]
+        [HttpDelete("{idA:int}/{idH:int}/{idO:int}/{idT:int}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]

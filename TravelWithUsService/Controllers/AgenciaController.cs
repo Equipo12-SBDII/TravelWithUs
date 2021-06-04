@@ -66,11 +66,12 @@ namespace TravelWithUsService.Controllers
 
             Agencia added = await repo.CreateAsync(agencia);
 
-            return CreatedAtRoute( // 201 Created
-                routeName: nameof(this.Get),
-                routeValues: new { id = added.AgenciaID },
-                value: added
-            );
+            // return CreatedAtRoute( // 201 Created
+            //     routeName: nameof(this.Get),
+            //     routeValues: new { id = added.AgenciaID },
+            //     value: added
+            // );
+            return StatusCode(201);
         }
 
         // PUT: api/agencia/[id]
