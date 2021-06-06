@@ -14,7 +14,7 @@ namespace TravelWithUs.DBContext.Repositories
         public OfertaParaReserva(string descripcion, int ofertaId, int hotelId, string nombreh, decimal price)
         {
             this.Descripcion = descripcion;
-            this.OfertaID = OfertaID;
+            this.OfertaID = ofertaId;
             this.HotelID = hotelId;
             this.HotelNombre = nombreh;
             this.Price = price;

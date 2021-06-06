@@ -67,6 +67,8 @@ namespace TravelWithUs.DBContext
                 .WithMany(o => o.ReservasIndividuales)
                 .HasForeignKey(ri => new { ri.OfertaID, ri.HotelID });
 
+
+
             // Configuring characteristics for ReservaExcursion.
 
             modelBuilder.Entity<ReservaExcursion>()

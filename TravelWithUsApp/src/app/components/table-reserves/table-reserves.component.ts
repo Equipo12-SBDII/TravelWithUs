@@ -37,8 +37,6 @@ export class TableReservesComponent {
       (response) => {
         this.reservesList = response;
         this.count = this.reservesList.length;
-        console.log('Helloooooooo.')
-        console.log(this.reservesList);
       },
       (err) => console.log(err),
     );

@@ -147,7 +147,6 @@ namespace TravelWithUs.DBContext.Repositories
         public async Task<IEnumerable<ReservaIndividualShow>> GetReservaIndividualShows()
         {
             ReservaIndividualRepository riRepo = new ReservaIndividualRepository(this.dbContext);
-            HotelRepository hotelRepo = new HotelRepository(this.dbContext);
             var reservas = await riRepo.RetrieveAllAsync();
 
             return reservas.Select(ri => new ReservaIndividualShow(

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TravelWithUsContextLib.Migrations
 {
-    public partial class mig01 : Migration
+    public partial class mig1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -246,7 +246,8 @@ namespace TravelWithUsContextLib.Migrations
                 name: "ReservasIndividuales",
                 columns: table => new
                 {
-                    IdRI = table.Column<int>(type: "int", nullable: false),
+                    IdRI = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     IdA = table.Column<int>(type: "int", nullable: false),
                     IdT = table.Column<int>(type: "int", nullable: false),
                     IdH = table.Column<int>(type: "int", nullable: false),

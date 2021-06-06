@@ -22,7 +22,7 @@ import { Hotel } from './hotel.model';
 })
 export class TableHotelsComponent implements OnInit {
   hotelList: Hotel[] = [];
-  columnsToDisplay = ['hotelID', 'nombre', 'direccion', 'categoria'];
+  columnsToDisplay = ['nombre', 'direccion', 'categoria'];
   expandedElement: any;
   @Input('title') title: any;
 
@@ -44,14 +44,14 @@ export class TableHotelsComponent implements OnInit {
     }
   }
 
-    OnGet() {
-      this.hotelService.GetHotel().subscribe(
-        (response) => {
-          this.hotelList = response;
-          console.log('Helloooooooo.')
-          console.log(this.hotelList);
-        },
-        (err) => console.log(err),
-      );
-    }
+  OnGet() {
+    this.hotelService.GetHotel().subscribe(
+      (response) => {
+        this.hotelList = response;
+        console.log('Helloooooooo.')
+        console.log(this.hotelList);
+      },
+      (err) => console.log(err),
+    );
+  }
 }

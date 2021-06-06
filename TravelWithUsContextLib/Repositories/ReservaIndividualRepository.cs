@@ -19,15 +19,7 @@ namespace TravelWithUs.DBContext.Repositories
 
             if (reservaIndividualCache == null)
             {
-                reservaIndividualCache = new ConcurrentDictionary<(int, int, int, int, int), ReservaIndividual>(
-                    this.db.ReservasIndividuales
-                    .Include(ri => ri.Turista)
-                    .Include(ri => ri.Agencia)
-                    .Include(ri => ri.Oferta)
-                        .ThenInclude(o => o.Hotel)
-                    .ToDictionary(
-                        ri => (ri.ReservaIndividualID, ri.AgenciaID, ri.HotelID, ri.OfertaID, ri.TuristaID)));
-
+                InitDictionary(this.db);
             }
         } //me preocupan los metodos del concurrente dictionary
         public async Task<ReservaIndividual> CreateAsync(ReservaIndividual ri)
@@ -36,8 +28,10 @@ namespace TravelWithUs.DBContext.Repositories
             int affected = await this.db.SaveChangesAsync();
             if (affected == 1)
             {
-                return reservaIndividualCache.AddOrUpdate((ri.ReservaIndividualID, ri.AgenciaID, ri.HotelID, ri.OfertaID, ri.TuristaID),
-                    ri, this.UpdateCache);
+                InitDictionary(this.db);
+                return ri;
+                // return reservaIndividualCache.AddOrUpdate((ri.ReservaIndividualID, ri.AgenciaID, ri.HotelID, ri.OfertaID, ri.TuristaID),
+                //     ri, this.UpdateCache);
             }
             return null;
         }
@@ -101,6 +95,18 @@ namespace TravelWithUs.DBContext.Repositories
                 }
             }
             return null;
+        }
+
+        private static void InitDictionary(TravelWithUsDbContext db)
+        {
+            reservaIndividualCache = new ConcurrentDictionary<(int, int, int, int, int), ReservaIndividual>(
+                    db.ReservasIndividuales
+                    .Include(ri => ri.Turista)
+                    .Include(ri => ri.Agencia)
+                    .Include(ri => ri.Oferta)
+                        .ThenInclude(o => o.Hotel)
+                    .ToDictionary(
+                        ri => (ri.ReservaIndividualID, ri.AgenciaID, ri.HotelID, ri.OfertaID, ri.TuristaID)));
         }
     }
 
