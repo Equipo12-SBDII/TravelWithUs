@@ -254,6 +254,8 @@ namespace TravelWithUs.DBContext
                 .UsingEntity(j => j.HasData(new { ExcursionesExcursionID = 1, HotelesHotelID = 1 }
                        , new { ExcursionesExcursionID = 2, HotelesHotelID = 2 }));
 
+          
+           
 
             // Configuring characteristics for Hotel.
             // modelBuilder.Entity<Hotel>()

@@ -46,6 +46,14 @@ import { TableOffersService } from "./components/table-offers/table-offers.servi
 import { MatNativeDateModule } from "@angular/material/core";
 import { TableReservesComponent } from './components/table-reserves/table-reserves.component';
 import { ReserveService } from './components/reserve/reserve.service';
+import { TouristsTabComponent } from './components/tourists/tourists.component';
+import { ExcursionsTabComponent } from './components/excursions/excursions.component';
+import {PacksTabComponent} from "./components/packs/packs.component";
+import {HotelsTabComponent} from "./components/hotels/hotels.component";
+import {HotelsTabService} from "./components/hotels/hotels.service";
+import {PacksTabService} from "./components/packs/packs.service";
+import {TouristsTabService} from "./components/tourists/tourists.service";
+import {ExcursionsTabService} from "./components/excursions/excursions.service";
 
 @NgModule({
   declarations: [
@@ -65,9 +73,13 @@ import { ReserveService } from './components/reserve/reserve.service';
     TableExcursionComponent,
     TablePacksComponent,
     HotelsComponent,
+    HotelsTabComponent,
     CarouselComponent,
     MyReservesComponent,
-    TableReservesComponent
+    TableReservesComponent,
+    TouristsTabComponent,
+    ExcursionsTabComponent,
+    PacksTabComponent
   ],
   imports: [
     BrowserModule,
@@ -93,7 +105,8 @@ import { ReserveService } from './components/reserve/reserve.service';
     ReactiveFormsModule,
     MatNativeDateModule
   ],
-  providers: [HotelService, AgenciesService, TuristaService, PacksService, ExcursionService, TableOffersService, ReserveService],
+  providers: [HotelService, AgenciesService, TuristaService, PacksService, ExcursionService,
+    TableOffersService, ReserveService, HotelsTabService, PacksTabService, TouristsTabService, ExcursionsTabService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

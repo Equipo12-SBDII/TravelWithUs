@@ -20,6 +20,7 @@ namespace TravelWithUs.DBContext.Repositories
             {
                 hotelCache = new ConcurrentDictionary<int, Hotel>(
                     this.db.Hoteles
+                    .Include(o => o.Ofertas)
                     .Include(h => h.Excursiones)
                         .ThenInclude(e => e.Paquetes)
                     .ToDictionary(h => h.HotelID)
