@@ -1,8 +1,9 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\Cynthia-PC\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Cynthia-PC\\.nuget\\packages"
+      "C:\\Users\\manoly\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\manoly\\.nuget\\packages",
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ]
   }
 }
