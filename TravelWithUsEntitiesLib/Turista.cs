@@ -23,7 +23,7 @@ namespace TravelWithUs.Models
 
         [Column("EmailT")]
         [MaxLength(120)]
-        [RegularExpression("@[a-zA-Z0-9\.-_]+@[a-zA-Z0-9\.-_]+")]
+        [RegularExpression(@"[a-zA-Z0-9\.-_]+@[a-zA-Z0-9\.-_]+")]
         [Required]
         public string Email{ get; set;}
 
