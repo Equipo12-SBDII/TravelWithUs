@@ -2,11 +2,16 @@
 
 ## We Travel With Us
 
+[TOC]
+
+------
 
 ## Autores:
 
 - Manuel Antonio Vilas Valiente
+
 - Penélope Seijo
+
 - Víctor Lantigua
 
 ------

@@ -2,6 +2,8 @@
 
 ## We Travel With Us
 
+[TOC]
+
 ------
 
 ## Autores:
@@ -58,10 +60,10 @@ Será necesario tener instalado para el funcionamiento del servidor de la plataf
 
 ## Cómo ejecutar?
 
-Para poner a correr la aplicación será necesario encontrarse en la carpeta TravelWithUsApp que se encuentra en la carpeta raíz del proyecto, abrir una terminal en esta ruta y ejecutar el comando:
+Para poner a correr la aplicación será necesario encontrarse en la carpeta TravelWithUsServices que se encuentra en la carpeta raíz del proyecto, abrir una terminal en esta ruta y ejecutar el comando:
 
-```asp
-> ng serve 
+```powershell
+> dotnet run
 ```
 
 ------
@@ -74,9 +76,14 @@ Para iniciar una sesión de la Aplicación:
 - Además, posee un botón en la esquina superior derecha con la opción Reservar, y en la esquina superior izquierda un botón con forma de casa, en caso que esté navegando por algunas de las opciones, este último lo redireccionará hacia la pagina de inicio.
 
 
-## Explicación de las opciones:
+### Explicación de las opciones:
 
 La aplicación propuesta cuenta con diversas opciones, las cuales proponen resolver los diferentes problemas indicados en los requerimientos, respondiendo a las consultas que se hagan a la base de datos. Tales consultas se hacen sobre los hoteles, turistas, agencias, excursiones, etc. 
+
+#### Agencias:
+
+![](.\agencias.png)
+
 
 #### Turistas:
 
@@ -95,9 +102,18 @@ La aplicación propuesta cuenta con diversas opciones, las cuales proponen resol
 
 ![](.\reservas.png)
 
+#### Excursiones:
+
+![](.\paquetes.jpg)
+
+#### Paquetes:
+
+![](.\paquetes.jpg)
+
+
 ------
 
-## Botones de la barra de navegación
+### Botones de la barra de navegación
 
 | Botón       | Descripción                                                  |
 | ----------- | ------------------------------------------------------------ |
@@ -111,7 +127,7 @@ La aplicación propuesta cuenta con diversas opciones, las cuales proponen resol
 |             |                                                              |
 
 
-## Botón del Administrador :
+#### Botón del Administrador :
 
 La opción Reservar nos redireccionará hacia una vista que posee varios campos a rellenar para escoger la agencia, la oferta y el turista que desea realizar la reserva. Estos campos poseen las opciones elegibles que se despliegan al tocar la flecha que contienen, estas opciones no son más que los datos que posee la base de datos de cada uno de estos campos, es decir todas las agencias, las ofertas y los turistas que están en el sistema. Al marcar una de estas opciones queda entonces visualizado como la opción seleccionada. 
 
