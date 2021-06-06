@@ -65,6 +65,13 @@ Para poner a correr el servidor será necesario encontrarse en la carpeta raíz 
 ```
 
 ------
+## Comenzando a usar la aplicación:
+Para iniciar una sesión de la Aplicación:  
+• Abra su Navegador Web.
+• Escriba la dirección (URL) de la aplicación en el espacio correspondiente a la misma. Ejemplo: http://localhost:4200 
+• Se mostrará la página de inicio de la aplicación como se observa en la imagen. Esta pagina posee una barra de navegación en la parte superior que le permitirá moverse directamente a la opción que desee.
+Además posee un botón en la esquina superior derecha con dos opciones, efectuar reserva y salir , en caso que este navegando por algunas de las opciones, esta opción lo redireccionará hacia la pagina de inicio.
+
 
 ## Explicación de las opciones:
 
@@ -73,6 +80,7 @@ La aplicación propuesta cuenta con diversas opciones, las cuales proponen resol
 #### Agencias:
 
 ![]()
+
 
 #### Hoteles:
 
@@ -92,6 +100,9 @@ La aplicación propuesta cuenta con diversas opciones, las cuales proponen resol
 
 ------
 
-## Dale de nuevo:
+## Botón esquina superior derecha :
+La opción Hacer Reserva nos redireccionará hacia una vista que posee varios campos a rellenar para escoger la agencia, la oferta y el turista que desea realizar la reserva.Estos campos poseen las opciones elegibles que se despliegan al tocar la flecha que contienen, estas opciones no son más que los datos que posee la base de datos de cada uno de estos campos, es decir todas las agencias, las ofertas y los turistas que están en el sistema. Al marcar una de estas opciones queda entonces visualizado como la opción seleccionada. 
 
-Breve explicación de cada una de las salidas del sistema (debe contener imágenes de tablas de salida, cálculos estadísticos, gráficos, formatos empleados para exportar datos, impresión, etc. con datos de ejemplo).
+
+
+
