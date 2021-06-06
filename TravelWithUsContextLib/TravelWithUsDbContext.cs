@@ -158,7 +158,7 @@ namespace TravelWithUs.DBContext
             modelBuilder.Entity<Excursion>().HasData(
                 new { ExcursionID = 1, LugarLlegada = "Cuevas de  Saturno", LugarSalida = "Parque Normal", FechaLlegada = new DateTime(2021, 7, 12, 7, 0, 0), FechaSalida = new DateTime(2021, 7, 12, 19, 0, 0), Precio = (decimal)17.00, Descripcion = "A unos 12 km de Matanzas, Cuba en dirección Varadero se encuentra una gruta a la que aflora un lago de aguas cristalinas conocida con el nombre de Cueva Saturno. Se observan abundantes estalagmitas y estalactitas. El lago tiene una profundidad de 18 metros pero sus aguas son de una transparencia tan increíble que permiten ver el fondo sin dificultad alguna." },
                 new { ExcursionID = 2, LugarLlegada = "valle de Viñales", LugarSalida = "Parque Normal", FechaLlegada = new DateTime(2021, 7, 15, 7, 0, 0), FechaSalida = new DateTime(2021, 7, 15, 19, 0, 0), Precio = (decimal)25.00, Descripcion = "Está ubicado en la provincia de Pinar del Río, zona más occidental de Cuba, exactamente en el grupo montañoso de la Cordillera de Guaniguanico. Este Valle y gran parte de la sierra que lo rodea fue aprobado en 1999 como Parque Nacional y, en diciembre de ese mismo año, fue declarado por la UNESCO Patrimonio de la Humanidad, en la categoría de Paisaje Cultural. Posee además la condición de Monumento Nacional." },
-                new { ExcursionID = 3, LugarLlegada = "Varadero", LugarSalida = "Parque Normal", FechaLlegada = new DateTime(2021, 6, 6, 7, 0, 0), FechaSalida = new DateTime(2021, 6, 5, 19, 0, 0), Precio = (decimal)40.00, Descripcion = "Con unos 30 kilómetros de largo, de los que 22 son playas, Varadero está considerado, por su perenne luz tropical, su exótica y exuberante vegetación y la calidad de sus aguas, uno de los principales atractivos para los viajeros de todo el mundo. La Playa de Varadero, o Playa Azul, hermosísimo enclave de arena rosa y blanca y agua cristalina, es una de las playas más espectaculares del mundo. Y, sin duda, la más bella de toda Cuba" },
+                new { ExcursionID = 3, LugarLlegada = "Varadero", LugarSalida = "Parque Normal", FechaLlegada = new DateTime(2021, 8, 12, 7, 0, 0), FechaSalida = new DateTime(2021, 8, 12, 19, 0, 0), Precio = (decimal)40.00, Descripcion = "Con unos 30 kilómetros de largo, de los que 22 son playas, Varadero está considerado, por su perenne luz tropical, su exótica y exuberante vegetación y la calidad de sus aguas, uno de los principales atractivos para los viajeros de todo el mundo. La Playa de Varadero, o Playa Azul, hermosísimo enclave de arena rosa y blanca y agua cristalina, es una de las playas más espectaculares del mundo. Y, sin duda, la más bella de toda Cuba" },
                 new { ExcursionID = 4, LugarLlegada = "Las Terrazas", LugarSalida = "Parque Normal", FechaLlegada = new DateTime(2021, 8, 12, 7, 0, 0), FechaSalida = new DateTime(2021, 8, 12, 19, 0, 0), Precio = (decimal)40.00, Descripcion = "Las Terrazas es una pequeña comunidad turística rural de desarrollo sostenible que te ofrece un entorno único en el conectar con la naturaleza. Situada a 75 kilómetros al oeste de La Habana, este lugar forma parte de la Sierra del Rosario, catalogada por la UNESCO como Reserva de la Biosfera en 1985." }
 
             );
@@ -253,6 +253,20 @@ namespace TravelWithUs.DBContext
                 .WithMany(h => h.Excursiones)
                 .UsingEntity(j => j.HasData(new { ExcursionesExcursionID = 1, HotelesHotelID = 1 }
                        , new { ExcursionesExcursionID = 2, HotelesHotelID = 2 }));
+
+            modelBuilder.Entity<Hotel>()
+                .HasMany(e => e.Hoteles)
+                .WithMany(o => o.Excursiones)
+                .UsingEntity(j => j.HasData(new { OfertasOfertaID = 1, HotelesHotelID = 1 }
+                       , new { OfertasOfertaID = 2, HotelesHotelID = 1 },
+                        new { OfertasOfertaID = 3, HotelesHotelID = 1 },
+                         new { OfertasOfertaID = 1, HotelesHotelID = 2 },
+                          new { OfertasOfertaID = 2, HotelesHotelID = 2 },
+                           new { OfertasOfertaID = 3, HotelesHotelID = 2 },
+                           new { OfertasOfertaID = 1, HotelesHotelID = 3 },
+                           new { OfertasOfertaID = 2, HotelesHotelID = 3 },
+                           new { OfertasOfertaID = 3, HotelesHotelID = 3 },
+                           new { OfertasOfertaID = 2, HotelesHotelID = 4 }));
 
 
             // Configuring characteristics for Hotel.
