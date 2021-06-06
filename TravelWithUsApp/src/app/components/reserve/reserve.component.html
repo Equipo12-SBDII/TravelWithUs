@@ -33,9 +33,9 @@
         </select>
       </mat-form-field>
       <h5>Su selección: {{sO.descripcion}}</h5>
-      <h5 *ngIf="sO.price != -1 && sT.nombre != '' && sA.nombre != ''">Precio: ${{sO.price}}
+      <h5 *ngIf="sO.ofertaID != -1">Precio: ${{sO.price}}
       </h5>
-      <h5 *ngIf="sO.price != -1 && sT.nombre != '' && sA.nombre != ''">Hotel: {{sO.hotelNombre}}</h5>
+      <h5 *ngIf="sO.ofertaID != -1">Hotel: {{sO.hotelNombre}}</h5>
     </div>
   </div>
   <br>
@@ -43,7 +43,7 @@
 
 
   <mat-form-field appearance="fill">
-    <mat-label>Enter a date range</mat-label>
+    <mat-label>Introduzca el rango de fechas</mat-label>
     <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
       <input matStartDate formControlName="start" placeholder="Start date">
       <input matEndDate formControlName="end" placeholder="End date">
@@ -65,7 +65,7 @@
     <mat-label>Aerolínea</mat-label>
     <input [(ngModel)]="aerolinea" matInput type="text">
   </mat-form-field>
-  <div *ngIf="sO.price != -1 && sT.nombre != '' && sA.nombre != '' && aerolinea != '' && range.value.start != null">
+  <div *ngIf="sO.ofertaID != -1 && sT.nombre != '' && sA.nombre != '' && aerolinea != '' && range.value.start != null">
     <button mat-raised-button color="primary" (click)="reserve()">Reservar</button>
   </div>
 </div>
