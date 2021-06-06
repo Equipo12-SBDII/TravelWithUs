@@ -124,7 +124,7 @@
 ------
 
 ## Esquema de las clases definidas:
-En el esquema de las clases se muestra una serie de clases creadas, donde cada clase representa una tabla diferente con sus respectivos campos, esto es posible gracias a entity framework, una herramienta muy útil para convertir bases de datos y llevarlo a un entorno orientado a objetos.
+En el esquema de las clases se muestra una serie de clases creadas, donde cada clase representa una tabla diferente con sus respectivos campos, esto es posible gracias a entity framework, una herramienta muy útil para convertir bases de datos y llevarlo a un entorno orientado a objetos. Cada entidad se relaciona con el repositorio correspondiente excepto las clases auxiliares.
 
 ```c#
 //Entidades
@@ -150,12 +150,21 @@ public class ReservaExcursionRepository : IReservaExcursion {...}
 public class ReservaIndividualRepository : IReservaIndividual {...}
 public class ReservaPaqueteRepository : IReservaPaquete {...}
 public class TuristaRepository : ITurista {...}
+public class RequestsRepository : IRequestsRepository {...}
 
 //Clases Auxiliares
 public class ExcursionExtendida {...}
 public class GananciaAgencia {...}
 public class PaqueteSobreMedida {...}
 public class TuristaIndividualRepitente {...}
+public class ReservaIndividualShow {...}
+public class TuristaIndividualRepitente {...}
+//Reserva Individual Opciones
+public class ReservaIndividualOpciones {...}
+public class OfertaParaReserva {...}
+public class TuristaParaReserva {...}
+public class AgenciaParaReserva {...}
+
 
 public class TravelWithUsDbContext : DbContext {...}
 ```
