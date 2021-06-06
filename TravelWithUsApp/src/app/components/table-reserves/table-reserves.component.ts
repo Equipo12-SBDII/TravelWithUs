@@ -24,7 +24,7 @@ import { TableReservesService } from "./table-reserves.service";
 export class TableReservesComponent {
   reservesList: Reserva[] = [];
   count: number = 0;
-  columnsToDisplay = ['agencia', 'turista', 'ofertaDescripcion', 'precio', 'hotel', 'aereolinea', 'acompananates', 'entrada', 'salida'];
+  columnsToDisplay = ['agencia', 'turista', 'precio', 'hotel', 'aereolinea', 'acompananates', 'entrada', 'salida'];
   expandedElement: any;
   @Input('title') title: any;
 
