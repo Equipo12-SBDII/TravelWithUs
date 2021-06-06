@@ -2,9 +2,9 @@ import { Component, Inject, Input } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Element } from "@angular/compiler";
 import { DOCUMENT } from "@angular/common";
-import {Reserva} from "./reserveIndividual";
-import {ReserveService} from "../reserve/reserve.service";
-import {TableReservesService} from "./table-reserves.service";
+import { Reserva } from "./reserveIndividual";
+import { ReserveService } from "../reserve/reserve.service";
+import { TableReservesService } from "./table-reserves.service";
 
 /**
  * @title Table with expandable rows
@@ -24,7 +24,7 @@ import {TableReservesService} from "./table-reserves.service";
 export class TableReservesComponent {
   reservesList: Reserva[] = [];
   count: number = 0;
-  columnsToDisplay = ['agenciaNombre', 'turistaNombre', 'ofertaDescripcion', 'ofertaPrecio', 'ofertaHotel', 'aerolinea', 'numeroAcompanantes', 'fechaEntrada', 'fechaSalida'];
+  columnsToDisplay = ['agencia', 'turista', 'ofertaDescripcion', 'precio', 'hotel', 'aereolinea', 'acompananates', 'entrada', 'salida'];
   expandedElement: any;
   @Input('title') title: any;
 

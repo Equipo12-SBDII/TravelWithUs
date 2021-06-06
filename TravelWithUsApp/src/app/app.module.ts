@@ -6,9 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { routing } from "./app-routing.module";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { from, Observable } from "rxjs";
 import { HomeComponent } from './home/home.component';
 import { ReserveComponent } from './components/reserve/reserve.component';
 import { MatSelectModule } from "@angular/material/select";
@@ -40,13 +40,14 @@ import { HotelsComponent } from './hotels/hotels.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { MyReservesComponent } from './my-reserves/my-reserves.component';
 import { HotelService } from './components/table-hotels/hotel.service';
-import {AgenciesService} from "./components/table-agencies/agencies.service";
-import {TuristaService} from "./components/table-tourist/tourist.service";
-import {PacksService} from "./components/table-packs/packs.service";
-import {ExcursionService} from "./components/table-excursion/excursion.service";
-import {TableOffersService} from "./components/table-offers/table-offers.service";
-import {MatNativeDateModule} from "@angular/material/core";
+import { AgenciesService } from "./components/table-agencies/agencies.service";
+import { TuristaService } from "./components/table-tourist/tourist.service";
+import { PacksService } from "./components/table-packs/packs.service";
+import { ExcursionService } from "./components/table-excursion/excursion.service";
+import { TableOffersService } from "./components/table-offers/table-offers.service";
+import { MatNativeDateModule } from "@angular/material/core";
 import { TableReservesComponent } from './components/table-reserves/table-reserves.component';
+import { ReserveService } from './components/reserve/reserve.service';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,7 @@ import { TableReservesComponent } from './components/table-reserves/table-reserv
     ReactiveFormsModule,
     MatNativeDateModule
   ],
-  providers: [HotelService, AgenciesService, TuristaService, PacksService, ExcursionService, TableOffersService],
+  providers: [HotelService, AgenciesService, TuristaService, PacksService, ExcursionService, TableOffersService, ReserveService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

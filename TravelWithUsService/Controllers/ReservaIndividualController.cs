@@ -31,9 +31,9 @@ namespace TravelWithUsService.Controllers
         [HttpGet("{idA:int}/{idH:int}/{idO:int}/{idT:int}")]
         [ProducesResponseType(200, Type = typeof(ReservaIndividual))]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> Get(int idA, int idH, int idO, int idT)
+        public async Task<IActionResult> Get(int idRi, int idA, int idH, int idO, int idT)
         {
-            ReservaIndividual r = await this.repo.RetrieveAsync(idA, idH, idO, idT);
+            ReservaIndividual r = await this.repo.RetrieveAsync(idRi, idA, idH, idO, idT);
 
             if (r == null)
             {
@@ -79,7 +79,7 @@ namespace TravelWithUsService.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> Update([FromBody] ReservaIndividual ri, int idH, int idA, int idO, int idT)
+        public async Task<IActionResult> Update([FromBody] ReservaIndividual ri, int idRi, int idH, int idA, int idO, int idT)
         {
             if (ri == null || ri.AgenciaID != idA || ri.HotelID != idO || ri.OfertaID != idO || ri.TuristaID != idT)
             {
@@ -91,14 +91,14 @@ namespace TravelWithUsService.Controllers
                 return BadRequest(ModelState); // 400 Bad request
             }
 
-            var existing = await this.repo.RetrieveAsync(idA, idH, idO, idT);
+            var existing = await this.repo.RetrieveAsync(idRi, idA, idH, idO, idT);
 
             if (existing == null)
             {
                 return NotFound();  // 404 Resource not found
             }
 
-            await this.repo.UpdateAsync(ri, idA, idH, idO, idT);
+            await this.repo.UpdateAsync(existing, idRi, idA, idH, idO, idT);
 
             return new NoContentResult();   // 204 No Content
         }
@@ -109,15 +109,15 @@ namespace TravelWithUsService.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> Delete(int idA, int idH, int idO, int idT)
+        public async Task<IActionResult> Delete(int idRi, int idA, int idH, int idO, int idT)
         {
-            ReservaIndividual r = await this.repo.RetrieveAsync(idA, idH, idO, idT);
+            ReservaIndividual r = await this.repo.RetrieveAsync(idRi, idA, idH, idO, idT);
             if (r == null)
             {
                 return NotFound();  // 404 Resource No Found
             }
 
-            bool? deleted = await this.repo.DeleteAsync(idA, idH, idO, idT);
+            bool? deleted = await this.repo.DeleteAsync(idRi, idA, idH, idO, idT);
             if (deleted.HasValue && deleted.Value)
             {
                 return new NoContentResult();   // 204 No Content

@@ -77,5 +77,35 @@ namespace TravelWithUsService.Controllers
         {
             return await this.repo.GetRIOptions();
         }
+
+        // GET: api/request/agenciaReserva
+        [HttpGet("agenciaReserva")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<AgenciaParaReserva>))]
+        public async Task<IEnumerable<AgenciaParaReserva>> GetAgenciaParaReservasAsync()
+        {
+            return await this.repo.GetAgenciesReserve();
+        }
+
+        // GET: api/request/ofertaReserva
+        [HttpGet("ofertaReserva")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<OfertaParaReserva>))]
+        public async Task<IEnumerable<OfertaParaReserva>> GetOfertaParaReservasAsync()
+        {
+            return await this.repo.GetOfferReserve();
+        }
+        // GET: api/request/turistaReserva
+        [HttpGet("turistaReserva")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<OfertaParaReserva>))]
+        public async Task<IEnumerable<TuristaParaReserva>> GetTuristaParaReservasAsync()
+        {
+            return await this.repo.GetTouristReserve();
+        }
+
+        [HttpGet("reservasInd")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<OfertaParaReserva>))]
+        public async Task<IEnumerable<ReservaIndividualShow>> GetReservaIndividualShows()
+        {
+            return await this.repo.GetReservaIndividualShows();
+        }
     }
 }

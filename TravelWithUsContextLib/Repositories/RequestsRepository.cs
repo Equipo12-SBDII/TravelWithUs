@@ -15,6 +15,15 @@ namespace TravelWithUs.DBContext.Repositories
             this.dbContext = database;
         }
 
+        public async Task<IEnumerable<AgenciaParaReserva>> GetAgenciesReserve()
+        {
+            AgenciaRepository agenciaRepo = new AgenciaRepository(this.dbContext);
+            var agencias = await agenciaRepo.RetrieveAllAsync();
+            var agenciasReserva = agencias.Select(a => new AgenciaParaReserva(a.AgenciaID, a.Nombre));
+
+            return agenciasReserva;
+        }
+
         public async Task<IEnumerable<GananciaAgencia>> GetExpectedProfitAsync()
         {
             AgenciaRepository agenciaRepo = new AgenciaRepository(this.dbContext);
@@ -74,8 +83,15 @@ namespace TravelWithUs.DBContext.Repositories
             return paquete.Excursion.Hoteles;
         }
 
+        public async Task<IEnumerable<OfertaParaReserva>> GetOfferReserve()
+        {
+            OfertaRepository ofertaRepo = new OfertaRepository(this.dbContext);
+            var ofertas = await ofertaRepo.RetrieveAllAsync();
+            var ofertasReserva = ofertas.Select(o => new OfertaParaReserva(
+                o.Descripcion, o.OfertaID, o.HotelID, o.Hotel.Nombre, o.Precio));
 
-
+            return ofertasReserva;
+        }
 
         public async Task<IEnumerable<PaqueteSobreMedia>> GetPackagesOverMean()
         {
@@ -118,6 +134,26 @@ namespace TravelWithUs.DBContext.Repositories
             var r = new ReservaIndividualOpciones(ofertasReserva, turistasReserva, agenciasReserva);
 
             return r;
+        }
+
+        public async Task<IEnumerable<TuristaParaReserva>> GetTouristReserve()
+        {
+            TuristaRepository turistaRepo = new TuristaRepository(this.dbContext);
+            var turistas = await turistaRepo.RetrieveAllAsync();
+            var turistasReserva = turistas.Select(t => new TuristaParaReserva(t.TuristaID, t.Nombre));
+            return turistasReserva;
+        }
+
+        public async Task<IEnumerable<ReservaIndividualShow>> GetReservaIndividualShows()
+        {
+            ReservaIndividualRepository riRepo = new ReservaIndividualRepository(this.dbContext);
+            HotelRepository hotelRepo = new HotelRepository(this.dbContext);
+            var reservas = await riRepo.RetrieveAllAsync();
+
+            return reservas.Select(ri => new ReservaIndividualShow(
+                ri.Agencia.Nombre, ri.Turista.Nombre, ri.Precio, ri.Oferta.Hotel.Nombre
+                , ri.Oferta.Descripcion, ri.Aerolinea, ri.Acompanantes, ri.Llegada, ri.Salida
+            ));
         }
     }
 }

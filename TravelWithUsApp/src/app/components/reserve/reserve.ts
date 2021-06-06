@@ -1,41 +1,67 @@
 export class Agencia {
-  agenciaId: number;
-  agenciaNombre: string;
+  agenciaID: number;
+  nombre: string;
   constructor(id: number, nombre: string) {
-    this.agenciaId = id;
-    this.agenciaNombre = nombre;
+    this.agenciaID = id;
+    this.nombre = nombre;
   }
 }
 
 export class Oferta {
-  ofertaId: number;
-  hotelId: number;
-  ofertaDescripcion: string;
-  ofertaPrecio: number;
-  constructor(oId: number, hId: number, descripcion: string, precio: number) {
-    this.hotelId = hId;
-    this.ofertaDescripcion = descripcion;
-    this.ofertaId = oId;
-    this.ofertaPrecio = precio;
+  ofertaID: number;
+  hotelID: number;
+  hotelNombre: string;
+  descripcion: string;
+  price: number;
+  constructor(oId: number, hId: number, hNombre: string, descripcion: string, precio: number) {
+    this.hotelID = hId;
+    this.descripcion = descripcion;
+    this.ofertaID = oId;
+    this.price = precio;
+    this.hotelNombre = hNombre;
   }
 }
 
 export class Turista {
-  turistaId: number;
-  turistaNombre: string;
+  turistaID: number;
+  nombre: string;
   constructor(id: number, nombre: string) {
-    this.turistaId = id;
-    this.turistaNombre = nombre;
+    this.turistaID = id;
+    this.nombre = nombre;
   }
 }
 
 export class Reserve {
-  agenciaList: Agencia[];
-  ofertaList: Oferta[];
-  turistaList: Turista[];
+  agencias: Agencia[];
+  ofertas: Oferta[];
+  turistas: Turista[];
   constructor(agencias: Agencia[], ofertas: Oferta[], turistas: Turista[]) {
-    this.agenciaList = agencias;
-    this.ofertaList = ofertas;
-    this.turistaList = turistas;
+    this.agencias = agencias;
+    this.ofertas = ofertas;
+    this.turistas = turistas;
+  }
+}
+
+export class Reservaind {
+  agenciaID: number;
+  turistaID: number;
+  hotelID: number;
+  ofertaID: number;
+  acompanantes: number;
+  aerolinea: string;
+  precio: number;
+  llegada: Date;
+  salida: Date;
+  constructor(agenciaID: number, turistaID: number, hotelID: number, ofertaID: number, acompanantes: number
+    , aerolinea: string, precio: number, llegada: Date, salida: Date) {
+    this.agenciaID = agenciaID;
+    this.turistaID = turistaID;
+    this.hotelID = hotelID;
+    this.ofertaID = ofertaID;
+    this.acompanantes = acompanantes;
+    this.aerolinea = aerolinea;
+    this.precio = precio;
+    this.llegada = llegada;
+    this.salida = salida;
   }
 }

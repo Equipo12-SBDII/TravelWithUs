@@ -15,7 +15,11 @@ namespace TravelWithUs.DBContext.Repositories
         Task<IEnumerable<PaqueteSobreMedia>> GetPackagesOverMean();
         Task<ReservaIndividualOpciones> GetRIOptions();
 
+        Task<IEnumerable<AgenciaParaReserva>> GetAgenciesReserve();
+        Task<IEnumerable<OfertaParaReserva>> GetOfferReserve();
+        Task<IEnumerable<TuristaParaReserva>> GetTouristReserve();
 
+        Task<IEnumerable<ReservaIndividualShow>> GetReservaIndividualShows();
 
     }
 }
