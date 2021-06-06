@@ -13,9 +13,9 @@
           <div class="example-element-description">
             {{element.descripcion}}<br><br>
             <h5>Excursiones:</h5>
-            <div *ngFor="let ex of element.excursiones">> {{ex.lugarSalida}} - {{ex.lugarLlegada}} <br> {{ex.descripcion}}</div><br>
+            <div *ngFor="let ex of element.excursiones">> {{ex.lugarSalida}} - {{ex.lugarLlegada}}</div><br>
             <h5>Ofertas:</h5>
-            <div *ngFor="let of of element.ofertas">{{of.descripcion}}</div>
+            <div *ngFor="let of of element.ofertas">> {{of.descripcion}}</div>
             <!--<br><br>
             <button style="margin-left: 4px" mat-raised-button color="warn" (click)="pageRedirect(expandedElement)">Sus Ofertas</button>-->
           </div>
