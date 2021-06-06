@@ -254,20 +254,8 @@ namespace TravelWithUs.DBContext
                 .UsingEntity(j => j.HasData(new { ExcursionesExcursionID = 1, HotelesHotelID = 1 }
                        , new { ExcursionesExcursionID = 2, HotelesHotelID = 2 }));
 
-            modelBuilder.Entity<Hotel>()
-                .HasMany(e => e.Hoteles)
-                .WithMany(o => o.Excursiones)
-                .UsingEntity(j => j.HasData(new { OfertasOfertaID = 1, HotelesHotelID = 1 }
-                       , new { OfertasOfertaID = 2, HotelesHotelID = 1 },
-                        new { OfertasOfertaID = 3, HotelesHotelID = 1 },
-                         new { OfertasOfertaID = 1, HotelesHotelID = 2 },
-                          new { OfertasOfertaID = 2, HotelesHotelID = 2 },
-                           new { OfertasOfertaID = 3, HotelesHotelID = 2 },
-                           new { OfertasOfertaID = 1, HotelesHotelID = 3 },
-                           new { OfertasOfertaID = 2, HotelesHotelID = 3 },
-                           new { OfertasOfertaID = 3, HotelesHotelID = 3 },
-                           new { OfertasOfertaID = 2, HotelesHotelID = 4 }));
-
+          
+           
 
             // Configuring characteristics for Hotel.
             // modelBuilder.Entity<Hotel>()
