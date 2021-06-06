@@ -1,68 +1,33 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "C:\\Users\\Peny\\Desktop\\SBD2\\Proyectos 20-21\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj": {}
+    "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Peny\\Desktop\\SBD2\\Proyectos 20-21\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj": {
+    "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Peny\\Desktop\\SBD2\\Proyectos 20-21\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj",
+        "projectUniqueName": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj",
         "projectName": "TravelWithUsContextLib",
-        "projectPath": "C:\\Users\\Peny\\Desktop\\SBD2\\Proyectos 20-21\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj",
-        "packagesPath": "C:\\Users\\Peny\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Peny\\Desktop\\SBD2\\Proyectos 20-21\\TravelWithUs\\TravelWithUsContextLib\\obj\\",
-=======
-    "D:\\3.1 CC\\BD\\Proyecto\\Backend\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj": {}
-  },
-  "projects": {
-    "D:\\3.1 CC\\BD\\Proyecto\\Backend\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\3.1 CC\\BD\\Proyecto\\Backend\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj",
-        "projectName": "TravelWithUsContextLib",
-        "projectPath": "D:\\3.1 CC\\BD\\Proyecto\\Backend\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj",
-        "packagesPath": "C:\\Users\\manoly\\.nuget\\packages\\",
-        "outputPath": "D:\\3.1 CC\\BD\\Proyecto\\Backend\\TravelWithUs\\TravelWithUsContextLib\\obj\\",
->>>>>>> e452c0a34930c5412c51684f2113ec69757f929d
+        "projectPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\TravelWithUsContextLib.csproj",
+        "packagesPath": "C:\\Users\\Cynthia-PC\\.nuget\\packages\\",
+        "outputPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsContextLib\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-<<<<<<< HEAD
-          "C:\\Users\\Peny\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-          "C:\\Users\\manoly\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> e452c0a34930c5412c51684f2113ec69757f929d
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Cynthia-PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-<<<<<<< HEAD
-          "C:\\Paquetes VS\\.dotnet": {},
-          "C:\\Paquetes VS\\NuGetPackages": {},
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\5.0.102": {},
-=======
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
->>>>>>> e452c0a34930c5412c51684f2113ec69757f929d
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-<<<<<<< HEAD
-              "C:\\Users\\Peny\\Desktop\\SBD2\\Proyectos 20-21\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj": {
-                "projectPath": "C:\\Users\\Peny\\Desktop\\SBD2\\Proyectos 20-21\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj"
-=======
-              "D:\\3.1 CC\\BD\\Proyecto\\Backend\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj": {
-                "projectPath": "D:\\3.1 CC\\BD\\Proyecto\\Backend\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj"
->>>>>>> e452c0a34930c5412c51684f2113ec69757f929d
+              "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj": {
+                "projectPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj"
               }
             }
           }
@@ -121,49 +86,22 @@
         }
       }
     },
-<<<<<<< HEAD
-    "C:\\Users\\Peny\\Desktop\\SBD2\\Proyectos 20-21\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj": {
+    "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Peny\\Desktop\\SBD2\\Proyectos 20-21\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj",
+        "projectUniqueName": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj",
         "projectName": "TravelWithUsEntitiesLib",
-        "projectPath": "C:\\Users\\Peny\\Desktop\\SBD2\\Proyectos 20-21\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj",
-        "packagesPath": "C:\\Users\\Peny\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Peny\\Desktop\\SBD2\\Proyectos 20-21\\TravelWithUs\\TravelWithUsEntitiesLib\\obj\\",
-=======
-    "D:\\3.1 CC\\BD\\Proyecto\\Backend\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\3.1 CC\\BD\\Proyecto\\Backend\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj",
-        "projectName": "TravelWithUsEntitiesLib",
-        "projectPath": "D:\\3.1 CC\\BD\\Proyecto\\Backend\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj",
-        "packagesPath": "C:\\Users\\manoly\\.nuget\\packages\\",
-        "outputPath": "D:\\3.1 CC\\BD\\Proyecto\\Backend\\TravelWithUs\\TravelWithUsEntitiesLib\\obj\\",
->>>>>>> e452c0a34930c5412c51684f2113ec69757f929d
+        "projectPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\TravelWithUsEntitiesLib.csproj",
+        "packagesPath": "C:\\Users\\Cynthia-PC\\.nuget\\packages\\",
+        "outputPath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsEntitiesLib\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-<<<<<<< HEAD
-          "C:\\Users\\Peny\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-          "C:\\Users\\manoly\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> e452c0a34930c5412c51684f2113ec69757f929d
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Cynthia-PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-<<<<<<< HEAD
-          "C:\\Paquetes VS\\.dotnet": {},
-          "C:\\Paquetes VS\\NuGetPackages": {},
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\5.0.102": {},
-=======
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
->>>>>>> e452c0a34930c5412c51684f2113ec69757f929d
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

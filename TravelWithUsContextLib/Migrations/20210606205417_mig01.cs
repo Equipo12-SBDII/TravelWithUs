@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TravelWithUsContextLib.Migrations
 {
-    public partial class mig1 : Migration
+    public partial class mig01 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -298,7 +298,7 @@ namespace TravelWithUsContextLib.Migrations
                 columns: new[] { "IdE", "DescripcionE", "FechaLlegadaE", "FechaSalidaE", "LugarLlegadaE", "LugarSalidaE", "Precio" },
                 values: new object[,]
                 {
-                    { 1, "A unos 12 km de Matanzas, Cuba en dirección Varadero se encuentra una gruta a la que aflora un lago de aguas cristalinas conocida con el nombre de Cueva Saturno. Se observan abundantes estalagmitas y estalactitas. El lago tiene una profundidad de 18 metros pero sus aguas son de una transparencia tan increíble que permiten ver el fondo sin dificultad alguna.", new DateTime(2021, 7, 12, 7, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 7, 12, 19, 0, 0, 0, DateTimeKind.Unspecified), "Cuevas de  Saturno", "Parque Normal", 17m },
+                    { 1, "A unos 12 km de Matanzas, Cuba en dirección Varadero se encuentra una gruta a la que aflora un lago de aguas cristalinas conocida con el nombre de Cueva Saturno. Se observan abundantes estalagmitas y estalactitas. El lago tiene una profundidad de 18 metros pero sus aguas son de una transparencia tan increíble que permiten ver el fondo sin dificultad alguna.", new DateTime(2021, 6, 6, 7, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 6, 5, 19, 0, 0, 0, DateTimeKind.Unspecified), "Cuevas de  Saturno", "Parque Normal", 17m },
                     { 2, "Está ubicado en la provincia de Pinar del Río, zona más occidental de Cuba, exactamente en el grupo montañoso de la Cordillera de Guaniguanico. Este Valle y gran parte de la sierra que lo rodea fue aprobado en 1999 como Parque Nacional y, en diciembre de ese mismo año, fue declarado por la UNESCO Patrimonio de la Humanidad, en la categoría de Paisaje Cultural. Posee además la condición de Monumento Nacional.", new DateTime(2021, 7, 15, 7, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 7, 15, 19, 0, 0, 0, DateTimeKind.Unspecified), "valle de Viñales", "Parque Normal", 25m },
                     { 3, "Con unos 30 kilómetros de largo, de los que 22 son playas, Varadero está considerado, por su perenne luz tropical, su exótica y exuberante vegetación y la calidad de sus aguas, uno de los principales atractivos para los viajeros de todo el mundo. La Playa de Varadero, o Playa Azul, hermosísimo enclave de arena rosa y blanca y agua cristalina, es una de las playas más espectaculares del mundo. Y, sin duda, la más bella de toda Cuba", new DateTime(2021, 8, 12, 7, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 8, 12, 19, 0, 0, 0, DateTimeKind.Unspecified), "Varadero", "Parque Normal", 40m },
                     { 4, "Las Terrazas es una pequeña comunidad turística rural de desarrollo sostenible que te ofrece un entorno único en el conectar con la naturaleza. Situada a 75 kilómetros al oeste de La Habana, este lugar forma parte de la Sierra del Rosario, catalogada por la UNESCO como Reserva de la Biosfera en 1985.", new DateTime(2021, 8, 12, 7, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 8, 12, 19, 0, 0, 0, DateTimeKind.Unspecified), "Las Terrazas", "Parque Normal", 40m }

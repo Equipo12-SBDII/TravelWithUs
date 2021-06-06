@@ -10,8 +10,8 @@ using TravelWithUs.DBContext;
 namespace TravelWithUsContextLib.Migrations
 {
     [DbContext(typeof(TravelWithUsDbContext))]
-    [Migration("20210606063116_mig1")]
-    partial class mig1
+    [Migration("20210606205417_mig01")]
+    partial class mig01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -196,8 +196,8 @@ namespace TravelWithUsContextLib.Migrations
                         {
                             ExcursionID = 1,
                             Descripcion = "A unos 12 km de Matanzas, Cuba en dirección Varadero se encuentra una gruta a la que aflora un lago de aguas cristalinas conocida con el nombre de Cueva Saturno. Se observan abundantes estalagmitas y estalactitas. El lago tiene una profundidad de 18 metros pero sus aguas son de una transparencia tan increíble que permiten ver el fondo sin dificultad alguna.",
-                            FechaLlegada = new DateTime(2021, 7, 12, 7, 0, 0, 0, DateTimeKind.Unspecified),
-                            FechaSalida = new DateTime(2021, 7, 12, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            FechaLlegada = new DateTime(2021, 6, 6, 7, 0, 0, 0, DateTimeKind.Unspecified),
+                            FechaSalida = new DateTime(2021, 6, 5, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             LugarLlegada = "Cuevas de  Saturno",
                             LugarSalida = "Parque Normal",
                             Precio = 17m
