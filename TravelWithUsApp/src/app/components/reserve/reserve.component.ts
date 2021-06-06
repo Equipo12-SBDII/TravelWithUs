@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Reserve, Turista, Agencia, Oferta, Reservaind } from './reserve';
 import { FormControl, FormGroup } from "@angular/forms";
-import { DOCUMENT } from "@angular/common";
+import { DOCUMENT, JsonPipe } from "@angular/common";
 import { ReserveService } from './reserve.service';
 import { Reserva } from '../table-reserves/reserveIndividual';
 
@@ -44,13 +44,17 @@ export class ReserveComponent implements OnInit {
   sA: Agencia = new Agencia(-1, '');
   reservedPrice: number = 0;
   fechas: any;
+  fechaSalida: Date = new Date();
+  fechaEntrada: Date = new Date();
+  computedPrice: number = 0;
+
+  aerolinea: string = '';
+  numAcompa: number = 0;
 
   range = new FormGroup({
     start: new FormControl(),
     end: new FormControl()
   });
-  aerolinea: string = '';
-  numAcompa: number = 0;
   selectAge(event: Event) {
     this.selectedAge = (event.target as HTMLSelectElement).value;
     for (let i of this.agencies) {
@@ -69,6 +73,7 @@ export class ReserveComponent implements OnInit {
   }
   selectOff(event: Event) {
     this.selectedOff = (event.target as HTMLSelectElement).value;
+    this.price();
     for (let i of this.offers) {
       if (i.descripcion == this.selectedOff) {
         this.sO = i;
@@ -76,10 +81,14 @@ export class ReserveComponent implements OnInit {
     }
   }
   price() {
-    this.reservedPrice = 0;
-    for (let off of this.offers) {
-      if (off.descripcion == this.selectedOff) this.reservedPrice += off.price;
-    }
+    const days = this.fechaSalida.getDay() - this.fechaEntrada.getDay();
+    this.reservedPrice = this.sO.price * (this.numAcompa + 1) * days;
+    // for (let off of this.offers) {
+    //   if (off.descripcion == this.selectedOff) {
+    //     this.reservedPrice += off.price;
+    //   }
+    // }
+
   }
   date() {
     let input = (this.range.value.start.toISOString())
@@ -98,14 +107,18 @@ export class ReserveComponent implements OnInit {
 
       salida += i;
     }
-    this.fechas = [entrada, salida];
+    this.fechas = [new Date(entrada), new Date(salida)];
+    this.fechaEntrada = new Date(entrada);
+    this.fechaSalida = new Date(salida);
     console.log(this.fechas);
   }
 
   reserve() {
     this.date();
-
+    this.price();
+    this.onSave();
     this.document.location.href = 'myreserves';
+
   }
 
   onGet() {
@@ -150,8 +163,14 @@ export class ReserveComponent implements OnInit {
   }
 
   onSave() {
-    res = new Reservaind(this.sA.agenciaID, this.sT.turistaID,)
-    this.service.PostReservaIndividual()
+    const res = new Reservaind(this.sA.agenciaID, this.sT.turistaID, this.sO.hotelID, this.sO.ofertaID
+      , this.numAcompa, this.aerolinea, this.reservedPrice, this.fechaEntrada, this.fechaSalida);
+    // alert(new JsonPipe().transform(res));
+    this.service.PostReservaIndividual(res)
+      .subscribe(
+        (response) => alert(new JsonPipe().transform(response)),
+        (err) => alert(new JsonPipe().transform(err))
+      );
   }
 }
 

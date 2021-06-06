@@ -10,8 +10,8 @@ using TravelWithUs.DBContext;
 namespace TravelWithUsContextLib.Migrations
 {
     [DbContext(typeof(TravelWithUsDbContext))]
-    [Migration("20210604185442_mig01")]
-    partial class mig01
+    [Migration("20210606063116_mig1")]
+    partial class mig1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -592,8 +592,10 @@ namespace TravelWithUsContextLib.Migrations
             modelBuilder.Entity("TravelWithUs.Models.ReservaIndividual", b =>
                 {
                     b.Property<int>("ReservaIndividualID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("IdRI");
+                        .HasColumnName("IdRI")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AgenciaID")
                         .HasColumnType("int")

@@ -590,8 +590,10 @@ namespace TravelWithUsContextLib.Migrations
             modelBuilder.Entity("TravelWithUs.Models.ReservaIndividual", b =>
                 {
                     b.Property<int>("ReservaIndividualID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("IdRI");
+                        .HasColumnName("IdRI")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AgenciaID")
                         .HasColumnType("int")

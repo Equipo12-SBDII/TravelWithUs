@@ -8,6 +8,7 @@ namespace TravelWithUs.Models
     {
         [Required]
         [Column("IdRI")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ReservaIndividualID { get; set; }
 
         [Required]

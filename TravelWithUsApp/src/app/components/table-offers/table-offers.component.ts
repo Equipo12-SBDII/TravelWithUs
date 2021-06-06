@@ -1,9 +1,9 @@
-import {Component, Inject, Input} from '@angular/core';
-import {animate, state, style, transition, trigger} from '@angular/animations';
-import {Element} from "@angular/compiler";
-import {Oferta} from "./offers";
-import {TableOffersService} from "./table-offers.service";
-import {DOCUMENT} from "@angular/common";
+import { Component, Inject, Input } from '@angular/core';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { Element } from "@angular/compiler";
+import { Oferta } from '../reserve/reserve';
+import { TableOffersService } from "./table-offers.service";
+import { DOCUMENT } from "@angular/common";
 
 /**
  * @title Table with expandable rows
@@ -14,8 +14,8 @@ import {DOCUMENT} from "@angular/common";
   templateUrl: './table-offers.component.html',
   animations: [
     trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
   ],
@@ -23,9 +23,9 @@ import {DOCUMENT} from "@angular/common";
 export class TableOffersComponent {
   offersList: Oferta[] = [];
   //dataSource = ELEMENT_DATA;
-  columnsToDisplay = ['nombre', 'hotel', 'precio'];
+  columnsToDisplay = ['hotelNombre', 'descripcion'];
   expandedElement: any;
-  @Input('title')title: any;
+  @Input('title') title: any;
 
   ngOnInit() {
     this.OnGet();
@@ -43,7 +43,7 @@ export class TableOffersComponent {
   }
 
   reserve(expandedElement: any) {
-    if(expandedElement) {
+    if (expandedElement) {
       console.log(expandedElement)
     }
   }
