@@ -138,7 +138,7 @@ namespace TravelWithUsService
             var logger = serviceProvider.GetRequiredService<ILogger<DBContext.TravelWithUsDbContext>>();
             logger.LogInformation("Migrating database schema");
             var context = serviceProvider.GetRequiredService<DBContext.TravelWithUsDbContext>();
-            context.Database.EnsureDeleted();
+            // context.Database.EnsureDeleted();
             context.Database.Migrate();
         }
     }

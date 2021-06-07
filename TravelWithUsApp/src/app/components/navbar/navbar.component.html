@@ -1,23 +1,24 @@
 <mat-toolbar>
-  <button onclick="location.href='/home'" mat-button class="example-icon" aria-label="Example icon-button with menu icon" href="home">
+  <button mat-button onclick="location.href='/home'" class="example-icon"
+    aria-label="Example icon-button with menu icon" [routerLink]="['/home']" routerLinkActive="router-link-active">
     <mat-icon>home</mat-icon>
   </button>
-  <button onclick="location.href='/agencies'" mat-button class="example-icon" aria-label="Example icon-button with menu icon" href="home">
+  <button mat-button class="example-icon" aria-label="Example icon-button with menu icon" routerLink="/agencies">
     <span>Agencias</span>
   </button>
-  <button onclick="location.href='/hotels'" mat-button class="example-icon" aria-label="Example icon-button with menu icon" href="home">
+  <button mat-button class="example-icon" aria-label="Example icon-button with menu icon" routerLink="/hotels">
     <span>Hoteles</span>
   </button>
-  <button onclick="location.href='/tourist'" mat-button class="example-icon" aria-label="Example icon-button with menu icon" href="home">
+  <button mat-button class="example-icon" aria-label="Example icon-button with menu icon" routerLink="/tourist">
     <span>Turistas</span>
   </button>
-  <button onclick="location.href='/excursion'" mat-button class="example-icon" aria-label="Example icon-button with menu icon" href="home">
+  <button mat-button class="example-icon" aria-label="Example icon-button with menu icon" routerLink="/excursion">
     <span>Excursiones</span>
   </button>
-  <button onclick="location.href='/packs'" mat-button class="example-icon" aria-label="Example icon-button with menu icon" href="home">
+  <button mat-button class="example-icon" aria-label="Example icon-button with menu icon" routerLink="/packs">
     <span>Paquetes</span>
   </button>
-  <button onclick="location.href='/offers'" mat-button class="example-icon" aria-label="Example icon-button with menu icon" href="home">
+  <button mat-button class="example-icon" aria-label="Example icon-button with menu icon" routerLink="/offers">
     <span>Ofertas</span>
   </button>
   <span class="example-spacer"></span>
@@ -26,7 +27,7 @@
     <mat-icon>account_circle</mat-icon>
   </button>
   <mat-menu #beforeMenu="matMenu" xPosition="before">
-    <button mat-menu-item (click)="reserves()">
+    <button mat-menu-item [routerLink]="['/myreserves']">
       <mat-icon>shopp</mat-icon>
       <span>Reservar</span>
     </button>
