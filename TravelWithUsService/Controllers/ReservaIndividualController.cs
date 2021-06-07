@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
-using TravelWithUsService.DBContext.Repositories;
+// using TravelWithUsService.DBContext.Repositories;
 using TravelWithUsService.Models;
 
 namespace TravelWithUsService.Controllers
@@ -11,9 +11,9 @@ namespace TravelWithUsService.Controllers
     [ApiController]
     public class ReservaIndividualController : ControllerBase
     {
-        private IReservaIndividual repo;
+        private DBContext.Repositories.IReservaIndividual repo;
 
-        public ReservaIndividualController(IReservaIndividual repo)
+        public ReservaIndividualController(DBContext.Repositories.IReservaIndividual repo)
         {
             this.repo = repo;
         }

@@ -12,7 +12,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using TravelWithUsService.DBContext.Repositories;
-using TravelWithUsService.DBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 
@@ -42,7 +41,7 @@ namespace TravelWithUsService
             //     options.UseSqlite($"Data Source={databasePath}")
             // );
 
-            services.AddDbContext<TravelWithUsDbContext>(options =>
+            services.AddDbContext<DBContext.TravelWithUsDbContext>(options =>
                 options.UseSqlServer($"Server=(localDB)\\MSSQLLocalDB;Database=TravelWithUsDB;Integrated Security=true;"));
 
             this.Migrate(services.BuildServiceProvider());
@@ -136,9 +135,9 @@ namespace TravelWithUsService
 
         private void Migrate(IServiceProvider serviceProvider)
         {
-            var logger = serviceProvider.GetRequiredService<ILogger<TravelWithUsDbContext>>();
+            var logger = serviceProvider.GetRequiredService<ILogger<DBContext.TravelWithUsDbContext>>();
             logger.LogInformation("Migrating database schema");
-            var context = serviceProvider.GetRequiredService<TravelWithUsDbContext>();
+            var context = serviceProvider.GetRequiredService<DBContext.TravelWithUsDbContext>();
             context.Database.Migrate();
         }
     }

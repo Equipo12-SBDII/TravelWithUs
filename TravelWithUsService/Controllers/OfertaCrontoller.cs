@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
-using TravelWithUsService.DBContext.Repositories;
+// using TravelWithUsService.DBContext.Repositories;
 using TravelWithUsService.Models;
 
 namespace TravelWithUsService.Controllers
@@ -11,9 +11,9 @@ namespace TravelWithUsService.Controllers
     [ApiController]
     public class OfertaController : ControllerBase
     {
-        private IOferta repo;
+        private DBContext.Repositories.IOferta repo;
 
-        public OfertaController(IOferta repo)
+        public OfertaController(DBContext.Repositories.IOferta repo)
         {
             this.repo = repo;
         }

@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
-using TravelWithUsService.DBContext.Repositories;
+// using TravelWithUsService.DBContext.Repositories;
 using TravelWithUsService.Models;
 
 namespace TravelWithUsService.Controllers
@@ -11,9 +11,9 @@ namespace TravelWithUsService.Controllers
     [ApiController]
     public class ExcursionController : ControllerBase
     {
-        private IExcursion repo;
+        private DBContext.Repositories.IExcursion repo;
 
-        public ExcursionController(IExcursion repo)
+        public ExcursionController(DBContext.Repositories.IExcursion repo)
         {
             this.repo = repo;
         }

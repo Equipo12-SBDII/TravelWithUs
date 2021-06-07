@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
-using TravelWithUsService.DBContext.Repositories;
+// using TravelWithUsService.DBContext.Repositories;
 using TravelWithUsService.Models;
 
 namespace TravelWithUsService.Controllers
@@ -11,9 +11,9 @@ namespace TravelWithUsService.Controllers
     [ApiController]
     public class HotelController : ControllerBase
     {
-        private IHotel repo;
+        private DBContext.Repositories.IHotel repo;
 
-        public HotelController(IHotel repo)
+        public HotelController(DBContext.Repositories.IHotel repo)
         {
             this.repo = repo;
         }
