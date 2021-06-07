@@ -11,8 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using TravelWithUs.DBContext.Repositories;
-using TravelWithUs.DBContext;
+using TravelWithUsService.DBContext.Repositories;
+using TravelWithUsService.DBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 

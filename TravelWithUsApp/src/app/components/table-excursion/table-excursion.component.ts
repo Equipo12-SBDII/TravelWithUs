@@ -23,7 +23,7 @@ import { ExcursionService } from "./excursion.service";
 })
 export class TableExcursionComponent {
   excursionList: Excursion[] = []
-  columnsToDisplay = ['lugar', 'fechasalida', 'duracion'];
+  columnsToDisplay = ['lugarExcursion', 'fechaSalidaExcursion', 'duracionExcursion'];
   expandedElement: any;
   @Input('title') title: any;
 

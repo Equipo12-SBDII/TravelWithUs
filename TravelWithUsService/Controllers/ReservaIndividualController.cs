@@ -2,8 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
-using TravelWithUs.DBContext.Repositories;
-using TravelWithUs.Models;
+using TravelWithUsService.DBContext.Repositories;
+using TravelWithUsService.Models;
 
 namespace TravelWithUsService.Controllers
 {  // base address: api/reservaIndividual

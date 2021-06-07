@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "V0E7tJ+Zsb/u5SBYeKs/qI8ZDmZs3ONxkjINg/kj/wCxnlGwwMRH2cVuUJOXj/Z4fzC9K2X0GNpFyXNGmueUzQ==",
+  "dgSpecHash": "LGMuompCEta21PoE+PYdBrdIzEG8Sekeyk1kyUPI65HGezTi5S+FlQLherHUiARr3vb04g5YioBJSrupiT0AJA==",
   "success": true,
   "projectFilePath": "D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsService\\TravelWithUsService.csproj",
   "expectedPackageFiles": [
@@ -146,12 +146,5 @@
     "C:\\Users\\Cynthia-PC\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Cynthia-PC\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\Vik\\Univ\\3er año\\Base de Datos II\\Project\\TravelWithUs\\TravelWithUsService\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
