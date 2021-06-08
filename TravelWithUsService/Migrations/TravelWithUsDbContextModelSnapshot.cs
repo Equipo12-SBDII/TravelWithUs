@@ -183,7 +183,7 @@ namespace TravelWithUsService.Migrations
                         .HasColumnName("LugarSalidaE");
 
                     b.Property<decimal>("Precio")
-                        .HasColumnType("decimal(5,2)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("ExcursionID");
 
@@ -375,7 +375,7 @@ namespace TravelWithUsService.Migrations
                         .HasColumnName("DescripcionO");
 
                     b.Property<decimal>("Precio")
-                        .HasColumnType("decimal(5,2)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("OfertaID", "HotelID");
 
@@ -477,7 +477,7 @@ namespace TravelWithUsService.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("Precio")
-                        .HasColumnType("decimal(5,2)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Codigo");
 
@@ -625,7 +625,7 @@ namespace TravelWithUsService.Migrations
                         .HasColumnName("FechaLlegadaH");
 
                     b.Property<decimal>("Precio")
-                        .HasColumnType("decimal(5,2)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("Salida")
                         .HasColumnType("datetime2")
@@ -752,7 +752,7 @@ namespace TravelWithUsService.Migrations
                         .HasColumnName("CantParticipantes");
 
                     b.Property<decimal>("Precio")
-                        .HasColumnType("decimal(5,2)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("Salida")
                         .HasColumnType("datetime2")

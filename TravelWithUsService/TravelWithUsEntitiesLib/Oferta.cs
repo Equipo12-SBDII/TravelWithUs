@@ -14,7 +14,7 @@ namespace TravelWithUsService.Models
         [Column("IdO")]
         public int OfertaID { get; set; }
 
-        [Column(TypeName = "decimal(5,2)")]
+        [Column(TypeName = "decimal(18,2)")]
         [Required]
         public decimal Precio { get; set; }
 

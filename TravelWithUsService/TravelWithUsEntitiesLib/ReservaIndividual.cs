@@ -34,7 +34,7 @@ namespace TravelWithUsService.Models
         [MaxLength(40)]
         public string Aerolinea { get; set; }
 
-        [Column(TypeName = "decimal(5,2)")]
+        [Column(TypeName = "decimal(18,2)")]
         [Required]
         public decimal Precio { get; set; }
 

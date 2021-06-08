@@ -30,7 +30,7 @@ namespace TravelWithUsService.Migrations
                 {
                     IdE = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Precio = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
+                    Precio = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     DescripcionE = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
                     FechaSalidaE = table.Column<DateTime>(type: "datetime2", nullable: false),
                     FechaLlegadaE = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -93,7 +93,7 @@ namespace TravelWithUsService.Migrations
                     CodigoP = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DescripcionP = table.Column<string>(type: "nvarchar(240)", maxLength: 240, nullable: true),
-                    Precio = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
+                    Precio = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     DuracionP = table.Column<TimeSpan>(type: "time", nullable: false),
                     ExcursionID = table.Column<int>(type: "int", nullable: false)
                 },
@@ -138,7 +138,7 @@ namespace TravelWithUsService.Migrations
                 {
                     IdH = table.Column<int>(type: "int", nullable: false),
                     IdO = table.Column<int>(type: "int", nullable: false),
-                    Precio = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
+                    Precio = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     DescripcionO = table.Column<string>(type: "nvarchar(240)", maxLength: 240, nullable: true)
                 },
                 constraints: table =>
@@ -217,7 +217,7 @@ namespace TravelWithUsService.Migrations
                     CompAereaRP = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true),
                     FechaSalidaRP = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CantParticipantes = table.Column<int>(type: "int", nullable: false),
-                    Precio = table.Column<decimal>(type: "decimal(5,2)", nullable: false)
+                    Precio = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -254,7 +254,7 @@ namespace TravelWithUsService.Migrations
                     IdO = table.Column<int>(type: "int", nullable: false),
                     NumAcompanantes = table.Column<int>(type: "int", nullable: false),
                     CompAereaRI = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true),
-                    Precio = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
+                    Precio = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     FechaLlegadaH = table.Column<DateTime>(type: "datetime2", nullable: false),
                     FechaSalidaH = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },

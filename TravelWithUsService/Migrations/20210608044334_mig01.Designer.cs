@@ -10,7 +10,7 @@ using TravelWithUsService.DBContext;
 namespace TravelWithUsService.Migrations
 {
     [DbContext(typeof(TravelWithUsDbContext))]
-    [Migration("20210607000548_mig01")]
+    [Migration("20210608044334_mig01")]
     partial class mig01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -185,7 +185,7 @@ namespace TravelWithUsService.Migrations
                         .HasColumnName("LugarSalidaE");
 
                     b.Property<decimal>("Precio")
-                        .HasColumnType("decimal(5,2)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("ExcursionID");
 
@@ -377,7 +377,7 @@ namespace TravelWithUsService.Migrations
                         .HasColumnName("DescripcionO");
 
                     b.Property<decimal>("Precio")
-                        .HasColumnType("decimal(5,2)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("OfertaID", "HotelID");
 
@@ -479,7 +479,7 @@ namespace TravelWithUsService.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("Precio")
-                        .HasColumnType("decimal(5,2)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Codigo");
 
@@ -627,7 +627,7 @@ namespace TravelWithUsService.Migrations
                         .HasColumnName("FechaLlegadaH");
 
                     b.Property<decimal>("Precio")
-                        .HasColumnType("decimal(5,2)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("Salida")
                         .HasColumnType("datetime2")
@@ -754,7 +754,7 @@ namespace TravelWithUsService.Migrations
                         .HasColumnName("CantParticipantes");
 
                     b.Property<decimal>("Precio")
-                        .HasColumnType("decimal(5,2)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("Salida")
                         .HasColumnType("datetime2")

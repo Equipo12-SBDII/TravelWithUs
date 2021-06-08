@@ -66,6 +66,6 @@
     <input [(ngModel)]="aerolinea" matInput type="text">
   </mat-form-field>
   <div *ngIf="sO.ofertaID != -1 && sT.nombre != '' && sA.nombre != '' && aerolinea != '' && range.value.start != null">
-    <button mat-raised-button color="primary" (click)="reserve()">Reservar</button>
+    <button mat-raised-button color="primary" (click)="reserve()" [routerLink]="['/myreserves']">Reservar</button>
   </div>
 </div>

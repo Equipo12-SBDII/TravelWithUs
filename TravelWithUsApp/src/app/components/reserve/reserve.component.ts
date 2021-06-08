@@ -1,6 +1,7 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Reserve, Turista, Agencia, Oferta, Reservaind } from './reserve';
 import { FormControl, FormGroup } from "@angular/forms";
+import { NavigationEnd, Router } from "@angular/router";
 import { DOCUMENT, JsonPipe } from "@angular/common";
 import { ReserveService } from './reserve.service';
 import { Reserva } from '../table-reserves/reserveIndividual';
@@ -13,13 +14,22 @@ import { Reserva } from '../table-reserves/reserveIndividual';
   templateUrl: 'reserve.component.html',
   styleUrls: ['reserve.component.scss']
 })
-export class ReserveComponent implements OnInit {
+export class ReserveComponent implements OnInit, OnDestroy {
   reserveData: any;
-  constructor(@Inject(DOCUMENT) private document: any, private service: ReserveService) {
+  constructor(@Inject(DOCUMENT) private document: any, private service: ReserveService, private router: Router) {
     this.agencies = [];
     this.offers = [];
     this.tourist = [];
 
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      return false;
+    };
+
+    this.mySubscription = this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.router.navigated = false;
+      }
+    });
     // this.onGet();
     // this.onGetAgencies();
     // this.onGetOffers();
@@ -33,6 +43,13 @@ export class ReserveComponent implements OnInit {
     // this.onGet();
   }
 
+  ngOnDestroy() {
+    if (this.mySubscription) {
+      this.mySubscription.unsubscribe();
+    }
+  }
+
+  mySubscription: any;
   agencies: Agencia[] = [new Agencia(1, 'a')];
   offers: Oferta[] = [new Oferta(1, -1, 'dd', 'laal', 1)];
   tourist: Turista[] = [new Turista(1, 'a')];
@@ -73,16 +90,18 @@ export class ReserveComponent implements OnInit {
   }
   selectOff(event: Event) {
     this.selectedOff = (event.target as HTMLSelectElement).value;
-    this.price();
     for (let i of this.offers) {
       if (i.descripcion == this.selectedOff) {
         this.sO = i;
+        return;
       }
     }
+
   }
   price() {
     const days = this.fechaSalida.getDay() - this.fechaEntrada.getDay();
     this.reservedPrice = this.sO.price * (this.numAcompa + 1) * days;
+    this.reservedPrice = this.reservedPrice < 0 ? this.reservedPrice * -1 : this.reservedPrice;
     // for (let off of this.offers) {
     //   if (off.descripcion == this.selectedOff) {
     //     this.reservedPrice += off.price;
@@ -117,7 +136,7 @@ export class ReserveComponent implements OnInit {
     this.date();
     this.price();
     this.onSave();
-    this.document.location.href = 'myreserves';
+    //this.document.location.href = 'myreserves';
 
   }
 
@@ -131,7 +150,6 @@ export class ReserveComponent implements OnInit {
         this.offers = res.ofertas;
         this.tourist = res.turistas;
         console.log(this.reserveData);
-        alert(res.agencias[0].nombre);
       },
       (err) => console.log(err)
     );
@@ -168,8 +186,8 @@ export class ReserveComponent implements OnInit {
     // alert(new JsonPipe().transform(res));
     this.service.PostReservaIndividual(res)
       .subscribe(
-        (response) => alert(new JsonPipe().transform(response)),
-        (err) => alert(new JsonPipe().transform(err))
+        (response) => { },//alert(new JsonPipe().transform(response)),
+        (err) => { } // alert(new JsonPipe().transform(err))
       );
   }
 }
