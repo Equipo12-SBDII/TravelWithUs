@@ -40,3 +40,6 @@ msbuild.wrn
 *.dll
 *.cache
 *.cache
+*.dll
+*.pdb
+TravelWithUsService/bin/Debug/net5.0/TravelWithUsService.runtimeconfig.dev.json
